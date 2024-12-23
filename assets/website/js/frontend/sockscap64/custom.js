@@ -19,9 +19,9 @@ jQuery(document).ready(function($){
 
 
 	/************** Single Page Nav Plugin *********************/
-	$('.menu').singlePageNav(
-		{filter: ':not(.external)'}
-	);
+	// $('.menu').singlePageNav(
+	// 	{filter: ':not(.external)'}
+	// );
 
 
 
