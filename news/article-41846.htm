@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sockscap64.github.io/news/article-41846.htm" />
+    <title>python开发HDFS</title>
+        <meta name="description" content="我们的目标是大数据算法平台，我们在处理数据，训练模型后，部分数据需要存在hdfs，那么我们就可以直接通过python 接口把数据放在hdfs上。 教程 Python hdfs包_程序模块 - PyPI" />
+        <link rel="icon" href="/assets/website/img/sockscap64/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sockscap64免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sockscap64.github.io/news/article-41846.htm" />
+    <meta property="og:site_name" content="Sockscap64免费机场节点分享官网" />
+    <meta property="og:title" content="python开发HDFS" />
+    <meta property="og:image" content="https://sockscap64.github.io/uploads/20241223-1/9970033df7c0b33bf2d249365f7aa1c5.webp" />
+        <meta property="og:release_date" content="2025-01-17T09:30:13" />
+    <meta property="og:updated_time" content="2025-01-17T09:30:13" />
+        <meta property="og:description" content="我们的目标是大数据算法平台，我们在处理数据，训练模型后，部分数据需要存在hdfs，那么我们就可以直接通过python 接口把数据放在hdfs上。 教程 Python hdfs包_程序模块 - PyPI" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="templatemo">
+    <meta charset="UTF-8">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <!-- CSS Bootstrap & Custom -->
+    <link href="/assets/website/js/frontend/sockscap64/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-misc.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-main.css">
+    <!-- JavaScripts -->
+    <script src="/assets/website/js/frontend/sockscap64/jquery-1.10.2.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/modernizr.js"></script>
+    <!--[if lt IE 8]>
+<div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
+    </div>
+<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWWSJRFYQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FWWSJRFYQE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="home">
+        <div class="site-header">
+            <div class="main-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="logo">
+                                <a href="/">
+                                                                        <span>Sockscap64</span>
+                                                                </div> <!-- /.logo -->
+                        </div> <!-- /.col-md-4 -->
+                        <div class="col-md-8 col-sm-8 col-xs-6">
+                            <div class="menu text-right hidden-sm hidden-xs">
+                                <ul>
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="#">关于</a></li>
+                                    <li><a href="#">联系</a></li>
+                                </ul>
+                            </div> <!-- /.menu -->
+                        </div> <!-- /.col-md-8 -->
+                    </div> <!-- /.row -->
+                    <div class="responsive-menu text-right visible-xs visible-sm">
+                        <a href="#" class="toggle-menu fa fa-bars"></a>
+                        <div class="menu">
+                            <ul>
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div> <!-- /.menu -->
+                    </div> <!-- /.responsive-menu -->
+                </div> <!-- /.container -->
+            </div> <!-- /.header -->
+        </div> <!-- /.site-header -->
+    </div> <!-- /#home -->
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="/assets/website/img/sockscap64/banner01.jpg" alt="">
+                <div class="flex-caption">
+                    <h1>python开发HDFS</h1>
+                    <span></span>
+                    <p>
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="services" class="section-cotent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p>我们的目标是大数据算法平台，我们在处理数据，训练模型后，部分数据需要存在hdfs，那么我们就可以直接通过python 接口把数据放在hdfs上。</p> <h2>教程</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnpython.com/pypi/hdfs"  title="Python hdfs包_程序模块 - PyPI - Python中文网" rel="nofollow">Python hdfs包_程序模块 - PyPI - Python中文网</a></p> <p>安装</p> <pre><code class="language-bash">pip install  requests-kerberos pip install kerberos pip install avro pip install hdfs </code></pre> <h2>安装过程存在问题</h2> <h3>cannot import name 'SCHEME_KEYS'</h3> <p> 重新安装pip即可</p> <pre><code>conda remove pip  conda install pip</code></pre> </h1> <h2>&nbsp;hdfscli模式</h2> <p>click模式有什么好处，其实可以看做python的cmd模式，具体可以参考<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://click.palletsprojects.com/en/6.x/options/"  title="Options — Click Documentation (6.x)" rel="nofollow">Options — Click Documentation (6.x)</a></p> <p>这里可以自行查一下click与args的区别。</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://hdfscli.readthedocs.io/en/latest/quickstart.html"  title="Quickstart — HdfsCLI 2.5.8 documentation" rel="nofollow">Quickstart — HdfsCLI 2.5.8 documentation</a></p> <p>新增配置， vim&nbsp;~/.hdfscli.cfg</p> <pre><code class="language-bash">[global] default.alias = dev  [dev.alias] url = http://localhost:50070 user = root</code></pre> <p>hdfscli功能</p> <pre><code> hdfscli --help</code></pre> <pre><code>Usage:   hdfscli [interactive] [-a ALIAS] [-v...]   hdfscli download [-fsa ALIAS] [-v...] [-t THREADS] HDFS_PATH LOCAL_PATH   hdfscli upload [-sa ALIAS] [-v...] [-A | -f] [-t THREADS] LOCAL_PATH HDFS_PATH   hdfscli -L | -V | -h   Commands:   download                      Download a file or folder from HDFS. If a                                 single file is downloaded, - can be                                 specified as LOCAL_PATH to stream it to                                 standard out.   interactive                   Start the client and expose it via the python                                 interpreter (using iPython if available).   upload                        Upload a file or folder to HDFS. - can be                                 specified as LOCAL_PATH to read from standard                                 in.  </code></pre> <p>&nbsp;进入hdfscli</p> <pre><code>hdfscli --alias=dev</code></pre> <p><img fetchpriority="high" decoding="async" alt="" height="318" src="http://img.555519.xyz/uploads/20221229/860cff85fc8549614481f8b16bfe2fd6.jpg"></p> <h2>WebHDFS API</h2> <p>&nbsp;我们知道在hdfs中，经常用的命令有</p> <pre><code>hadoop fs -ls hadoop fs -cat hadoop fs -put hadoop fs -get hadoop fs -mkdir hadoop fs -cp hadoop fs -mv hadoop fs -stat </code></pre> <p>在python中也要实现上述功能</p> <pre><code class="language-python">from hdfs import Client client=Client("http://localhost:50070/") dir(client) ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__registry__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_allow_snapshot', '_append', '_create', '_create_snapshot', '_delete', '_delete_snapshot', '_disallow_snapshot', '_get_acl_status', '_get_content_summary', '_get_file_checksum', '_get_file_status', '_get_home_directory', '_get_trash_root', '_list_status', '_lock', '_mkdirs', '_modify_acl_entries', '_open', '_proxy', '_remove_acl', '_remove_acl_entries', '_remove_default_acl', '_rename', '_rename_snapshot', '_request', '_session', '_set_acl', '_set_owner', '_set_permission', '_set_replication', '_set_times', '_timeout', '_urls', 'acl_status', 'allow_snapshot', 'checksum', 'content', 'create_snapshot', 'delete', 'delete_snapshot', 'disallow_snapshot', 'download', 'from_options', 'list', 'makedirs', 'parts', 'read', 'remove_acl', 'remove_acl_entries', 'remove_default_acl', 'rename', 'rename_snapshot', 'resolve', 'root', 'set_acl', 'set_owner', 'set_permission', 'set_replication', 'set_times', 'status', 'upload', 'url', 'urls', 'walk', 'write']</code></pre> <p>具体如何使用，直接看python文档说明即可。</p> <p>注意，这里的URL最后要加上反斜杠，要不然会报错。</p> <p>&nbsp;<img decoding="async" alt="" height="930" src="http://img.555519.xyz/uploads/20221229/c532e43075d68b9030a21623e1c79534.jpg"></p> <p>其他参考文档</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.jianshu.com/p/97a8291cb12c"  title="python读写hdfs四种不同格式文件 - 简书" rel="nofollow">python读写hdfs四种不同格式文件 - 简书</a></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-41340.htm">动物疫苗的种类有哪些图片大全视频介绍（动物疫苗的作用意义）</a></p>
+                                        <p>下一个：<a href="/news/article-41847.htm">动物医院运营与管理 动物医院运营与管理pdf</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-30136.htm" title="什么是Python高阶函数">什么是Python高阶函数</a></li>
+                        <li class="py-2"><a href="/news/article-41846.htm" title="python开发HDFS">python开发HDFS</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-6-node-share.htm" title="1月6日→19.7M/S|2025年最新免费节点Sockscap64订阅链接地址">1月6日→19.7M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-node-share-links.htm" title="1月13日→18.9M/S|2025年最新免费节点Sockscap64订阅链接地址">1月13日→18.9M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-26-node-share-links.htm" title="12月26日→20.9M/S|2025年最新免费节点Sockscap64订阅链接地址">12月26日→20.9M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-31162.htm" title="兽医宠物店的兽医一个月能挣多少钱（兽医一般多少钱一个月）">兽医宠物店的兽医一个月能挣多少钱（兽医一般多少钱一个月）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-24-free-subscribe-node.htm" title="12月24日→21.2M/S|2025年最新免费节点Sockscap64订阅链接地址">12月24日→21.2M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-32626.htm" title="领养宠物需要什么手续（领养宠物需要收费吗）">领养宠物需要什么手续（领养宠物需要收费吗）</a></li>
+                        <li class="py-2"><a href="/news/article-40366.htm" title="动物打疫苗肉还能吃吗有毒吗（动物打疫苗后多久能杀了吃）">动物打疫苗肉还能吃吗有毒吗（动物打疫苗后多久能杀了吃）</a></li>
+                        <li class="py-2"><a href="/news/article-36436.htm" title="spring源码之Mybatis扫描器">spring源码之Mybatis扫描器</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /#services -->
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <p>
+                        <a href="/">首页</a> |
+                        <a href="/free-node/">免费节点</a> |
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>Sockscap64免费机场节点分享官网 版权所有 Powered by WordPress</p>
+                </div> <!-- /.col-md-6 -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="go-top">
+                        <a href="#" id="go-top">
+                            <i class="fa fa-angle-up"></i>
+                            Back to Top
+                        </a>
+                    </div>
+                </div> <!-- /.col-md-6 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.site-footer -->
+    <script src="/assets/website/js/frontend/sockscap64/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/plugins.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/jquery.lightbox.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
