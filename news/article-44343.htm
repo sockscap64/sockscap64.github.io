@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sockscap64.github.io/news/article-44343.htm" />
+    <title>慢SQL，压垮团队的最后一根稻草</title>
+        <meta name="description" content="先说结论，我支持将逻辑写在 Java 等应用系统中。 背景： 今天只讨论一种应用模式，就是最普遍的，前端实时调用后端web服务，服务端经过DB的增删改查作出响应的应用。至于离线数据分析，在线规则引擎模" />
+        <link rel="icon" href="/assets/website/img/sockscap64/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sockscap64免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sockscap64.github.io/news/article-44343.htm" />
+    <meta property="og:site_name" content="Sockscap64免费机场节点分享官网" />
+    <meta property="og:title" content="慢SQL，压垮团队的最后一根稻草" />
+    <meta property="og:image" content="https://sockscap64.github.io/uploads/20241223-1/92fffd0fe05881a022ba878442f3015e.webp" />
+        <meta property="og:release_date" content="2025-01-22T10:11:45" />
+    <meta property="og:updated_time" content="2025-01-22T10:11:45" />
+        <meta property="og:description" content="先说结论，我支持将逻辑写在 Java 等应用系统中。 背景： 今天只讨论一种应用模式，就是最普遍的，前端实时调用后端web服务，服务端经过DB的增删改查作出响应的应用。至于离线数据分析，在线规则引擎模" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="慢SQL，压垮团队的最后一根稻草">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <!-- CSS Bootstrap & Custom -->
+    <link href="/assets/website/js/frontend/sockscap64/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-misc.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-main.css">
+    <!-- JavaScripts -->
+    <script src="/assets/website/js/frontend/sockscap64/jquery-1.10.2.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/modernizr.js"></script>
+    <!--[if lt IE 8]>
+<div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
+    </div>
+<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWWSJRFYQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FWWSJRFYQE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="home">
+        <div class="site-header">
+            <div class="main-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="logo">
+                                <a href="/">
+                                                                        <span>Sockscap64</span>
+                                                                </div> <!-- /.logo -->
+                        </div> <!-- /.col-md-4 -->
+                        <div class="col-md-8 col-sm-8 col-xs-6">
+                            <div class="menu text-right hidden-sm hidden-xs">
+                                <ul>
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="#">关于</a></li>
+                                    <li><a href="#">联系</a></li>
+                                </ul>
+                            </div> <!-- /.menu -->
+                        </div> <!-- /.col-md-8 -->
+                    </div> <!-- /.row -->
+                    <div class="responsive-menu text-right visible-xs visible-sm">
+                        <a href="#" class="toggle-menu fa fa-bars"></a>
+                        <div class="menu">
+                            <ul>
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div> <!-- /.menu -->
+                    </div> <!-- /.responsive-menu -->
+                </div> <!-- /.container -->
+            </div> <!-- /.header -->
+        </div> <!-- /.site-header -->
+    </div> <!-- /#home -->
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="/assets/website/img/sockscap64/banner01.jpg" alt="">
+                <div class="flex-caption">
+                    <h1>慢SQL，压垮团队的最后一根稻草</h1>
+                    <span></span>
+                    <p>
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="services" class="section-cotent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views">先说结论，我支持将逻辑写在 Java 等应用系统中。</p> <p><strong>背景：<br /></strong></p> <p>今天只讨论一种应用模式，就是最普遍的，前端实时调用后端web服务，服务端经过DB的增删改查作出响应的应用。至于离线数据分析，在线规则引擎模板执行，流式计算等不在本次讨论范畴。</p> <p><strong>重SQL开发的场景</strong></p> <p>先看一个例子吧。用经典的 Controller Service DAO 开发模式描述。</p> <p>| city表 &nbsp; &nbsp; |<br />| --------- |<br />| city_name |<br />| city_code |</p> <p>| student表 &nbsp; &nbsp; |<br />| ------------ |<br />| student_name |<br />| city_code &nbsp; &nbsp;|<br />| student_id &nbsp; |</p> <p>| score表 &nbsp; &nbsp; |<br />| ---------- |<br />| student_id |<br />| score &nbsp; &nbsp; &nbsp;|</p> <p>需求：查询出每个学生所在的城市名以及分数展示到前端。</p> <p><strong>重SQL模式</strong></p> <p></p> <pre><code class="language-java">class Controller{   Service service;   Map&lt;String,String&gt; get(Map&lt;String,Object&gt; param){     return service.get(param);   } }   class Service{   DAO dao;   Map&lt;String,String&gt; get(Map&lt;String,Object&gt; param){     return dao.get(param);   } } class DAO{   SQLTemplate template;   Map&lt;String,String&gt; get(Map&lt;String,Object&gt; param){     String sql = "select city_name,student_name,score from student,score,city where city.city_code=student.city_code and score.student_id=student.student_id" ;     return template.execute(sql,param);   } }</code></pre> <p><strong><br />重Java模式</strong></p> <pre><code class="language-java">class View{   String studentName;   String cityName;   String score; }   class Requent{ }   class Controller{   Service service;   List&lt;View&gt; get(Requent request){     return service.get(param);   } }   class Service{   StudentDAO studentDAO;   ScoreDAO scoreDAO;   CityDAO cityDAO;   List&lt;View&gt; get(Requent param){     Student studentRequest = new Student();     //查询学生     List&lt;Student&gt; students = studentDAO.select(studentRequest);     List&lt;View&gt; result = new ArrayList(students.size());          for(Student student : students){       View view = new View();       view.setStudentName(student.getStudentName());             //拼接城市名       City cityRequest  = new City();       cityRequest.setStudentId(student.getStudentId());       City city = cityDAO.select(cityRequest);       view.setCityName(city);              //拼接分数       Score scoreRequest = new Score();         scoreRequest.setStudentId(student.getStudentId());       Score score = scoreDAO.select(scoreRequest);       view.setScode(score.getScore());              result.add(view);     }     return result;   } }   class StudentDAO{   SQLTemplate template;   Student select(Student param){     String sql = "select * from Student where param = ...";     template.select(sql,param);   }  }   class ScoreDAO{   SQLTemplate template;    Score select(Score param){     String sql = "select * from Score where param = ...";     template.select(sql,param);   } }   class CityDAO{   SQLTemplate template;   City select(City param){   String sql = "select * from City where param = ...";     template.select(sql,param);   } }</code></pre> <p>可以看到，使用重SQL的模式来进行开发确实很快很快，只需要把SQL开发出来基本就完事了，但是看着用重 Java 的模式开发，需要写一堆的代码，这么看来好像是 SQL 胜利一筹。</p> <p>好，PD突然说了，我要把城市名为 “大蕉” 的，分数乘于2展示出来。握草，这个怎么搞？？</p> <p><strong>重SQL模式</strong></p> <pre><code class="language-java">class DAO{   SQLTemplate template;   Map&lt;String,String&gt; get(Map&lt;String,Object&gt; param){     String sql = "select city_name,student_name,CASE WHEN city.city_name='大蕉' THEN 2*score.score ELSE score END score from student,score,city where city.city_code=student.city_code and score.student_id=student.student_id " ;     return template.execute(sql,param);   } }</code></pre> <p>好了。。这个SQL已经变得很复杂了基本没法看了。。</p> <p><strong>重 Java 模式</strong></p> <pre><code class="language-java">Service.class           //拼接分数       Score scoreRequest = new Score();         scoreRequest.setStudentId(student.getStudentId());       Score score = scoreDAO.select(scoreRequest);              if("大蕉".equals(city.getCityName()){         view.setScode(score.getScore() * 2);       }else{             view.setScode(score.getScore());       }</code></pre> <p>咦好像改动也不多嘛。</p> <p>这时候PD又来了我要把城市名为 “大蕉” ，并且城市Code小于10086的，分数乘于2展示出来。握草，完蛋了，之前全是SQL，这个需求要怎么搞？？继续叠加上去继续 CASE WHEN？</p> <p>还没想清楚呢，突然 DBA 电话飞过来了，兄dei你的SQL太慢了，现在把整个库拖垮了，你是不是没有加索引？</p> <p>我：索引加了啊。。。难道是没走到？那是先解决慢SQL还是先开发需求呢?拆库是不可能了，逻辑这么死鬼复杂拆库完全没法跑啊，加CPU加内存啊 DBA大佬！！！</p> <p>[DBA日报] 慢SQL 180+，已解决10。</p> <p>又上了一个版本</p> <p>[DBA日报] 慢SQL 200+，已解决15。</p> <p>又上了一个版本</p> <p>[DBA日报] 慢SQL 250+，已解决30。</p> <p>慢慢的，开发和运营和DBA每天都疲劳于监控这些SQL。。。。</p> <p></p> <h3><strong>前言</strong></h3> <p>观察了一下，传统企业以及绝大部分转型中的企业的 Java 应用中，很神奇的是，他们的开发人员包括我自己以前，大家都非常非常希望使用一个 SQL 来完成所有的逻辑的编写，非常多企业更是把数据库的存储过程和数据库自定义函数来完成。</p> <p>这些关于逻辑应该写在哪里的争论从来没有停止过，不仅仅发生在后端和数据库端，连前后端都经常会发生这种争论，现在只讨论后端和数据库端的纠结。</p> <p>我将从这五个方面分别对比一下两种模式的异同。</p> <p>- 出现场景<br />- 开发效率<br />- 缺陷排查<br />- 架构升级<br />- 系统维护</p> <h3>出现场景</h3> <p><strong>SQL</strong></p> <p>我们绝大多数的历史代码都是用存储过程来实现的啊，如果有新需求不往上面做的话，很难兼容原来的逻辑啊啊。</p> <p>前面的人呢是这样写的，我来了看大家都这样写就这样写了。</p> <p><strong>Java</strong></p> <p>新应用嘛，我想怎么样写就怎样写。</p> <p>监控和埋点写起来简单吖，排查问题可方便了。</p> <p>前面的人呢是这样写的，我来了看大家都这样写就这样写了。</p> <p></p> <h3>开发效率</h3> <p><strong>SQL</strong></p> <p>这样写起来很快啊，而且写 Java 代码多难受啊，写 SQL 我自己在数据库开发环境跑一下结果正确我就直接丢到代码中提交了，多爽啊。</p> <p>老实说，这样子确实会提高开发的效率，因为不用写那么多查库聚合的操作，一切都在 SQL 中搞定了。另一方面来看，这确实会让 Java 代码看起来很鸡肋，好像只是把数据从 web 层到数据层的一个管道而已，一切 if else 能写在 SQL 中的都写在 SQL 中了。</p> <p>但是新需求来或者需求变更的时候，我经常要重新写SQL，如果变动不多我可能要改动到原来的 SQL，但是我又不敢改，所以只好 copy 重新写一个，改 SQL 的风险好大，一报错又要重启好难受。</p> <p><strong>Java</strong></p> <p>一次要写N个类，有点烦。</p> <p>新需求来或者需求变更的时候，如果逻辑比较复杂，我直接抽成方法或者改成一些设计模式，维护起来效率还是可以接受的。</p> <p></p> <h3>缺陷排查</h3> <p><strong>SQL<br /></strong><br />开发排查问题的时候，除了看日志，直接把SQL和参数丢到 PL/SQL 或者 其他工具里跑一下，基本就能知道数据问题出现在哪了。测试同学在进行测试的时候，如果发现有不对的东西，直接跟开发同学一样的思路，把SQL 跑一下，问题基本就定位得七七八八了。</p> <p>但是呢，一旦遇到跑 SQL 无法一眼看出问题的 bug 或者 SQL 实在是太长太长了的的时候，就蒙圈了。我曾经就维护了一个几千行的存储过程，一旦发生问题，排查问题的过程巨艰难。但是呢直接用一个数据库一个功能搞定所有功能未尝不是一件很爽的事情，因为关系型数据库实在是实在是太太太稳定了，一次编写永久运行。</p> <p><strong>Java</strong></p> <p>看日志看监控。</p> <p>根据报错的代码位置 check 一下代码逻辑。</p> <p>一些入参分支肉眼 check 不出来，只能远程 debug 慢慢看数据流向。</p> <p>测试的同学基本无法帮忙 check 缺陷，只能靠程序的表现来判断。</p> <p></p> <h3>架构升级</h3> <p><strong>SQL</strong></p> <p>SQL 慢没关系，它稳定啊，慢就把机器垂直扩展一下好啦，加cpu，加内存，换SSD，加加加绝对可以解决事情的。</p> <p>SQL 有各种索引和优化策略，说不定跑起来比我们自己写逻辑还快呢。</p> <p>加加加，加内存加cpu垂直升级。也没有其他招数了，除了前置缓存，但是如果查询都很个性化SQL很复杂，前置缓存也基本没啥乱用。。。</p> <p>如果你的逻辑全部写在 SQL 中，那完蛋了，你这个表基本就没法分表了，因为你的业务逻辑跟数据库的数据完整性是强耦合的，需要一切数据基本都在一个数据库中，这是一件很难受很难受的事情，不信你去问问那些所有业务逻辑全写在 SQL 中的小伙。</p> <p>数据库中非常复杂的表关联会极大程度拖慢数据库处理每条 SQL 的平均时间，极大程度拖慢数据库 RT，降低了数据库的 RT ，如果逻辑都写在 SQL 中，那么只能进行垂直升级。因为一旦进行水平扩展，那么多机器的非常复杂的分布式表关联，RT 基本不是一个高并发的业务应用的能容忍的。</p> <p><strong>Java<br /></strong><br />如果是数据库瓶颈，加数据库机器，分库分表一下，应用层基本不用改，在DAO层进行路由一下。</p> <p>如果是服务器cpu瓶颈，多加几台机器就好了。</p> <p>如果还有瓶颈，增加一下查询缓存。</p> <p>在应用快速发展的过程中一般都会分库分表的拆分或者自动水平扩展，这时候其实只需要数据库层面做好自己的数据迁移和同步就好了，对于业务层来说是完全无感知的。即使业务非常非常复杂，需要拆应用，其实也非常简单，只需要把对应的 DAO 层的操作拆分出去，换成 RPC 或者其他方式的调用就好了。</p> <p></p> <h3>系统维护</h3> <p><strong>SQL</strong></p> <p>旧SQL完全不敢动，来一个需求加一个 SQL。</p> <p>慢SQL日益增加，应对疲乏。<br /><strong><br />Java</strong></p> <p>SQL写完一次基本不用动，来一个需求加一个方法聚合一下数据操作即可。</p> <p>应用维护比较简单，只要监控做好了，定位到问题基本都能很快解决。</p> <p>逻辑越来越复杂，没有好的开发框架的话，代码维护起来也是挺要命，因为完全不知道跑哪个分支去了。但是现在已经有很多优秀的开源框架来更好地维护代码了，比如 Spring 的全家桶。</p> <p></p> <h3>怎么破</h3> <p>旧的重 SQL 逻辑暂时不要动，新的逻辑都基于 Java 模式开发，先保证慢 SQL 不增加，旧的 SQL 稳定运行，毕竟业务稳定是第一要素。</p> <p>如果业务初期需要非常非常快速开发，那么使用重 SQL 模式也是可以理解的，但是还是要抽时间重构成 Java 模式。</p> <h3>结论</h3> <p>我支持将逻辑写在 Java 等应用系统中。其实原因在上面基本描述完了，第一就是复杂 SQL 的表关联其实跟个人的能力有非常大的关系，如果一个 SQL 写得不好，那是极慢极慢的非常容易把整个数据库拖慢的。第二就是维护这些 SQL 也是一件很难受的事情，因为你完全不知道这个 SQL 背后的数据流转是怎样的，你只能根据自己的猜测去查看 SQL 中的 bug，Java 应用好歹还能 debug 一下还有打点看看数据不是？如果逻辑写在 Java 中那么其实你的 DAO 层只需要编写一次，但是可以永久使用，基本不会在这一层浪费很多的时间（用过 ibatis 的都知道改了 SQL 需要重启应用吧？）。第三就是逻辑都写在 SQL ，中对于分库分表和应用拆分来说是一件非常难受的事情，真的难受。</p> <p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-44342.htm">时间与日期——瞬时（Instant）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-31-free-node-subscribe-links.htm" title="12月31日→20.2M/S|2025年最新免费节点Sockscap64订阅链接地址">12月31日→20.2M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-free-high-speed-nodes.htm" title="1月20日→20.1M/S|2025年最新免费节点Sockscap64订阅链接地址">1月20日→20.1M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-36436.htm" title="spring源码之Mybatis扫描器">spring源码之Mybatis扫描器</a></li>
+                        <li class="py-2"><a href="/news/article-31678.htm" title="linux搭建NFS网络文件共享服务">linux搭建NFS网络文件共享服务</a></li>
+                        <li class="py-2"><a href="/news/article-42849.htm" title="养狗的人容易得15种病视频讲解（养狗的人容易得癌症吗）">养狗的人容易得15种病视频讲解（养狗的人容易得癌症吗）</a></li>
+                        <li class="py-2"><a href="/news/article-31163.htm" title="宠物粮怎么卖赚钱（做宠物粮生意赚钱吗）">宠物粮怎么卖赚钱（做宠物粮生意赚钱吗）</a></li>
+                        <li class="py-2"><a href="/news/article-35254.htm" title="动物疫苗上市企业排名（动物疫苗上市企业排名）">动物疫苗上市企业排名（动物疫苗上市企业排名）</a></li>
+                        <li class="py-2"><a href="/news/article-37894.htm" title="动物疫苗接种后多久产生抗体了正常（动物疫苗打几次）">动物疫苗接种后多久产生抗体了正常（动物疫苗打几次）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-30-node-share-links.htm" title="12月30日→18.5M/S|2025年最新免费节点Sockscap64订阅链接地址">12月30日→18.5M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-40367.htm" title="宠物口粮上市公司（宠物口粮上市公司有几家）">宠物口粮上市公司（宠物口粮上市公司有几家）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">66</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /#services -->
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <p>
+                        <a href="/">首页</a> |
+                        <a href="/free-node/">免费节点</a> |
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>Sockscap64免费机场节点分享官网 版权所有 Powered by WordPress</p>
+                </div> <!-- /.col-md-6 -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="go-top">
+                        <a href="#" id="go-top">
+                            <i class="fa fa-angle-up"></i>
+                            Back to Top
+                        </a>
+                    </div>
+                </div> <!-- /.col-md-6 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.site-footer -->
+    <script src="/assets/website/js/frontend/sockscap64/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/plugins.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/jquery.lightbox.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
