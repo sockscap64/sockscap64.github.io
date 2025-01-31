@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sockscap64.github.io/news/article-48778.htm" />
+    <title>Oracle with使用方法以及递归</title>
+        <meta name="description" content="数据准备 表结构 -- 部门表 CREATE TABLE DEPT (     dept_no VARCHAR2(5) NOT NULL,     dept_name VARCHAR2(255) NO" />
+        <link rel="icon" href="/assets/website/img/sockscap64/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sockscap64免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sockscap64.github.io/news/article-48778.htm" />
+    <meta property="og:site_name" content="Sockscap64免费机场节点分享官网" />
+    <meta property="og:title" content="Oracle with使用方法以及递归" />
+    <meta property="og:image" content="https://sockscap64.github.io/uploads/20241223-1/20dab0bf69345ed79374f0a85a060b49.webp" />
+        <meta property="og:release_date" content="2025-01-31T07:17:05" />
+    <meta property="og:updated_time" content="2025-01-31T07:17:05" />
+        <meta property="og:description" content="数据准备 表结构 -- 部门表 CREATE TABLE DEPT (     dept_no VARCHAR2(5) NOT NULL,     dept_name VARCHAR2(255) NO" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Oracle with使用方法以及递归">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <!-- CSS Bootstrap & Custom -->
+    <link href="/assets/website/js/frontend/sockscap64/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-misc.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-main.css">
+    <!-- JavaScripts -->
+    <script src="/assets/website/js/frontend/sockscap64/jquery-1.10.2.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/modernizr.js"></script>
+    <!--[if lt IE 8]>
+<div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
+    </div>
+<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWWSJRFYQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FWWSJRFYQE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="home">
+        <div class="site-header">
+            <div class="main-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="logo">
+                                <a href="/">
+                                                                        <span>Sockscap64</span>
+                                                                </div> <!-- /.logo -->
+                        </div> <!-- /.col-md-4 -->
+                        <div class="col-md-8 col-sm-8 col-xs-6">
+                            <div class="menu text-right hidden-sm hidden-xs">
+                                <ul>
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="#">关于</a></li>
+                                    <li><a href="#">联系</a></li>
+                                </ul>
+                            </div> <!-- /.menu -->
+                        </div> <!-- /.col-md-8 -->
+                    </div> <!-- /.row -->
+                    <div class="responsive-menu text-right visible-xs visible-sm">
+                        <a href="#" class="toggle-menu fa fa-bars"></a>
+                        <div class="menu">
+                            <ul>
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div> <!-- /.menu -->
+                    </div> <!-- /.responsive-menu -->
+                </div> <!-- /.container -->
+            </div> <!-- /.header -->
+        </div> <!-- /.site-header -->
+    </div> <!-- /#home -->
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="/assets/website/img/sockscap64/banner01.jpg" alt="">
+                <div class="flex-caption">
+                    <h1>Oracle with使用方法以及递归</h1>
+                    <span></span>
+                    <p>
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="services" class="section-cotent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<h2 id="数据准备">数据准备</h2> <p>表结构</p> <pre><code class="language-sql">-- 部门表 CREATE TABLE DEPT (     dept_no VARCHAR2(5) NOT NULL,     dept_name VARCHAR2(255) NOT NULL,     PRIMARY KEY(dept_no) ); -- 添加注释 COMMENT ON TABLE DEPT IS '部门表'; COMMENT ON COLUMN DEPT.dept_no IS '部门编码'; COMMENT ON COLUMN DEPT.dept_name IS '部门名称'; -- 员工表 CREATE TABLE EMP ( 	emp_no VARCHAR2(8) NOT NULL,     emp_name VARCHAR2(20) NOT NULL,     dept_no VARCHAR2(5) NOT NULL,     salary NUMBER(10, 2),     PRIMARY KEY(emp_no) ); -- 添加注释 COMMENT ON TABLE EMP IS '员工表'; COMMENT ON COLUMN EMP.emp_no IS '员工编码'; COMMENT ON COLUMN EMP.emp_name IS '员工名称'; COMMENT ON COLUMN EMP.dept_no IS '所属部门编码'; COMMENT ON COLUMN EMP.salary IS '工资';</code></pre> <p>演示数据</p> <pre><code class="language-sql">-- 插入部门 insert into DEPT(dept_no, dept_name) values ('D001', '总经理部'); insert into DEPT(dept_no, dept_name) values ('D002', '人力资源部'); insert into DEPT(dept_no, dept_name) values ('D003', '行政后勤部'); insert into DEPT(dept_no, dept_name) values ('D004', '销售一部'); insert into DEPT(dept_no, dept_name) values ('D005', '销售二部'); insert into DEPT(dept_no, dept_name) values ('D006', '研发一部'); insert into DEPT(dept_no, dept_name) values ('D007', '研发二部');  -- 批量插入员工数据 declare 	type e_name is varray(7) of varchar2(20); 	e_name_arr e_name :=e_name('陈天龙','李晓红','田萌','张三','李四', '王五', '赵六'); begin 	for d in 1..7 loop 		for i in 1..(d*3) Loop 			 insert into EMP(emp_no, emp_name, dept_no, salary) values (              	'E' || d || replace(lpad(i,5),' ','0'),                  e_name_arr(d) || i || '号',                  'D' || replace(lpad(d,3),' ','0'),                  trunc(dbms_random.value(3,80)) * 1000              ); 		end loop; 	end loop; end;</code></pre> <h2 id="基本语法">基本语法</h2> <p>简单的with语句:</p> <pre><code class="language-sql">WITH t AS  (SELECT * FROM EMP) SELECT * FROM t;</code></pre> <p>在视图中使⽤WITH语句进⾏连接:</p> <pre><code class="language-sql">CREATE OR REPLACE VIEW V_EMP_DETAIL AS  WITH W_DEPT AS (     SELECT * FROM DEPT ), W_EMP AS (     SELECT * FROM EMP ) SELECT d.dept_name, e.*  FROM W_EMP e  LEFT JOIN W_DEPT d ON d.dept_no = e.dept_no;</code></pre> <p><strong>总结：</strong></p> <ul> <li> <p>使⽤WITH AS 语句可以为⼀个⼦查询语句块定义⼀个名称，在查询语句的其他地⽅引⽤这个⼦查询。</p> </li> <li> <p>Oracle 数据库像对待内联视图或临时表⼀样对待 被引⽤的⼦查询名称，从⽽起到⼀定的优化作⽤</p> </li> <li> <p>在同级select前有多个查询定义的时候，第1个⽤with，后⾯的不⽤with，并且⽤逗号隔开。</p> </li> <li> <p>最后⼀个with ⼦句与下⾯的查询之间不能有逗号，只通过右括号分割,with ⼦句的查询必须⽤括号括起来</p> </li> </ul> <p><strong>WITH语句的优点：</strong></p> <ol> <li>SQL可读性增强。⽐如对于特定with⼦查询取个有意义的名字等。</li> <li>with⼦查询只执⾏⼀次，将结果存储在⽤户临时表空间中，可以引⽤多次，增强性能。</li> </ol> <h2 id="示例">示例</h2> <p><strong>1、查询出部门的总工资⼤于所有部门平均总工资的部门。</strong></p> <p>分析：做这个查询，⾸先必须计算出所有部门的总工资，然后计算出所有部门的平均总工资，再筛选出部门的总工资⼤于所有部门总工资平均工资的部门。</p> <ol> <li>那么第1步 with 查询查出所有部门的总工资</li> <li>第2步⽤with 从第1 步获得的结果表中查询出平均工资</li> <li>最后利⽤这两次 的with 查询⽐较总工资⼤于平均工资的结果</li> </ol> <pre><code class="language-sql">WITH W_DEPT_TOTAL_SALARY AS -- 查询出部门的总⼯资 (	SELECT d.dept_name, SUM(e.salary) total_salary     FROM DEPT d  	JOIN EMP e ON e.dept_no = d.dept_no     GROUP BY d.dept_name ), W_DEPT_AVG_SALARY AS -- 查询出部门的平均⼯资，在后⼀个WITH语句中可以引⽤前⼀个定义的WITH语句 ( 	SELECT SUM(total_salary) / COUNT(1) avg_salary      FROM W_DEPT_TOTAL_SALARY ) SELECT * FROM W_DEPT_TOTAL_SALARY dts WHERE dts.total_salary &gt; ( -- 进⾏⽐较     SELECT das.avg_salary      FROM W_DEPT_AVG_SALARY das );</code></pre> <p><strong>2. 统计数据并关联到每条员工数据</strong></p> <p>展⽰根据查询结果查询出的数据，并把根据查询出的结果进⾏统计，如最⼤⼯资，最⼩⼯资，平均⼯资，<br /> 进⾏级联，由于查询的统计数据的条数为1条，所以不会发⽣笛卡⼉积的错误，</p> <pre><code class="language-sql">WITH W_EMP AS -- 查询基础数据 (     SELECT emp_no, emp_name, dept_no, salary     FROM EMP ), W_EMP_DATA AS -- 查询统计数据 (	     SELECT MAX(salary) as max_salary,      	MIN(salary) as min_salary,      	SUM(salary) as total_salary  	FROM W_EMP ) SELECT * FROM W_EMP, W_EMP_DATA -- 进⾏级联，由于查询的统计数据的条数为1条，所以不会发⽣笛卡⼉积的错误</code></pre> <p><strong>3. 后⾯的with定义可以引⽤前⾯的结果集，但是with⼦查询不可嵌套定义。</strong></p> <p>下⾯的语句错误：因为不允许嵌套定义with语句</p> <pre><code class="language-sql">WITH W_EMP_2 AS -- with中有嵌套with,不允许 ( 	WITH W_EMP AS    	( 		SELECT emp_name FROM EMP WHERE emp_no='E100001'     ) 	SELECT emp_name FROM W_EMP ) SELECT * FROM W_EMP_2;</code></pre> <h2 id="递归案例">递归案例</h2> <ol> <li> <p>实现从1到10的输出</p> <pre><code class="language-sql">with w_num(n) as ( 	select 1 as n from dual     union all     select n+1 from w_num where n&lt;10 ) select n from w_num;</code></pre> </li> <li> <p>空瓶换啤酒最多能喝几瓶问题</p> <pre><code class="language-sql">/** 	2元1瓶啤酒 	4个瓶盖换1瓶啤酒 	2个空瓶换1瓶啤酒 	问：10元可以喝几瓶 */ with w_drink_beer(beer, bottle, lid) AS ( 	select 10/2 as beer, 10/2 as bottle, 10/2 as lid     from dual     union all     select      	beer + trunc(bottle/2) + trunc(lid/4) as beer,     	mod(bottle, 2) + trunc(bottle/2) + trunc(lid/4) as bottle,     	mod(lid, 4) + trunc(bottle/2) + trunc(lid/4) as lid     from w_drink_beer     where trunc(bottle/2) != 0 or trunc(lid/4) != 0 ) select beer as '喝了几瓶啤酒', bottle as '剩下几个瓶子', lid as '剩下几个瓶盖' from w_drink_beer;</code></pre> </li> </ol> <h2 id="递归-地铁线路换乘问题">递归-地铁线路换乘问题</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.bilibili.com/video/BV1Uu411i7jf"  target="_blank" rel="nofollow">SQL案例分析：地铁换乘线路查询</a></p> <p>示例表和脚本下载：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/dongxuyang1985/sql_in_action"  target="_blank" rel="nofollow">https://github.com/dongxuyang1985/sql_in_action</a></p> <pre><code class="language-sql">-- Oracle WITH transfer (start_station, stop_station, stops, path) AS (   SELECT station_name, next_station, 1, line_name||station_name||'-&gt;'||line_name||next_station     FROM bj_subway WHERE station_name = '王府井'    UNION ALL   SELECT p.start_station, e.next_station, stops + 1, p.path||'-&gt;'||e.line_name||e.next_station     FROM transfer p     JOIN bj_subway e       ON p.stop_station = e.station_name AND (INSTR(p.path, e.next_station) = 0) ) SELECT * FROM transfer WHERE stop_station ='积水潭';</code></pre> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-48244.htm">宠物粮食加工厂加盟条件是什么样的 宠物粮食加工厂加盟条件是什么样的呢</a></p>
+                                        <p>下一个：<a href="/news/article-48779.htm">合肥宠物领养救助站电话地址（合肥宠物领养合肥宠物赠送）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-free-node-subscribe-links.htm" title="1月5日→20.2M/S|2025年最新免费节点Sockscap64订阅链接地址">1月5日→20.2M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-31163.htm" title="宠物粮怎么卖赚钱（做宠物粮生意赚钱吗）">宠物粮怎么卖赚钱（做宠物粮生意赚钱吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-24-free-subscribe-node.htm" title="12月24日→21.2M/S|2025年最新免费节点Sockscap64订阅链接地址">12月24日→21.2M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-free-node-subscribe.htm" title="1月4日→20.6M/S|2025年最新免费节点Sockscap64订阅链接地址">1月4日→20.6M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-free-node-subscribe-links.htm" title="1月23日→21.1M/S|2025年最新免费节点Sockscap64订阅链接地址">1月23日→21.1M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-28-free-high-speed-nodes.htm" title="12月28日→22.7M/S|2025年最新免费节点Sockscap64订阅链接地址">12月28日→22.7M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-free-node-subscribe-links.htm" title="1月15日→21M/S|2025年最新免费节点Sockscap64订阅链接地址">1月15日→21M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-node-share.htm" title="1月7日→20M/S|2025年最新免费节点Sockscap64订阅链接地址">1月7日→20M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-3-free-high-speed-nodes.htm" title="1月3日→19.5M/S|2025年最新免费节点Sockscap64订阅链接地址">1月3日→19.5M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-free-node-subscribe.htm" title="1月29日→18.1M/S|2025年最新免费节点Sockscap64订阅链接地址">1月29日→18.1M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /#services -->
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <p>
+                        <a href="/">首页</a> |
+                        <a href="/free-node/">免费节点</a> |
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>Sockscap64免费机场节点分享官网 版权所有 Powered by WordPress</p>
+                </div> <!-- /.col-md-6 -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="go-top">
+                        <a href="#" id="go-top">
+                            <i class="fa fa-angle-up"></i>
+                            Back to Top
+                        </a>
+                    </div>
+                </div> <!-- /.col-md-6 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.site-footer -->
+    <script src="/assets/website/js/frontend/sockscap64/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/plugins.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/jquery.lightbox.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
