@@ -6,10 +6,37 @@
     <title>k8s 部署pod到指定node</title>
         <meta name="description" content="k8s指定节点部署  在一些业务场景中，会需要将一些pod部署到指定node，按照默认的调度规则，pod会优先分配到负载较小的node中，难免会出现多个pod资源竞争的情况。 k8s有两种常用的方法可" />
         <link rel="icon" href="/assets/website/img/sockscap64/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sockscap64免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sockscap64.github.io/news/article-35796.htm" />
+    <meta property="og:site_name" content="Sockscap64免费机场节点分享官网" />
+    <meta property="og:title" content="k8s 部署pod到指定node" />
+    <meta property="og:image" content="https://sockscap64.github.io/uploads/20241223-1/46ee05e4d0152128fb5783fd0b1ffa7d.webp" />
+        <meta property="og:release_date" content="2025-01-04T10:27:51" />
+    <meta property="og:updated_time" content="2025-01-04T10:27:51" />
+        <meta property="og:description" content="k8s指定节点部署  在一些业务场景中，会需要将一些pod部署到指定node，按照默认的调度规则，pod会优先分配到负载较小的node中，难免会出现多个pod资源竞争的情况。 k8s有两种常用的方法可" />
+        
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="templatemo">
     <meta charset="UTF-8">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="k8s 部署pod到指定node">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <!-- CSS Bootstrap & Custom -->
@@ -113,16 +140,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-30725.htm" title="动物医院诊疗范围包括哪些（动物医院诊疗范围包括哪些项目）">动物医院诊疗范围包括哪些（动物医院诊疗范围包括哪些项目）</a></li>
-                        <li class="py-2"><a href="/news/article-31679.htm" title="记-Windows环境下Prometheus+alertmanager+windows_exporter+mtail监控部署提起网关日志">记-Windows环境下Prometheus+alertmanager+windows_exporter+mtail监控部署提起网关日志</a></li>
-                        <li class="py-2"><a href="/news/article-32625.htm" title="北京爱宠怡康动物医院(梧桐店)（北京宠爱动物医院消费高吗）">北京爱宠怡康动物医院(梧桐店)（北京宠爱动物医院消费高吗）</a></li>
-                        <li class="py-2"><a href="/news/article-30245.htm" title="宠物粮食品牌前十排名榜单 宠物粮食品牌前十排名榜单图片">宠物粮食品牌前十排名榜单 宠物粮食品牌前十排名榜单图片</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-3-free-high-speed-nodes.htm" title="1月3日→19.5M/S|2025年最新免费节点Sockscap64订阅链接地址">1月3日→19.5M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-33097.htm" title="RMI反序列化学习">RMI反序列化学习</a></li>
-                        <li class="py-2"><a href="/news/article-34044.htm" title="制作狗粮机器多少钱一套（自制狗粮机）">制作狗粮机器多少钱一套（自制狗粮机）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-27-free-high-speed-nodes.htm" title="12月27日→20M/S|2025年最新免费节点Sockscap64订阅链接地址">12月27日→20M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-23-node-share.htm" title="12月23日→22.9M/S|2024年最新免费节点V2rayU Node订阅链接地址">12月23日→22.9M/S|2024年最新免费节点V2rayU Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-32149.htm" title="猫三联多少钱一针为什么有上千（猫三联一共几针多少钱）">猫三联多少钱一针为什么有上千（猫三联一共几针多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-2-free-node-subscribe-links.htm" title="2月2日→22.4M/S|2025年最新免费节点Sockscap64订阅链接地址">2月2日→22.4M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-46813.htm" title="宠物免费领养网站有哪些（宠物免费领养平台下载）">宠物免费领养网站有哪些（宠物免费领养平台下载）</a></li>
+                        <li class="py-2"><a href="/news/article-43835.htm" title="给动物打疫苗的简报 给动物打疫苗的简报怎么写">给动物打疫苗的简报 给动物打疫苗的简报怎么写</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-1-free-node-subscribe.htm" title="1月1日→22.6M/S|2025年最新免费节点Sockscap64订阅链接地址">1月1日→22.6M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-29-free-node-subscribe-links.htm" title="12月29日→20.5M/S|2025年最新免费节点Sockscap64订阅链接地址">12月29日→20.5M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-14-free-node-subscribe-links.htm" title="1月14日→21.5M/S|2025年最新免费节点Sockscap64订阅链接地址">1月14日→21.5M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-39875.htm" title="CountDownLatch和CyclicBarrier：如何让多线程步调一致">CountDownLatch和CyclicBarrier：如何让多线程步调一致</a></li>
+                        <li class="py-2"><a href="/news/article-44833.htm" title="win11系统如何添加pdf虚拟打印机">win11系统如何添加pdf虚拟打印机</a></li>
+                        <li class="py-2"><a href="/news/article-41846.htm" title="python开发HDFS">python开发HDFS</a></li>
+                        <li class="py-2"><a href="/news/article-41339.htm" title="北京中农大动物医院有限公司待遇 北京中农大动物医院有限公司待遇怎么样">北京中农大动物医院有限公司待遇 北京中农大动物医院有限公司待遇怎么样</a></li>
                     </ul>
     </div>
 </div>
@@ -134,7 +161,10 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>

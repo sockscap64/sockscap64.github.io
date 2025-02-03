@@ -6,10 +6,37 @@
     <title>linux搭建NFS网络文件共享服务</title>
         <meta name="description" content="一、概念 NFS是Network File System的缩写，它的主要功能是通过网络将不同的主机系统之间可以彼此共享文件或者目录。NFS客户端可以通过挂载的方式将NFS服务端共享的数据文件目录挂载到" />
         <link rel="icon" href="/assets/website/img/sockscap64/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sockscap64免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sockscap64.github.io/news/article-31678.htm" />
+    <meta property="og:site_name" content="Sockscap64免费机场节点分享官网" />
+    <meta property="og:title" content="linux搭建NFS网络文件共享服务" />
+    <meta property="og:image" content="https://sockscap64.github.io/uploads/20241223-1/fbe402bdb74e22057f867e36ba8365f5.webp" />
+        <meta property="og:release_date" content="2024-12-27T10:01:54" />
+    <meta property="og:updated_time" content="2024-12-27T10:01:54" />
+        <meta property="og:description" content="一、概念 NFS是Network File System的缩写，它的主要功能是通过网络将不同的主机系统之间可以彼此共享文件或者目录。NFS客户端可以通过挂载的方式将NFS服务端共享的数据文件目录挂载到" />
+        
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="templatemo">
     <meta charset="UTF-8">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="linux搭建NFS网络文件共享服务">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <!-- CSS Bootstrap & Custom -->
@@ -113,16 +140,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-24-free-subscribe-node.htm" title="12月24日→21.2M/S|2025年最新免费节点Sockscap64订阅链接地址">12月24日→21.2M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-30245.htm" title="宠物粮食品牌前十排名榜单 宠物粮食品牌前十排名榜单图片">宠物粮食品牌前十排名榜单 宠物粮食品牌前十排名榜单图片</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-25-free-high-speed-nodes.htm" title="12月25日→21.6M/S|2025年最新免费节点Sockscap64订阅链接地址">12月25日→21.6M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-30725.htm" title="动物医院诊疗范围包括哪些（动物医院诊疗范围包括哪些项目）">动物医院诊疗范围包括哪些（动物医院诊疗范围包括哪些项目）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-23-node-share.htm" title="12月23日→22.9M/S|2024年最新免费节点V2rayU Node订阅链接地址">12月23日→22.9M/S|2024年最新免费节点V2rayU Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-32626.htm" title="领养宠物需要什么手续（领养宠物需要收费吗）">领养宠物需要什么手续（领养宠物需要收费吗）</a></li>
-                        <li class="py-2"><a href="/news/article-32149.htm" title="猫三联多少钱一针为什么有上千（猫三联一共几针多少钱）">猫三联多少钱一针为什么有上千（猫三联一共几针多少钱）</a></li>
-                        <li class="py-2"><a href="/news/article-31162.htm" title="兽医宠物店的兽医一个月能挣多少钱（兽医一般多少钱一个月）">兽医宠物店的兽医一个月能挣多少钱（兽医一般多少钱一个月）</a></li>
-                        <li class="py-2"><a href="/news/article-30244.htm" title="动物疫苗接种时间查询app 动物疫苗查询系统">动物疫苗接种时间查询app 动物疫苗查询系统</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-26-node-share-links.htm" title="12月26日→20.9M/S|2025年最新免费节点Sockscap64订阅链接地址">12月26日→20.9M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-1-free-high-speed-nodes.htm" title="2月1日→20.1M/S|2025年最新免费节点Sockscap64订阅链接地址">2月1日→20.1M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-47296.htm" title="Redis持久化机制及缓存失效解决方案">Redis持久化机制及缓存失效解决方案</a></li>
+                        <li class="py-2"><a href="/news/article-35796.htm" title="k8s 部署pod到指定node">k8s 部署pod到指定node</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-node-share.htm" title="1月7日→20M/S|2025年最新免费节点Sockscap64订阅链接地址">1月7日→20M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-41339.htm" title="北京中农大动物医院有限公司待遇 北京中农大动物医院有限公司待遇怎么样">北京中农大动物医院有限公司待遇 北京中农大动物医院有限公司待遇怎么样</a></li>
+                        <li class="py-2"><a href="/news/article-34043.htm" title="猫三联到底是两针还是三针啊图片（猫三联每针的作用）">猫三联到底是两针还是三针啊图片（猫三联每针的作用）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-free-subscribe-node.htm" title="1月26日→19.5M/S|2025年最新免费节点Sockscap64订阅链接地址">1月26日→19.5M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-34519.htm" title="宠物领养证如何办理流程图片及价格大全（宠物领养证书怎么办理）">宠物领养证如何办理流程图片及价格大全（宠物领养证书怎么办理）</a></li>
+                        <li class="py-2"><a href="/news/article-42352.htm" title="宠物店医疗许可证（宠物医疗许可证哪里办）">宠物店医疗许可证（宠物医疗许可证哪里办）</a></li>
+                        <li class="py-2"><a href="/news/article-49818.htm" title="让猫挠了几天之内打针有用吗（让猫挠了用打针么）">让猫挠了几天之内打针有用吗（让猫挠了用打针么）</a></li>
                     </ul>
     </div>
 </div>
@@ -134,7 +161,13 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                     </ul>
     </div>
