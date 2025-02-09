@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sockscap64.github.io/news/article-53502.htm" />
+    <title>网络协议之:socket协议详解之Datagram Socket</title>
+        <meta name="description" content="目录  简介 什么是Datagram Socket 使用socat来创建UDP服务 使用ss命令来监控Datagram Sockets 使用nc建立和UDP Socket的连接 总结    上一篇文章" />
+        <link rel="icon" href="/assets/website/img/sockscap64/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sockscap64免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sockscap64.github.io/news/article-53502.htm" />
+    <meta property="og:site_name" content="Sockscap64免费机场节点分享官网" />
+    <meta property="og:title" content="网络协议之:socket协议详解之Datagram Socket" />
+    <meta property="og:image" content="https://sockscap64.github.io/uploads/20241223-1/b46febb9120ded394f9d949f5e0ee16d.webp" />
+        <meta property="og:release_date" content="2025-02-09T10:03:42" />
+    <meta property="og:updated_time" content="2025-02-09T10:03:42" />
+        <meta property="og:description" content="目录  简介 什么是Datagram Socket 使用socat来创建UDP服务 使用ss命令来监控Datagram Sockets 使用nc建立和UDP Socket的连接 总结    上一篇文章" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="网络协议之:socket协议详解之Datagram Socket">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <!-- CSS Bootstrap & Custom -->
+    <link href="/assets/website/js/frontend/sockscap64/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-misc.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-main.css">
+    <!-- JavaScripts -->
+    <script src="/assets/website/js/frontend/sockscap64/jquery-1.10.2.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/modernizr.js"></script>
+    <!--[if lt IE 8]>
+<div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
+    </div>
+<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWWSJRFYQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FWWSJRFYQE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="home">
+        <div class="site-header">
+            <div class="main-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="logo">
+                                <a href="/">
+                                                                        <span>Sockscap64</span>
+                                                                </div> <!-- /.logo -->
+                        </div> <!-- /.col-md-4 -->
+                        <div class="col-md-8 col-sm-8 col-xs-6">
+                            <div class="menu text-right hidden-sm hidden-xs">
+                                <ul>
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </div> <!-- /.menu -->
+                        </div> <!-- /.col-md-8 -->
+                    </div> <!-- /.row -->
+                    <div class="responsive-menu text-right visible-xs visible-sm">
+                        <a href="#" class="toggle-menu fa fa-bars"></a>
+                        <div class="menu">
+                            <ul>
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div> <!-- /.menu -->
+                    </div> <!-- /.responsive-menu -->
+                </div> <!-- /.container -->
+            </div> <!-- /.header -->
+        </div> <!-- /.site-header -->
+    </div> <!-- /#home -->
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="/assets/website/img/sockscap64/banner01.jpg" alt="">
+                <div class="flex-caption">
+                    <h1>网络协议之:socket协议详解之Datagram Socket</h1>
+                    <span></span>
+                    <p>
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="services" class="section-cotent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div class="toc"> <div class="toc-container-header">目录</div> <ul> <li><a href="#%E7%AE%80%E4%BB%8B" rel="nofollow">简介</a></li> <li><a href="#%E4%BB%80%E4%B9%88%E6%98%AFdatagram-socket" rel="nofollow">什么是Datagram Socket</a></li> <li><a href="#%E4%BD%BF%E7%94%A8socat%E6%9D%A5%E5%88%9B%E5%BB%BAudp%E6%9C%8D%E5%8A%A1" rel="nofollow">使用socat来创建UDP服务</a></li> <li><a href="#%E4%BD%BF%E7%94%A8ss%E5%91%BD%E4%BB%A4%E6%9D%A5%E7%9B%91%E6%8E%A7datagram-sockets" rel="nofollow">使用ss命令来监控Datagram Sockets</a></li> <li><a href="#%E4%BD%BF%E7%94%A8nc%E5%BB%BA%E7%AB%8B%E5%92%8Cudp-socket%E7%9A%84%E8%BF%9E%E6%8E%A5" rel="nofollow">使用nc建立和UDP Socket的连接</a></li> <li><a href="#%E6%80%BB%E7%BB%93" rel="nofollow">总结</a></li> </ul> </div> </h1> <p>上一篇文章我们讲解了Socket的分类和最常用到的Stream Socket，Stream Socket一般是基于TCP协议的，所以我们经常在web服务中能够看到他们的身影。当然TCP协议有个孪生兄弟叫做UDP，那么基于UDP来做传输协议的socket协议就叫做Datagram Socket，今天我们一起来详细了解一下Datagram Socket。</p> </h1> <p>和有连接的Stream Socket不同，Datagram Socket是无连接的。有连接的Stream Socket表明这个socket是稳定可靠的，所以我们可以在Stream socket中进行稳定的数据传输，当然这个稳定是说数据包不会丢失，但是并不一定能够确保数据包不被篡改。</p> <p>Datagram Socket这种无连接的通常被用在容许数据部分丢失的场景，比如语音、视频等等，无连接的好处就是不需要TCP那样复杂的建立连接的步骤，所以相对而言更加简单。</p> <p>Datagram Socket通常使用的就是UDP协议作为底层的数据传输协议。</p> <p>对于UDP来说，因为UDP协议本身并不会保证数据的顺序和数据异常的处理，这些都需要在应用程序中自己实现。</p> <p>常见的UDP应用有DNS(Domain Name System)服务，NTP(Network Time Protocol)服务等等。</p> <p>在JDK的java.net包中提供了对Datagram Socket的封装,在其中定义了三个连接的状态：</p> <pre><code>class DatagramSocket implements java.io.Closeable {     ...     static final int ST_NOT_CONNECTED = 0;     static final int ST_CONNECTED = 1;     static final int ST_CONNECTED_NO_IMPL = 2;     ... }</code></pre> <p>分别表示没有建立连接，建立了连接和建立了连接，但是还没有到实现的level。</p> <p>另外，在DatagramSocket中还包含了一个连接的地址和端口：</p> <pre><code>InetAddress connectedAddress = null; int connectedPort = -1;</code></pre> </h1> <blockquote> <p>注意，在使用后续的命令之前，需要在unix环境中执行安装命令：yum install iproute2 netcat-openbsd socat</p> </blockquote> <p>和之前的Stream Socket一样，我们也可以使用socat命令，来建立一个UDP服务器，我们需要用到socat的下面几个参数：</p> <pre><code>      udp4-listen:&lt;port&gt;        groups=FD,SOCKET,LISTEN,CHILD,RANGE,IP4,UDP       udp6-listen:&lt;port&gt;        groups=FD,SOCKET,LISTEN,CHILD,RANGE,IP6,UDP</code></pre> <p>我们需要监听udp4和udp6的数据，所以这里使用 udp4-listen和udp6-listen两个参数。</p> <p>后面的端口号可以自定义，这里我们还是使用同样的8888端口，对应的命令如下：</p> <pre><code>socat UDP4-LISTEN:8888,fork /dev/null&amp; socat UDP6-LISTEN:8888,ipv6only=1,fork /dev/null&amp;</code></pre> <p>上面的命令，我们在8888端口上监听UDP4和UDP6的连接信息，其中fork参数表示程序在接收到程序包之后继续运行，如果不用fork，那么程序会自动退出。</p> <p>socat后面本来要接一个bi-address，这里我们使用/dev/null，表示丢弃掉所有的income信息。</p> <p>UDP6-LISTEN有个特殊的参数叫做ipv6only，表示收到的数据包不要发送到IPv4-mapped IPv6 addresses。</p> <p>什么是IPv4-mapped IPv6 addresses？ 简单点说就是将IPv4映射到了IPv6的地址中。</p> <p>执行上述命令，我们会得到下面的输出：</p> <pre><code>[1] 16174 [2] 16184</code></pre> <p>因为是后台执行，所以我们返回了进程的ID。</p> </h1> <p>ss命令可以用来检查socket的状态，这里我们需要用到ss的这样几个参数：</p> <pre><code>   -4, --ipv4          display only IP version 4 sockets    -u, --udp           display only UDP sockets    -l, --listening     display listening sockets    -n, --numeric       don't resolve service names</code></pre> <p>因为我们只监听ipv4和ipv6的数据，所以这里我们用-4和-6这两个参数。</p> <p>另外因为只需要监听udp sockets，所以需要使用-u参数。</p> <p>因为是监听，所以使用-l参数，最后我们希望看到具体的数字，而不是被解析成了服务名，所以这里使用-n参数。</p> <p>我们使用下面的命令看看结果：</p> <pre><code>ss -4 -uln</code></pre> <p>可以得到下面的结果：</p> <pre><code>State       Recv-Q Send-Q                      Local Address:Port                                     Peer Address:Port               UNCONN      0      0                                       *:8888                                                *:*</code></pre> <p>上面的命令只监听了Ipv4，我们再看看Ipv6：</p> <pre><code>ss -6 -uln</code></pre> <p>可以得到下面的结果：</p> <pre><code>State       Recv-Q Send-Q                      Local Address:Port                                     Peer Address:Port               UNCONN      0      0                                      :::8888                                               :::*</code></pre> <p>和Ipv4的很类似，表示我们在Ipv6上监听到了端口8888。</p> </h1> <p>我们已经建立好了了监听UDP连接的服务器，接下来我们尝试使用nc命令来进行连接。</p> <p>nc是Ncat的简称，是一个非常小并且高效的网络工具。我们来看下本例子中会用到的参数：</p> <pre><code>  -4                         Use IPv4 only   -6                         Use IPv6 only   -u, --udp                  Use UDP instead of default TCP   -v, --verbose              Set verbosity level (can be used several times)   -z                         Zero-I/O mode, report connection status only</code></pre> <p>因为需要连接到Ipv4和Ipv6，所以需要-4和-6参数。</p> <p>默认情况下nc使用的是TCP协议，如果要使用udp则需要使用-u这个参数。</p> <p>另外我们需要输出详细的信息，所以需要-v参数，最后我们直接建立连接，并不发送任何数据，所以这里使用-z参数，我们执行一下来看看效果：</p> <pre><code>nc -4 -u -vz 127.0.0.1 8888</code></pre> <p>看看下面的输出结果：</p> <pre><code>Ncat: Version 7.50 ( https://nmap.org/ncat ) Ncat: Connected to 127.0.0.1:8888. Ncat: UDP packet sent successfully Ncat: 1 bytes sent, 0 bytes received in 2.02 seconds.</code></pre> <p>表示UDP连接成功。</p> <p>同样的，我们可以使用下面的命令来连接到UDP socket：</p> <pre><code>nc -6 -u -vz ::1 8888</code></pre> <p>其中::1表示的是本机的ipv6地址.</p> <p>可以得到下面的结果：</p> <pre><code>Ncat: Version 7.50 ( https://nmap.org/ncat ) Ncat: Connected to ::1:8888. Ncat: UDP packet sent successfully Ncat: 1 bytes sent, 0 bytes received in 2.02 seconds.</code></pre> <p>表示UDP连接成功。</p> </h1> <p>本文讲解了datagram socket的基本概念，并且使用一些unix的基本命令来构建了udp服务器和客户端，方便大家理解。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-52963.htm">广州宠物领养中心具体地址在哪里 广州宠物领养中心具体地址在哪里啊</a></p>
+                                        <p>下一个：<a href="/news/article-53503.htm">给猫咪驱虫一般多少钱 猫咪驱虫要花多少钱</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-27-free-node-subscribe.htm" title="1月27日→19.6M/S|2025年最新免费节点Sockscap64订阅链接地址">1月27日→19.6M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37894.htm" title="动物疫苗接种后多久产生抗体了正常（动物疫苗打几次）">动物疫苗接种后多久产生抗体了正常（动物疫苗打几次）</a></li>
+                        <li class="py-2"><a href="/news/article-32625.htm" title="北京爱宠怡康动物医院(梧桐店)（北京宠爱动物医院消费高吗）">北京爱宠怡康动物医院(梧桐店)（北京宠爱动物医院消费高吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-free-high-speed-nodes.htm" title="1月25日→20.8M/S|2025年最新免费节点Sockscap64订阅链接地址">1月25日→20.8M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-36436.htm" title="spring源码之Mybatis扫描器">spring源码之Mybatis扫描器</a></li>
+                        <li class="py-2"><a href="/news/article-39378.htm" title="狗粮加工厂利润成本分析表模板怎么写（狗粮生产成本）">狗粮加工厂利润成本分析表模板怎么写（狗粮生产成本）</a></li>
+                        <li class="py-2"><a href="/news/article-30245.htm" title="宠物粮食品牌前十排名榜单 宠物粮食品牌前十排名榜单图片">宠物粮食品牌前十排名榜单 宠物粮食品牌前十排名榜单图片</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-9-node-share.htm" title="1月9日→22.7M/S|2025年最新免费节点Sockscap64订阅链接地址">1月9日→22.7M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-49818.htm" title="让猫挠了几天之内打针有用吗（让猫挠了用打针么）">让猫挠了几天之内打针有用吗（让猫挠了用打针么）</a></li>
+                        <li class="py-2"><a href="/news/article-33574.htm" title="Vue中引入静态资源的几种方式">Vue中引入静态资源的几种方式</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /#services -->
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <p>
+                        <a href="/">首页</a> |
+                        <a href="/free-node/">免费节点</a> |
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>Sockscap64免费机场节点分享官网 版权所有 Powered by WordPress</p>
+                </div> <!-- /.col-md-6 -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="go-top">
+                        <a href="#" id="go-top">
+                            <i class="fa fa-angle-up"></i>
+                            Back to Top
+                        </a>
+                    </div>
+                </div> <!-- /.col-md-6 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.site-footer -->
+    <script src="/assets/website/js/frontend/sockscap64/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/plugins.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/jquery.lightbox.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
