@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sockscap64.github.io/news/article-61417.htm" />
+    <title>我的树莓派 Raspberry Pi Zero 2W 折腾笔记，记录一些遇到的问题和解决办法</title>
+        <meta name="description" content="最近买了一块Raspberry Pi Zero 2W来玩，目的是想搭建一台远程运行的个人服务器，上面放个博客、点个灯啥的。于是就有了这篇文章。 树莓派官网地址：https://www.raspberr" />
+        <link rel="icon" href="/assets/website/img/sockscap64/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sockscap64免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sockscap64.github.io/news/article-61417.htm" />
+    <meta property="og:site_name" content="Sockscap64免费机场节点分享官网" />
+    <meta property="og:title" content="我的树莓派 Raspberry Pi Zero 2W 折腾笔记，记录一些遇到的问题和解决办法" />
+    <meta property="og:image" content="https://sockscap64.github.io/uploads/20241223-1/20dab0bf69345ed79374f0a85a060b49.webp" />
+        <meta property="og:release_date" content="2025-02-23T09:45:10" />
+    <meta property="og:updated_time" content="2025-02-23T09:45:10" />
+        <meta property="og:description" content="最近买了一块Raspberry Pi Zero 2W来玩，目的是想搭建一台远程运行的个人服务器，上面放个博客、点个灯啥的。于是就有了这篇文章。 树莓派官网地址：https://www.raspberr" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="我的树莓派 Raspberry Pi Zero 2W 折腾笔记，记录一些遇到的问题和解决办法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <!-- CSS Bootstrap & Custom -->
+    <link href="/assets/website/js/frontend/sockscap64/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-misc.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-main.css">
+    <!-- JavaScripts -->
+    <script src="/assets/website/js/frontend/sockscap64/jquery-1.10.2.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/modernizr.js"></script>
+    <!--[if lt IE 8]>
+<div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
+    </div>
+<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWWSJRFYQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FWWSJRFYQE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="home">
+        <div class="site-header">
+            <div class="main-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="logo">
+                                <a href="/">
+                                                                        <span>Sockscap64</span>
+                                                                </div> <!-- /.logo -->
+                        </div> <!-- /.col-md-4 -->
+                        <div class="col-md-8 col-sm-8 col-xs-6">
+                            <div class="menu text-right hidden-sm hidden-xs">
+                                <ul>
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </div> <!-- /.menu -->
+                        </div> <!-- /.col-md-8 -->
+                    </div> <!-- /.row -->
+                    <div class="responsive-menu text-right visible-xs visible-sm">
+                        <a href="#" class="toggle-menu fa fa-bars"></a>
+                        <div class="menu">
+                            <ul>
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div> <!-- /.menu -->
+                    </div> <!-- /.responsive-menu -->
+                </div> <!-- /.container -->
+            </div> <!-- /.header -->
+        </div> <!-- /.site-header -->
+    </div> <!-- /#home -->
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="/assets/website/img/sockscap64/banner01.jpg" alt="">
+                <div class="flex-caption">
+                    <h1>我的树莓派 Raspberry Pi Zero 2W 折腾笔记，记录一些遇到的问题和解决办法</h1>
+                    <span></span>
+                    <p>
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="services" class="section-cotent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				</h1> <p>最近买了一块<code>Raspberry Pi Zero 2W</code>来玩，目的是想搭建一台远程运行的个人服务器，上面放个博客、点个灯啥的。于是就有了这篇文章。</p> <p>树莓派官网地址：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.raspberrypi.com/"  target="_blank" rel="nofollow">https://www.raspberrypi.com/</a></p> <p>补一张图哈哈！</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/abf955cd49210cca5ba961f4e4805e4d.jpg" alt="我的树莓派 Raspberry Pi Zero 2W 折腾笔记，记录一些遇到的问题和解决办法"></p> </h1> <p>首先一开始买到手之后我是很懵的，于是在google上找到了以下几篇文章帮助了我很多。</p> <ul> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.freesion.com/article/3840979679/"  target="_blank" rel="nofollow">https://www.freesion.com/article/3840979679/</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/liaouser/p/15844159.html"  target="_blank" rel="nofollow">https://www.cnblogs.com/liaouser/p/15844159.html</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.freebuf.com/geek/209255.html"  target="_blank" rel="nofollow">https://www.freebuf.com/geek/209255.html</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://shumeipai.nxez.com/2018/02/20/raspberry-pi-zero-usb-ethernet-gadget-tutorial.html?variant=zh-cn"  target="_blank" rel="nofollow">https://shumeipai.nxez.com/2018/02/20/raspberry-pi-zero-usb-ethernet-gadget-tutorial.html?variant=zh-cn</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.youtube.com/watch?v=sUU-ch8LEcE&amp;ab_channel=ITCommander"  target="_blank" rel="nofollow">https://www.youtube.com/watch?v=sUU-ch8LEcE&amp;ab_channel=ITCommander</a></li> </ul> <p>看了那个<code>youtube</code>上面的视频后，发现其实买之前是可以叫淘宝客服帮忙焊接<code>gpio</code>引脚的。然后发现我身边有一个电烙铁，于是打算试一下（从来焊接过），结局如下</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/1a0ca9391fe3f943233305ef136be0b6.jpg" alt="我的树莓派 Raspberry Pi Zero 2W 折腾笔记，记录一些遇到的问题和解决办法"></p> <blockquote> <p>贴一个国外大佬的树莓派zero2w gpio焊接教程：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.youtube.com/watch?v=UDdbaMk39tM&amp;ab_channel=BasvanderSluis"  target="_blank" rel="nofollow">https://www.youtube.com/watch?v=UDdbaMk39tM&amp;ab_channel=BasvanderSluis</a></p> </blockquote> <p>还好，没有坏掉！哈哈，这就是不看教程就直接动手的后果，望大家引以为戒！那么，跟着上面的教程写入操作系统到sd卡之后就是安装驱动和<code>ssh</code>连接树莓派了，连接的时候遇到了一个问题就是<code>pi@raspberrypi.local's password</code>，ssh登录不上去，看了下官方发现：</p> <pre><code>There are also mechanisms to preconfigure an image without using Imager. To set up a user on first boot and bypass the wizard completely, create a file called userconf or userconf.txt in the boot partition of the SD card; this is the part of the SD card which can be seen when it is mounted in a Windows or MacOS computer.  This file should contain a single line of text, consisting of username:encrypted- password – so your desired username, followed immediately by a colon, followed immediately by an encrypted representation of the password you want to use.  To generate the encrypted password, the easiest way is to use OpenSSL on a Raspberry Pi that is already running – open a terminal window and enter  echo 'mypassword' | openssl passwd -6 -stdin This will produce what looks like a string of random characters, which is actually an encrypted version of the supplied password.</code></pre> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.raspberrypi.com/news/raspberry-pi-bullseye-update-april-2022/"  target="_blank" rel="nofollow">https://www.raspberrypi.com/news/raspberry-pi-bullseye-update-april-2022/</a></p> <p>简单来说就是树莓派为了安全起见不在使用默认密码，所以需要在启动前在<code>boot</code>目录下创建一个<code>userconf.txt</code>，格式如下：</p> <pre><code>username:encrypted-password</code></pre> <p>其中<code>encrypted-password</code>可以用<code>echo 'mypassword' | openssl passwd -6 -stdin</code>这条命令生成，贴一下我生成的配置：</p> <pre><code>pi:$6$T12E4motTbeG7HXC$0vvzm.7sNj9bsEzVL2JT4P9OYXpvsk3lwqK6CzTVyyLrRdUA.fZVWrfzqmU./mmuU1O/i3xSueXPX4ieBjrCM/</code></pre> <p>也就是用户名为<code>pi</code>，密码为<code>raspberry</code>。重新写入sd卡之后，再次连接一波！</p> <pre><code class="language-bash">λ ssh pi@raspberrypi.local -p 22 Warning: Permanently added the ECDSA host key for IP address '169.254.155.237' to the list of known hosts. pi@raspberrypi.local's password: Linux raspberrypi 5.15.32-v8+ #1538 SMP PREEMPT Thu Mar 31 19:40:39 BST 2022 aarch64  The programs included with the Debian GNU/Linux system are free software; the exact distribution terms for each program are described in the individual files in /usr/share/doc/*/copyright.  Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent permitted by applicable law. Last login: Mon Apr  4 15:41:56 2022  SSH is enabled and the default password for the 'pi' user has not been changed. This is a security risk - please login as the 'pi' user and type 'passwd' to set a new password.   Wi-Fi is currently blocked by rfkill. Use raspi-config to set the country before use.  pi@raspberrypi:~ $</code></pre> <p>成功了！！！！！！！！！！！！！！！哇，成就感满满的！</p> </h1> <p>输入<code>sudo raspi-config</code>,选择国家—&gt; “System Options”—&gt;选第一个 —&gt; 输入WiFi名称密码—&gt; 重启<code>sudo reboot</code></p> <pre><code class="language-bash">pi@raspberrypi:~ $ ifconfig lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536         inet 127.0.0.1  netmask 255.0.0.0         inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;         loop  txqueuelen 1000  (Local Loopback)         RX packets 10  bytes 1600 (1.5 KiB)         RX errors 0  dropped 0  overruns 0  frame 0         TX packets 10  bytes 1600 (1.5 KiB)         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0  usb0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500         inet 169.254.174.149  netmask 255.255.0.0  broadcast 169.254.255.255         inet6 fe80::74a7:e6a5:d1b2:66e  prefixlen 64  scopeid 0x20&lt;link&gt;         ether 62:ae:a7:2d:b5:2f  txqueuelen 1000  (Ethernet)         RX packets 187  bytes 19160 (18.7 KiB)         RX errors 0  dropped 0  overruns 0  frame 0         TX packets 30  bytes 5905 (5.7 KiB)         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0  wlan0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500         inet 192.168.1.4  netmask 255.255.255.0  broadcast 192.168.1.255         inet6 240e:379:1a87:b500:fc16:62d:3ce4:de2b  prefixlen 64  scopeid 0x0&lt;global&gt;         inet6 fe80::4ee:25c1:2732:51c0  prefixlen 64  scopeid 0x20&lt;link&gt;         ether e4:5f:01:4b:3a:e4  txqueuelen 1000  (Ethernet)         RX packets 157  bytes 24008 (23.4 KiB)         RX errors 0  dropped 0  overruns 0  frame 0         TX packets 87  bytes 14755 (14.4 KiB)         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0  pi@raspberrypi:~ $ ping www.baidu.com PING www.a.shifen.com (14.215.177.39) 56(84) bytes of data. 64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=1 ttl=55 time=19.8 ms 64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=2 ttl=55 time=23.1 ms 64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=3 ttl=55 time=22.9 ms 64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=4 ttl=55 time=22.9 ms 64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=5 ttl=55 time=22.8 ms 64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=6 ttl=55 time=24.1 ms ^C --- www.a.shifen.com ping statistics --- 6 packets transmitted, 6 received, 0% packet loss, time 5007ms rtt min/avg/max/mdev = 19.849/22.594/24.104/1.306 ms pi@raspberrypi:~ $</code></pre> <p>连接网络成功！哦耶！</p> </h1> <p>那么先到这里，后续出一个电灯的文章！！！</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-60817.htm">宠物公众领养所（宠物领养中心领养条件是什么）</a></p>
+                                        <p>下一个：<a href="/news/article-61418.htm">动物疫苗是疫苗吗还是疫苗 动物疫苗是疫苗吗还是疫苗的</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-56819.htm" title="AOT和单文件发布对程序性能的影响">AOT和单文件发布对程序性能的影响</a></li>
+                        <li class="py-2"><a href="/news/article-56252.htm" title="猫三针疫苗每针间隔时间（猫咪三针疫苗间隔多久打）">猫三针疫苗每针间隔时间（猫咪三针疫苗间隔多久打）</a></li>
+                        <li class="py-2"><a href="/news/article-49304.htm" title="MySQL EXTRACT()函数中可以使用哪种复合单位？">MySQL EXTRACT()函数中可以使用哪种复合单位？</a></li>
+                        <li class="py-2"><a href="/news/article-30724.htm" title="动物防疫疫苗管理要点包括什么和什么（动物防疫疫苗管理要点包括什么和什么两个方面）">动物防疫疫苗管理要点包括什么和什么（动物防疫疫苗管理要点包括什么和什么两个方面）</a></li>
+                        <li class="py-2"><a href="/news/article-47783.htm" title="芭比堂宠物医院投诉电话（芭比堂宠物医院电话是多少）">芭比堂宠物医院投诉电话（芭比堂宠物医院电话是多少）</a></li>
+                        <li class="py-2"><a href="/news/article-57384.htm" title="开一家宠物医院大概多少钱啊（开一家宠物医院的所有流程）">开一家宠物医院大概多少钱啊（开一家宠物医院的所有流程）</a></li>
+                        <li class="py-2"><a href="/news/article-35254.htm" title="动物疫苗上市企业排名（动物疫苗上市企业排名）">动物疫苗上市企业排名（动物疫苗上市企业排名）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-8-free-subscribe-node.htm" title="2月8日→18.6M/S|2025年最新免费节点Sockscap64订阅链接地址">2月8日→18.6M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-12-free-node-subscribe-links.htm" title="2月12日→20.3M/S|2025年最新免费节点Sockscap64订阅链接地址">2月12日→20.3M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-30725.htm" title="动物医院诊疗范围包括哪些（动物医院诊疗范围包括哪些项目）">动物医院诊疗范围包括哪些（动物医院诊疗范围包括哪些项目）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /#services -->
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <p>
+                        <a href="/">首页</a> |
+                        <a href="/free-node/">免费节点</a> |
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>Sockscap64免费机场节点分享官网 版权所有 Powered by WordPress</p>
+                </div> <!-- /.col-md-6 -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="go-top">
+                        <a href="#" id="go-top">
+                            <i class="fa fa-angle-up"></i>
+                            Back to Top
+                        </a>
+                    </div>
+                </div> <!-- /.col-md-6 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.site-footer -->
+    <script src="/assets/website/js/frontend/sockscap64/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/plugins.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/jquery.lightbox.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
