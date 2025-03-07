@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sockscap64.github.io/news/article-67538.htm" />
+    <title>正则表达式\ip地址匹配方法</title>
+        <meta name="description" content="(1) re.match\re.search re.match(pattern,string.flag=0)                        #从第一个字母匹配，span（）输出范围 r" />
+        <link rel="icon" href="/assets/website/img/sockscap64/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sockscap64免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sockscap64.github.io/news/article-67538.htm" />
+    <meta property="og:site_name" content="Sockscap64免费机场节点分享官网" />
+    <meta property="og:title" content="正则表达式\ip地址匹配方法" />
+    <meta property="og:image" content="https://sockscap64.github.io/uploads/20241223-1/20dab0bf69345ed79374f0a85a060b49.webp" />
+        <meta property="og:release_date" content="2025-03-05T11:11:08" />
+    <meta property="og:updated_time" content="2025-03-05T11:11:08" />
+        <meta property="og:description" content="(1) re.match\re.search re.match(pattern,string.flag=0)                        #从第一个字母匹配，span（）输出范围 r" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="正则表达式\ip地址匹配方法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <!-- CSS Bootstrap & Custom -->
+    <link href="/assets/website/js/frontend/sockscap64/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-misc.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-main.css">
+    <!-- JavaScripts -->
+    <script src="/assets/website/js/frontend/sockscap64/jquery-1.10.2.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/modernizr.js"></script>
+    <!--[if lt IE 8]>
+<div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
+    </div>
+<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWWSJRFYQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FWWSJRFYQE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="home">
+        <div class="site-header">
+            <div class="main-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="logo">
+                                <a href="/">
+                                                                        <span>Sockscap64</span>
+                                                                </div> <!-- /.logo -->
+                        </div> <!-- /.col-md-4 -->
+                        <div class="col-md-8 col-sm-8 col-xs-6">
+                            <div class="menu text-right hidden-sm hidden-xs">
+                                <ul>
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </div> <!-- /.menu -->
+                        </div> <!-- /.col-md-8 -->
+                    </div> <!-- /.row -->
+                    <div class="responsive-menu text-right visible-xs visible-sm">
+                        <a href="#" class="toggle-menu fa fa-bars"></a>
+                        <div class="menu">
+                            <ul>
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div> <!-- /.menu -->
+                    </div> <!-- /.responsive-menu -->
+                </div> <!-- /.container -->
+            </div> <!-- /.header -->
+        </div> <!-- /.site-header -->
+    </div> <!-- /#home -->
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="/assets/website/img/sockscap64/banner01.jpg" alt="">
+                <div class="flex-caption">
+                    <h1>正则表达式\ip地址匹配方法</h1>
+                    <span></span>
+                    <p>
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="services" class="section-cotent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-github-gist"> <h2> <a id="1_rematchresearch_0" rel="nofollow"></a>(1) re.match\re.search</h2> <pre><code>re.match(pattern,string.flag=0)                        #从第一个字母匹配，span（）输出范围 re.search(pattern,string,flags=0)                      #区别为search搜索整个字符串  </code></pre> <h2> <a id="2_recompile_6" rel="nofollow"></a>(2) re.compile</h2> <pre><code>re.compile(pattern，flag=0) #用来编辑正则表达式，返回一个正则表达式，用于match和search方法 </code></pre> <p>例子：</p> <pre><code>import re pattern = re.compile(r'\d+')                           #得到新的正则表达式pattern result = pattern.search("asdf13 34etq 56') print(result) &gt;&gt;&gt; &lt;re.Match object; span=(4, 6), match='13'&gt;         #注意输出的类型是 re.match 类型 result.group()                                         #group（）的用法，作用是分组，groups（）的作用是全部分组 &gt;&gt;&gt; '13' </code></pre> <h2> <a id="3refindall_23" rel="nofollow"></a>(3)re.findall</h2> <p>re.findall是搜索所有的符合条件的字符串,并<strong>返回一个列表</strong></p> <pre><code>import re pattern =  re.compile(r' \w+\s\w') result1 = pattern.findall("asdf13 34etq 56")                #用法1，用来配合match和search print(result1) &gt;&gt;&gt; ['13', '34', '56'] re.findall(string,pos,endpos)   #（）左封闭，如（0,3）指124 例子：找到字符串里面所有的数字：``` import re string = 'qwe123 rty456 uio789' re.findall(r'\d+',string) &gt;&gt;&gt;['123', '456', '789'] </code></pre> <p>例子：补充！！</p> <h2> <a id="4_40" rel="nofollow"></a>（4）替换与补充</h2> <p>re.sub(pattern,replace，string，count=0,flags=0) #作用就是将搜索到的字符串替换为指定的字符串</p> <pre><code>import re  re.sub(r'\d\d\d','000','123qwe456qwe78ui',count=1) &gt;&gt;&gt;'000qwe456qwe78ui' </code></pre> <p>还可以替换为函数，如将字符串中的数字放大两倍，s = ‘A23G4HFD567’</p> <pre><code>import re def double(): 	补充！！！ </code></pre> <h2> <a id="5refinditer_54" rel="nofollow"></a>（5）re.finditer</h2> <p>refinditer（pattern，string，flags=0）的作用是找到字符串，将其作为一个迭代器返回</p> <pre><code>import re it = re.finditer(r'\d+','as24jjl453lj6l786l8') for match in it: 	print(match.group()) &gt;&gt;&gt;24    453    6     786    8 </code></pre> <h2> <a id="6resplit_67" rel="nofollow"></a>（6）re.split</h2> <p>re.split(pattern,string,maxsplit = 0,flags=0)的作用是以搜索到的字符串作为分割符</p> <pre><code>import re re.split(r'\w+','runnoob, runnoob.') &gt;&gt;&gt; ['', ', ', '.'] </code></pre> <h2> <a id="_75" rel="nofollow"></a>练习：</h2> <p>（1）用正则表达式匹配IP地址172.20.68.170，191.125.1.1</p> <pre><code>import re ip = '192.168.1.1' trueIp =re.search(r'(([01]{0,1}\d{0,1}\d|2[0-4]\d|25[0-5])\.){3}([01]{0,1}\d{0,1}\d|2[0-4]\d|25[0-5])',ip) print(trueIp) &gt;&gt;&gt; 192.168.1.1 ''' 这种写法存在问题，即[01]{0,1}\d{0,1}\d会匹配到001的字符出来，而这样是不对的。故换另一种方式 ''' </code></pre> <p>分析：<br /> 0~99正则表达式为[0-9]{0,1}\d<br /> 100~199表示为 1\d{2}<br /> 200~249表示为 2[0-4]\d<br /> 250~255表示为 25[0-5]<br /> 因此，ip地址的正则表达式为([0-9]{0,1}\d|1\d{2}| 2[0-4]\d|25[0-5].){3}[0-9]{0,1}\d|1\d{2}| 2[0-4]\d|25[0-5]</p> <pre><code>import re ip = '192.170.1.1' re.search(r'([01]{0,1}\d{0,1}\d\.){3}[01]{0,1}\d{0,1}\d',ip) &gt;&gt;&gt; &lt;re.Match object; span=(0, 11), match='192.170.1.1'&gt; </code></pre> <h2> <a id="_102" rel="nofollow"></a>常用的正则表达式</h2> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-66931.htm">米乐医疗科技有限公司怎么样（米乐集团是干什么的）</a></p>
+                                        <p>下一个：<a href="/news/article-67539.htm">安安宠医总部电话（安安宠医简介）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-44833.htm" title="win11系统如何添加pdf虚拟打印机">win11系统如何添加pdf虚拟打印机</a></li>
+                        <li class="py-2"><a href="/news/article-63204.htm" title="上海宠物免费领养中心（上海宠物领养网免费）">上海宠物免费领养中心（上海宠物领养网免费）</a></li>
+                        <li class="py-2"><a href="/news/article-61418.htm" title="动物疫苗是疫苗吗还是疫苗 动物疫苗是疫苗吗还是疫苗的">动物疫苗是疫苗吗还是疫苗 动物疫苗是疫苗吗还是疫苗的</a></li>
+                        <li class="py-2"><a href="/news/article-47297.htm" title="成都宠物托运公司哪家比较好一点（成都宠物物流公司）">成都宠物托运公司哪家比较好一点（成都宠物物流公司）</a></li>
+                        <li class="py-2"><a href="/news/article-47296.htm" title="Redis持久化机制及缓存失效解决方案">Redis持久化机制及缓存失效解决方案</a></li>
+                        <li class="py-2"><a href="/news/article-66297.htm" title="动物疫苗法律法规最新文件下载（动物疫苗法律法规最新文件下载）">动物疫苗法律法规最新文件下载（动物疫苗法律法规最新文件下载）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-free-node-subscribe.htm" title="1月29日→18.1M/S|2025年最新免费节点Sockscap64订阅链接地址">1月29日→18.1M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-16-free-high-speed-nodes.htm" title="1月16日→22.8M/S|2025年最新免费节点Sockscap64订阅链接地址">1月16日→22.8M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-55710.htm" title="南京宠物医院领养狗狗多少钱（南京宠物领养中心）">南京宠物医院领养狗狗多少钱（南京宠物领养中心）</a></li>
+                        <li class="py-2"><a href="/news/article-45834.htm" title="动物疫苗的使用方法及注意事项视频讲解下载 动物疫苗的使用方法及注意事项视频讲解下载">动物疫苗的使用方法及注意事项视频讲解下载 动物疫苗的使用方法及注意事项视频讲解下载</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /#services -->
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <p>
+                        <a href="/">首页</a> |
+                        <a href="/free-node/">免费节点</a> |
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>Sockscap64免费机场节点分享官网 版权所有 Powered by WordPress</p>
+                </div> <!-- /.col-md-6 -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="go-top">
+                        <a href="#" id="go-top">
+                            <i class="fa fa-angle-up"></i>
+                            Back to Top
+                        </a>
+                    </div>
+                </div> <!-- /.col-md-6 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.site-footer -->
+    <script src="/assets/website/js/frontend/sockscap64/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/plugins.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/jquery.lightbox.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
