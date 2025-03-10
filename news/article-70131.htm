@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sockscap64.github.io/news/article-70131.htm" />
+    <title>vue+Element实现登录随机验证码_vue.js_</title>
+        <meta name="description" content="本文实例为大家分享了vue+Element实现登录随机验证码的具体代码，供大家参考，具体内容如下 验证码验证只是前端，无需后台交互 首先，创建一个identify.vue页面，用于写各种：随机数字/字" />
+        <link rel="icon" href="/assets/website/img/sockscap64/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sockscap64免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sockscap64.github.io/news/article-70131.htm" />
+    <meta property="og:site_name" content="Sockscap64免费机场节点分享官网" />
+    <meta property="og:title" content="vue+Element实现登录随机验证码_vue.js_" />
+    <meta property="og:image" content="https://sockscap64.github.io/uploads/20241223-1/39126b07cf6d61d1c370d3aea13f4511.webp" />
+        <meta property="og:release_date" content="2025-03-09T09:44:21" />
+    <meta property="og:updated_time" content="2025-03-09T09:44:21" />
+        <meta property="og:description" content="本文实例为大家分享了vue+Element实现登录随机验证码的具体代码，供大家参考，具体内容如下 验证码验证只是前端，无需后台交互 首先，创建一个identify.vue页面，用于写各种：随机数字/字" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue+Element实现登录随机验证码_vue.js_">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <!-- CSS Bootstrap & Custom -->
+    <link href="/assets/website/js/frontend/sockscap64/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-misc.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-main.css">
+    <!-- JavaScripts -->
+    <script src="/assets/website/js/frontend/sockscap64/jquery-1.10.2.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/modernizr.js"></script>
+    <!--[if lt IE 8]>
+<div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
+    </div>
+<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWWSJRFYQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FWWSJRFYQE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="home">
+        <div class="site-header">
+            <div class="main-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="logo">
+                                <a href="/">
+                                                                        <span>Sockscap64</span>
+                                                                </div> <!-- /.logo -->
+                        </div> <!-- /.col-md-4 -->
+                        <div class="col-md-8 col-sm-8 col-xs-6">
+                            <div class="menu text-right hidden-sm hidden-xs">
+                                <ul>
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </div> <!-- /.menu -->
+                        </div> <!-- /.col-md-8 -->
+                    </div> <!-- /.row -->
+                    <div class="responsive-menu text-right visible-xs visible-sm">
+                        <a href="#" class="toggle-menu fa fa-bars"></a>
+                        <div class="menu">
+                            <ul>
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div> <!-- /.menu -->
+                    </div> <!-- /.responsive-menu -->
+                </div> <!-- /.container -->
+            </div> <!-- /.header -->
+        </div> <!-- /.site-header -->
+    </div> <!-- /#home -->
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="/assets/website/img/sockscap64/banner01.jpg" alt="">
+                <div class="flex-caption">
+                    <h1>vue+Element实现登录随机验证码_vue.js_</h1>
+                    <span></span>
+                    <p>
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="services" class="section-cotent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<p>本文实例为大家分享了vue+Element实现登录随机验证码的具体代码，供大家参考，具体内容如下</p> <p>验证码验证只是前端，无需后台交互</p> <p>首先，创建一个identify.vue页面，用于写各种：随机数字/字母，随机颜色，干扰点/线</p> <p>identify.vue</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;template&gt;   &lt;div class="s-canvas"&gt;    &lt;canvas id="s-canvas" :width="contentWidth" :height="contentHeight"&gt;    &lt;/canvas&gt;   &lt;/div&gt;  &lt;/template&gt;  &lt;script&gt;   export default {    name: 'SIdentify',    props: {     identifyCode: {      type: String,      default: '1234'     },     fontSizeMin: {      type: Number,      default: 16     },     fontSizeMax: {      type: Number,      default: 40     },     backgroundColorMin: {      type: Number,      default: 180     },     backgroundColorMax: {      type: Number,      default: 240     },     colorMin: {      type: Number,      default: 50     },     colorMax: {      type: Number,      default: 160     },     lineColorMin: {      type: Number,      default: 40     },     lineColorMax: {      type: Number,      default: 180     },     dotColorMin: {      type: Number,      default: 0     },     dotColorMax: {      type: Number,      default: 255     },     contentWidth: {      type: Number,      default: 112     },     contentHeight: {      type: Number,      default: 38     }    },    methods: { // 生成一个随机数         randomNum(min, max) {      return Math.floor(Math.random() * (max - min) + min)     },     // 生成一个随机的颜色     randomColor(min, max) {      var r = this.randomNum(min, max)      var g = this.randomNum(min, max)      var b = this.randomNum(min, max)      return 'rgb(' + r + ',' + g + ',' + b + ')'     },     drawPic() {      var canvas = document.getElementById('s-canvas')      var ctx = canvas.getContext('2d')      ctx.textBaseline = 'bottom'      // 绘制背景      ctx.fillStyle = this.randomColor(       this.backgroundColorMin,       this.backgroundColorMax)      ctx.fillRect(0, 0, this.contentWidth, this.contentHeight)      // 绘制文字      for (let i = 0; i &lt; this.identifyCode.length; i++) {       this.drawText(ctx, this.identifyCode[i], i)      }      this.drawLine(ctx)      this.drawDot(ctx)     },     drawText(ctx, txt, i) {    ctx.fillStyle = this.randomColor(this.colorMin, this.colorMax)    ctx.font = this.randomNum(this.fontSizeMin, this.fontSizeMax) +'px SimHei';    var x = (i + 1) * (this.contentWidth / (this.identifyCode.length + 1))    var y = this.randomNum(this.fontSizeMax,this.contentHeight - 5)    var deg = this.randomNum(-45, 45)      // 修改坐标原点和旋转角度       ctx.translate(x, y)      ctx.rotate(deg * Math.PI / 180)      ctx.fillText(txt, 0, 0)      // 恢复坐标原点和旋转角度      ctx.rotate(-deg * Math.PI / 180)      ctx.translate(-x, -y)     },     drawLine(ctx) {      // 绘制干扰线       for (let i = 0; i &lt; 8; i++) {  ctx.strokeStyle = this.randomColor(this.lineColorMin, this.lineColorMax)  ctx.beginPath()  ctx.moveTo(this.randomNum(0, this.contentWidth), this.randomNum(0, this.contentHeight))  ctx.lineTo(this.randomNum(0, this.contentWidth),this.randomNum(0, this.contentHeight))  ctx.stroke()      }     },      drawDot(ctx) {      // 绘制干扰点        for (let i = 0; i &lt; 100; i++) {  ctx.fillStyle = this.randomColor(0, 255)  ctx.beginPath()  ctx.arc(this.randomNum(0, this.contentWidth),this.randomNum(0, this.contentHeight), 1, 0, 2 * Math.PI)     ctx.fill()      }     }     },    watch: {     identifyCode() {      this.drawPic()     }    },    mounted() {     this.drawPic()    }   }  &lt;/script&gt;</pre> </div> <p><strong>然后就是在你需要的页面</strong></p> <p>html代码只是简单的输入行，图片，加验证码替换<br />@keyup.enter.native="submitForm()是我登录时摁下Enter直接登录的方法可有可无，自己选择</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;el-form-item prop="verifycode"&gt;       &lt;el-input v-model="param.verifycode" placeholder="请输入验证码" class="identifyinput" @keyup.enter.native="submitForm()"&gt;       &lt;/el-input&gt;      &lt;/el-form-item&gt;      &lt;el-form-item&gt;       &lt;div class="identifybox"&gt;        &lt;div @click="refreshCode"&gt;         &lt;s-identify :identifyCode="identifyCode"&gt;&lt;/s-identify&gt;        &lt;/div&gt;        &lt;el-button @click="refreshCode" type='text' class="textbtn"&gt;看不清，换一张&lt;/el-button&gt;       &lt;/div&gt;  &lt;/el-form-item&gt;</pre> </div> <p>然后就是script<br />首先引入SIdentify</p> <div class="ay1code"> <pre class="brush:js;">import SIdentify from '../../components/page/identify.vue'</pre> </div> <p>下面各种方法，验证及规则就直接写完了</p> <div class="ay1code"> <pre class="brush:js;">export default {      data: function() {      /* 自定义验证码规则 */     const validateVerifycode = (rule, value, callback) =&gt; {      if (value === '') {       callback(new Error('请输入验证码'))      } else if (value !== this.identifyCode) {       console.log('validateVerifycode:', value);       callback(new Error('验证码不正确!'))      } else {       callback()      }     }      return {          identifyCodes: '1234567890abcdefghijklmnopqrstuvwxyz',            identifyCode: '',            rules:{            verifycode: [{        required: true,        trigger: 'blur',        validator: validateVerifycode,       }]              }          };      },      components:{      SIdentify      },      mounted(){      this.identifyCode='';      this.makeCode(this.identifyCodes,4);      disableBrowserBack();       history.pushState(null, null, document.URL);        if (window.history &amp;&amp; window.history.pushState) {              $(window).on('popstate', function (){                  window.history.pushState('forward', null, '');                  window.history.forward(1);             });              window.history.pushState('forward', null, '');  //在IE中必须得有这两行         window.history.forward(1);      },      methods:{      randomNum(min, max) {      return Math.floor(Math.random() * (max - min) + min)     },     // 切换验证码        refreshCode() {      this.identifyCode = ''      this.makeCode(this.identifyCodes, 4)     },     makeCode(o, l) {      for (let i = 0; i &lt; l; i++) {       this.identifyCode += this.identifyCodes[        this.randomNum(0, this.identifyCodes.length)]      }      console.log(this.identifyCode)      /* alert(this.identifyCode) */     }      }  }</pre> </div> <p>到这就已经完成了，还可以添加css样式完美一下</p> <div class="ay1code"> <pre class="brush:css;"> .identifybox {    display: flex;    justify-content: space-between;    margin-top: 7px;   }</pre> </div> <p>验证码分享就这么多了。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-69486.htm">被宠物猫抓了一下出一点点血（被宠物猫抓一点点血没事吧）</a></p>
+                                        <p>下一个：<a href="/news/article-70132.htm">天津哪能领养狗狗（天津哪里可以领养宠物狗）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-50868.htm" title="动物疫苗打几次有效 动物疫苗打几次有效果">动物疫苗打几次有效 动物疫苗打几次有效果</a></li>
+                        <li class="py-2"><a href="/news/article-45835.htm" title="动物疫苗采购信息简报内容有哪些（动物疫苗管理制度）">动物疫苗采购信息简报内容有哪些（动物疫苗管理制度）</a></li>
+                        <li class="py-2"><a href="/news/article-53503.htm" title="给猫咪驱虫一般多少钱 猫咪驱虫要花多少钱">给猫咪驱虫一般多少钱 猫咪驱虫要花多少钱</a></li>
+                        <li class="py-2"><a href="/news/article-35796.htm" title="k8s 部署pod到指定node">k8s 部署pod到指定node</a></li>
+                        <li class="py-2"><a href="/news/article-48244.htm" title="宠物粮食加工厂加盟条件是什么样的 宠物粮食加工厂加盟条件是什么样的呢">宠物粮食加工厂加盟条件是什么样的 宠物粮食加工厂加盟条件是什么样的呢</a></li>
+                        <li class="py-2"><a href="/news/article-48243.htm" title="uniapp中封装一个弹框组件">uniapp中封装一个弹框组件</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-16-free-subscribe-node.htm" title="2月16日→22.8M/S|2025年最新免费节点Sockscap64订阅链接地址">2月16日→22.8M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-45834.htm" title="动物疫苗的使用方法及注意事项视频讲解下载 动物疫苗的使用方法及注意事项视频讲解下载">动物疫苗的使用方法及注意事项视频讲解下载 动物疫苗的使用方法及注意事项视频讲解下载</a></li>
+                        <li class="py-2"><a href="/news/article-49817.htm" title="开宠物医院的条件有哪些（开宠物医院都需要什么证件）">开宠物医院的条件有哪些（开宠物医院都需要什么证件）</a></li>
+                        <li class="py-2"><a href="/news/article-36436.htm" title="spring源码之Mybatis扫描器">spring源码之Mybatis扫描器</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /#services -->
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <p>
+                        <a href="/">首页</a> |
+                        <a href="/free-node/">免费节点</a> |
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>Sockscap64免费机场节点分享官网 版权所有 Powered by WordPress</p>
+                </div> <!-- /.col-md-6 -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="go-top">
+                        <a href="#" id="go-top">
+                            <i class="fa fa-angle-up"></i>
+                            Back to Top
+                        </a>
+                    </div>
+                </div> <!-- /.col-md-6 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.site-footer -->
+    <script src="/assets/website/js/frontend/sockscap64/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/plugins.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/jquery.lightbox.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
