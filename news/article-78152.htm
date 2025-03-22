@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sockscap64.github.io/news/article-78152.htm" />
+    <title>vue 使用echarts绘制折线图</title>
+        <meta name="description" content="&lt;template&gt;     &lt;div&gt;         &lt;!-- 方法一，注册echarts到vue的原型对象中，指定某个div作为echarts的画布 --&gt; " />
+        <link rel="icon" href="/assets/website/img/sockscap64/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sockscap64免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sockscap64.github.io/news/article-78152.htm" />
+    <meta property="og:site_name" content="Sockscap64免费机场节点分享官网" />
+    <meta property="og:title" content="vue 使用echarts绘制折线图" />
+    <meta property="og:image" content="https://sockscap64.github.io/uploads/20241223-1/b46febb9120ded394f9d949f5e0ee16d.webp" />
+        <meta property="og:release_date" content="2025-03-21T10:29:00" />
+    <meta property="og:updated_time" content="2025-03-21T10:29:00" />
+        <meta property="og:description" content="&lt;template&gt;     &lt;div&gt;         &lt;!-- 方法一，注册echarts到vue的原型对象中，指定某个div作为echarts的画布 --&gt; " />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue 使用echarts绘制折线图">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <!-- CSS Bootstrap & Custom -->
+    <link href="/assets/website/js/frontend/sockscap64/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-misc.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-main.css">
+    <!-- JavaScripts -->
+    <script src="/assets/website/js/frontend/sockscap64/jquery-1.10.2.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/modernizr.js"></script>
+    <!--[if lt IE 8]>
+<div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
+    </div>
+<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWWSJRFYQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FWWSJRFYQE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="home">
+        <div class="site-header">
+            <div class="main-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="logo">
+                                <a href="/">
+                                                                        <span>Sockscap64</span>
+                                                                </div> <!-- /.logo -->
+                        </div> <!-- /.col-md-4 -->
+                        <div class="col-md-8 col-sm-8 col-xs-6">
+                            <div class="menu text-right hidden-sm hidden-xs">
+                                <ul>
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </div> <!-- /.menu -->
+                        </div> <!-- /.col-md-8 -->
+                    </div> <!-- /.row -->
+                    <div class="responsive-menu text-right visible-xs visible-sm">
+                        <a href="#" class="toggle-menu fa fa-bars"></a>
+                        <div class="menu">
+                            <ul>
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div> <!-- /.menu -->
+                    </div> <!-- /.responsive-menu -->
+                </div> <!-- /.container -->
+            </div> <!-- /.header -->
+        </div> <!-- /.site-header -->
+    </div> <!-- /#home -->
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="/assets/website/img/sockscap64/banner01.jpg" alt="">
+                <div class="flex-caption">
+                    <h1>vue 使用echarts绘制折线图</h1>
+                    <span></span>
+                    <p>
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="services" class="section-cotent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/14bbf058d43319b9ed8bce938b2ab836.jpg" alt="vue 使用echarts绘制折线图"></p> <pre><code>&lt;template&gt;     &lt;div&gt;         &lt;!-- 方法一，注册echarts到vue的原型对象中，指定某个div作为echarts的画布 --&gt;         &lt;el-row :gutter="20" style="margin-bottom: 20px;"&gt;             &lt;el-col :span="24"&gt;                 &lt;el-card shadow="always"&gt;                     &lt;el-input v-model="query.deviceId" placeholder="请输入设备编号" style="width:250px;" clearable&gt;&lt;/el-input&gt;                     &lt;el-button icon="el-icon-search" @click="getDevMeterHistoryData()"&gt;查询&lt;/el-button&gt;                     &lt;div id="myChart" style="{width:1000px; height:500px;}"&gt;&lt;/div&gt;                 &lt;/el-card&gt;             &lt;/el-col&gt;         &lt;/el-row&gt;     &lt;/div&gt; &lt;/template&gt; &lt;script&gt; import { fetchGet } from "@/assets/js/api"; export default {     name: "dashboard",     data() {         return {             query: {                 deviceId: "884A1882E80A",                 fields: "",             },             myChart: "",             option: [],             minData: 0,             data_totalVoltage: [],             data_electricCurrentData: [],             data_activePower: [],             data_powerFactor: [],             data_frequency: [],             data_energy: [],         };     },     mounted() {         this.initChart();         this.getDevMeterHistoryData();         this.getLegendSelectChanged();     },     methods: {         initChart() {             //echarts.init(document.getElementById("myChart")).dispose(); //销毁前一个echarts实例             //获取容器元素,初始化echarts实例             this.myChart = this.$echarts.init(document.getElementById("myChart"));             this.option = {                 title: { text: "" },                 tooltip: {                     trigger: "axis",                     textStyle: { align: "left" },                 },                 toolBox: {                     show: true,                     feature: {                         dataView:{show: true},                         dataZoom:{show: true},//数据缩放视图                         magicType:{type :['line','bar']},                         restore:{show: true},                         saveAsImage: { show: true }                     },                 },                 xAxis: {                     data: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],                     splitLine: { show: false }, //去除网格分割线（默认false）                     splitArea: { show: false }, //保留网格区域                     axisLine: {                         lineStyle: {                             //坐标线                             type: "solid",                             //color: '#d8d8d8',//轴的颜 色                             width: "1", //坐标线宽度                         },                     },                     axisTick: {                         show: false, //x轴初始化不显示                     },                 },                 yAxis: {                     name: "", //y轴的名称（单位）                     //max: '241.0',//y轴最大刻度                     min: 0, //y轴最小刻度                     type: "value",                     axisLine: {                         show: false,                     },                 },                 legend: {                     //itemWidth: 34, //图例                     //itemHeight: 14,                     align: "left",                     data: [ "电压", "电流", "有功功率", "频率", "功率因数", "用电量"],                 },                 series: [                     { name: "电压", type: "line", data: [], , smooth: true }, //smooth 是否平滑 也可以设置为 0到1 的值，表示平滑程度                     { name: "电流", type: "line", data: [] },                     { name: "有功功率", type: "line", data: [] },                     { name: "频率", type: "line", data: [] },                     { name: "功率因数", type: "line", data: [] },                     { name: "用电量", type: "line", data: [] },                 ],             };             //重绘, 设置option             window.addEventListener("resize", this.myChart.resize());             this.myChart.setOption(this.option);             this.getLegendSelectChanged();         },         getDevMeterHistoryData() {             fetchGet("getDevMeterHistoryData", {                 deviceId: this.query.deviceId,                 pageNo: 1,                 pageSize: 15,             }).then((rsp) =&gt; {                 if (rsp.code == 0) {                     this.setChartData(rsp.data);                 }             });         },         //设置图表实体数据         setChartData(rspData) {             let opt = this.option;             opt.xAxis.data = rspData.xAxisData;             opt.legend.data = [];             opt.series = [];             //             for (var i = 0; i &lt; rspData.data.length; i++) {                 let vo = rspData.data[i];                 if (rspData.size == 1) {                     opt.yAxis.name = vo.unit;                     opt.yAxis.min = vo.minData;                 }                 opt.legend.data.push(vo.name);                 //                 // 给一个对象中增加属性markPoint                 var markPoint = {data: [{type: 'max', name: '最大值'}]}                 this.$set(vo, 'markPoint', markPoint)                 console.log(vo)                 opt.series.push(vo);             }             this.myChart.setOption(opt);         },         getLegendSelectChanged() {             let opt = this.option;             this.myChart.on("legendselectchanged", function (param) {                 var keys = Object.keys(param.selected);                 var values = Object.values(param.selected);                 //                 console.log(param.name);                 //                 if (keys == null || keys.length == 0 || opt.series == null) {                     return;                 }                 for (var i = 0; i &lt; opt.series.length; i++) {                     if (param.name != keys[i]) {                         //根据点击的参数，如果只有一个数据展示，则动态设置y轴的最小参考数值（未处理）                         //this.minData = opt.series[i].minData;                         //console.log(opt.series[i]);                     } else {                         //console.log("1 minData:" + this.minData +", series minData:" + opt.series[i].minData);                         this.minData = opt.series[i].minData;                         console.log("2 minData:" + this.minData + ", series minData:" + opt.series[i].minData);//                     }                 }             });             this.myChart.setOption(opt);         }     }, }; &lt;/script&gt;</code></pre> <h3><a id="set__173" rel="nofollow"></a>使用$set 给一个对象中增加属性</h3> <pre><code class="prism language-html">//给一个对象中增加属性markPoint var markPoint = {data: [{type: 'max', name: '最大值'}]} this.$set(vo, 'markPoint', markPoint) console.log(vo) opt.series.push(vo);</code></pre> <h2><a id="_182" rel="nofollow"></a>接口实体参数</h2> <pre><code>{     "result":"SUCCESS",     "code":"0",     "msg":"ok",     "data":{         "xAxisData":["17:46:20","17:46:40","17:46:50","17:47:00","17:47:10","17:47:20","17:47:40", "17:47:50","17:48:00","17:48:10","17:48:20","17:48:30","17:48:50","17:49:00","17:49:10"],         "data":[{                 "field":"voltage",                 "id":"voltage",                 "name":"电压",                 "unit":"V",                 "minData":240,                 "type":"line",                 "data":[236.71,236.7,236.82,236.62,236.75,236.58,236.6,236.53,236.68,236.52,236.65,236.44,236.95,236.84,236.81]             },{                 "field":"electricCurrent",                 "id":"electricCurrent",                 "name":"电流",                 "unit":"mA",                 "minData":5,                 "type":"line",                 "data":[0.002,0.002,0.002,0.002,0.002,0.002,0.002,0.002,0.002,0.002,0.002,0.002,0.002,0.002,0.002]             },{                 "field":"activePower",                 "id":"activePower",                 "name":"有功功率",                 "unit":"KW",                 "minData":0,                 "type":"line",                 "data":[0.537,0.534,0.53,0.531,0.53,0.529,0.533, 0.527,0.525, 0.537,0.532,0.535,0.526, 0.53,0.528]             },{                 "field":"frequency",                 "id":"frequency",                 "name":"频率",                 "unit":"Hz",                 "minData":51,                 "type":"line",                 "data":[49.9,49.92,49.94,49.92,49.88,49.88,49.88,49.88,49.82,49.9,49.9,49.88,49.92,49.96,49.9]             },{                 "field":"powerFactor",                 "id":"powerFactor",                 "name":"功率因数",                 "unit":"λ",                 "minData":0,                 "type":"line",                 "data":[0.88,0.87,0.87,0.86,0.87,0.87,0.87,0.86,0.87,0.88,0.87,0.87,0.86,0.87,0.88 ]             },{                 "field":"energy",                 "id":"energy",                 "name":"用电量",                 "unit":"千瓦·时(度)",                 "minData":0,                 "type":"line",                 "data":[1.784, 1.784,1.784,1.784,1.784,1.784,1.784,1.784,1.784,1.784,1.784,1.784,1.784,1.784,1.784]             }         ]     } }</code></pre> <h3><a id="_245" rel="nofollow"></a>参考资料</h3> <p>vue中绘制echarts折线图<br /> https://www.cnblogs.com/yanl55555/p/12544109.html</p> <p>echarts 改变折线图曲线颜色、区域颜色<br /> https://www.cnblogs.com/justyouadmin/p/11421680.html</p> <p>echarts中设置markPoint<br /> https://www.cnblogs.com/aixuexi-504682107/p/13575733.html</p> <pre><code>markPoint: {     data: [         {             type: "max",             name: "最大值",             color: "pink",             itemStyle: {                 color: "rgba(115, 159, 250, .5)"                 },                 symbol: "rect",                 symbolSize: [25, 25], // 容器大小                 symbolOffset: [0, -15], //位置偏移         },         {                 type: "min",                 name: "最小值",                 color: "rgba(255, 148, 77, 1)",                 itemStyle: {                     color: "rgba(255, 148, 77, .5)"                     },                     symbol: "rect",                     symbolSize: [25, 25], // 容器大小                     symbolOffset: [0, -15], //位置偏移         },     ] },</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-77470.htm">成都宠物领养平台电话是多少号码（成都宠物领养中心电话）</a></p>
+                                        <p>下一个：<a href="/news/article-78153.htm">宠物粮食在哪里进货好卖呢视频（宠物粮进货平台）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-free-node-subscribe.htm" title="3月11日→22.3M/S|2025年最新免费节点Sockscap64订阅链接地址">3月11日→22.3M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-74096.htm" title="北京中农大动物医院有限公司招聘电话（北京中农大动物药业官网）">北京中农大动物医院有限公司招聘电话（北京中农大动物药业官网）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-9-free-subscribe-node.htm" title="2月9日→22.3M/S|2025年最新免费节点Sockscap64订阅链接地址">2月9日→22.3M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-55148.htm" title="宠物领养协议法律效力如何 宠物领养协议法律效力如何">宠物领养协议法律效力如何 宠物领养协议法律效力如何</a></li>
+                        <li class="py-2"><a href="/news/article-72093.htm" title="动物疫苗的使用方法及注意事项视频讲解图片下载（动物疫苗知识）">动物疫苗的使用方法及注意事项视频讲解图片下载（动物疫苗知识）</a></li>
+                        <li class="py-2"><a href="/news/article-37892.htm" title="十大毒猫粮黑名单图片 十大毒猫粮排行榜">十大毒猫粮黑名单图片 十大毒猫粮排行榜</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-21-free-high-speed-nodes.htm" title="2月21日→21.1M/S|2025年最新免费节点Sockscap64订阅链接地址">2月21日→21.1M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-20-free-high-speed-nodes.htm" title="2月20日→18.3M/S|2025年最新免费节点Sockscap64订阅链接地址">2月20日→18.3M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-10-free-node-subscribe-links.htm" title="3月10日→19.1M/S|2025年最新免费节点Sockscap64订阅链接地址">3月10日→19.1M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-free-high-speed-nodes.htm" title="1月20日→20.1M/S|2025年最新免费节点Sockscap64订阅链接地址">1月20日→20.1M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">65</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /#services -->
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <p>
+                        <a href="/">首页</a> |
+                        <a href="/free-node/">免费节点</a> |
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>Sockscap64免费机场节点分享官网 版权所有 Powered by WordPress</p>
+                </div> <!-- /.col-md-6 -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="go-top">
+                        <a href="#" id="go-top">
+                            <i class="fa fa-angle-up"></i>
+                            Back to Top
+                        </a>
+                    </div>
+                </div> <!-- /.col-md-6 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.site-footer -->
+    <script src="/assets/website/js/frontend/sockscap64/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/plugins.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/jquery.lightbox.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

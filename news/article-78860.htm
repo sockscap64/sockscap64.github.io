@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sockscap64.github.io/news/article-78860.htm" />
+    <title>linux Centos7离线安装nginx</title>
+        <meta name="description" content="离线安装nginx，摸索了一天的成果，怕自己忘记，也分享给大家，有问题请指出。  	操作系统：centos7 	联网状态：无互联网-内网  			一、准备环境包gcc gcc-c++ 			二、准备准" />
+        <link rel="icon" href="/assets/website/img/sockscap64/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sockscap64免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sockscap64.github.io/news/article-78860.htm" />
+    <meta property="og:site_name" content="Sockscap64免费机场节点分享官网" />
+    <meta property="og:title" content="linux Centos7离线安装nginx" />
+    <meta property="og:image" content="https://sockscap64.github.io/uploads/20241223-1/3573afb606daf0db2c0ef11de096fb5e.webp" />
+        <meta property="og:release_date" content="2025-03-22T08:46:46" />
+    <meta property="og:updated_time" content="2025-03-22T08:46:46" />
+        <meta property="og:description" content="离线安装nginx，摸索了一天的成果，怕自己忘记，也分享给大家，有问题请指出。  	操作系统：centos7 	联网状态：无互联网-内网  			一、准备环境包gcc gcc-c++ 			二、准备准" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="linux Centos7离线安装nginx">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <!-- CSS Bootstrap & Custom -->
+    <link href="/assets/website/js/frontend/sockscap64/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-misc.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-main.css">
+    <!-- JavaScripts -->
+    <script src="/assets/website/js/frontend/sockscap64/jquery-1.10.2.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/modernizr.js"></script>
+    <!--[if lt IE 8]>
+<div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
+    </div>
+<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWWSJRFYQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FWWSJRFYQE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="home">
+        <div class="site-header">
+            <div class="main-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="logo">
+                                <a href="/">
+                                                                        <span>Sockscap64</span>
+                                                                </div> <!-- /.logo -->
+                        </div> <!-- /.col-md-4 -->
+                        <div class="col-md-8 col-sm-8 col-xs-6">
+                            <div class="menu text-right hidden-sm hidden-xs">
+                                <ul>
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </div> <!-- /.menu -->
+                        </div> <!-- /.col-md-8 -->
+                    </div> <!-- /.row -->
+                    <div class="responsive-menu text-right visible-xs visible-sm">
+                        <a href="#" class="toggle-menu fa fa-bars"></a>
+                        <div class="menu">
+                            <ul>
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div> <!-- /.menu -->
+                    </div> <!-- /.responsive-menu -->
+                </div> <!-- /.container -->
+            </div> <!-- /.header -->
+        </div> <!-- /.site-header -->
+    </div> <!-- /#home -->
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="/assets/website/img/sockscap64/banner01.jpg" alt="">
+                <div class="flex-caption">
+                    <h1>linux Centos7离线安装nginx</h1>
+                    <span></span>
+                    <p>
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="services" class="section-cotent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-dracula"> <p>离线安装nginx，摸索了一天的成果，怕自己忘记，也分享给大家，有问题请指出。</p> </h1> <pre><code>	操作系统：centos7 	联网状态：无互联网-内网</code></pre> </h1> <pre><code>			一、准备环境包gcc gcc-c++ 			二、准备准备离线安装包 					openssl 					zlib 					pcre 					nginx</code></pre> </h1> <p>推荐大家下载包的网站：<br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://rpmfind.net/linux/rpm2html/search.php"  rel="nofollow">http://rpmfind.net/linux/rpm2html/search.php</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://centos.pkgs.org/"  rel="nofollow">https://centos.pkgs.org/</a><br /> 这两个网站都可以下载所需要的安装包，不同的就是版本差异，大家各取所取。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/bffbb5e294bb2e2d38fdf5dba23db5e7.jpg" alt="linux Centos7离线安装nginx"></p> <h2><a id="_20" rel="nofollow"></a>安装</h2> <p>开始安装</p> <ol> <li>把包放在一个文件夹中，然后运行命令：rpm -Uvh *.rpm --nodeps --force；</li> <li>安装pcre：<br /> tar -zxvf pcre-8.**.tar.gz<br /> ./configure<br /> make<br /> make install<br /> 大家根据自己的版本修改命令；</li> <li>安装openssl：<br /> tar -zxvf openssl-1.0.**.tar.gz<br /> ./configure<br /> make<br /> make install<br /> 大家根据自己的版本修改命令<br /> 注意，这个包安装的时候一定要进文件夹看清楚文件的名称大小写，如果上面命令的不行，就换config；</li> <li>安装zlib：<br /> tar -zxvf zlib-1.2.**.tar.gz<br /> ./configure<br /> make<br /> make install<br /> 大家根据自己的版本修改命令，同上；</li> <li>安装nginx：<br /> tar -zxvf nginx-1.15.**.tar.gz<br /> ./configure<br /> make<br /> make install<br /> 大家根据自己的版本修改命令；</li> <li>执行 nginx命令：<br /> cd /usr/local/nginx/sbin<br /> ./nginx；</li> <li>浏览器已可访问nginx，打开浏览器访问此机器的 IP，如果浏览器出现 Welcome to nginx! 则表示 Nginx 安装并运行成功。；</li> <li>部分命令如下：<br /> 重启：<br /> /usr/local/nginx/sbin/nginx –s reload<br /> 停止：<br /> /usr/local/nginx/sbin/nginx –s stop<br /> 测试配置文件是否正常：<br /> /usr/local/nginx/sbin/nginx –t<br /> 强制关闭：<br /> pkill nginx</li> </ol> <h2><a id="_67" rel="nofollow"></a>完成</h2> <pre><code>	以上就是我在内网搭建nginx的方法，希望能帮助到大家，如果有误的话请告知我，我及时改正，谢谢！ 	这是我整理的包： 	https://download.csdn.net/download/weixin_44245604/11341357</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-78153.htm">宠物粮食在哪里进货好卖呢视频（宠物粮进货平台）</a></p>
+                                        <p>下一个：<a href="/news/article-78861.htm">动物医院都有什么部门管理 动物医院都有什么部门管理的</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-67538.htm" title="正则表达式\ip地址匹配方法">正则表达式\ip地址匹配方法</a></li>
+                        <li class="py-2"><a href="/news/article-39378.htm" title="狗粮加工厂利润成本分析表模板怎么写（狗粮生产成本）">狗粮加工厂利润成本分析表模板怎么写（狗粮生产成本）</a></li>
+                        <li class="py-2"><a href="/news/article-75442.htm" title="家装用什么电线管好一点(家装用什么电线管好呢)">家装用什么电线管好一点(家装用什么电线管好呢)</a></li>
+                        <li class="py-2"><a href="/news/article-59100.htm" title="Java类的加载、链接、初始化">Java类的加载、链接、初始化</a></li>
+                        <li class="py-2"><a href="/news/article-47297.htm" title="成都宠物托运公司哪家比较好一点（成都宠物物流公司）">成都宠物托运公司哪家比较好一点（成都宠物物流公司）</a></li>
+                        <li class="py-2"><a href="/news/article-44833.htm" title="win11系统如何添加pdf虚拟打印机">win11系统如何添加pdf虚拟打印机</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-25-free-subscribe-node.htm" title="2月25日→21M/S|2025年最新免费节点Sockscap64订阅链接地址">2月25日→21M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-51909.htm" title="开宠物店亏本经历有哪些（开宠物店会亏本吗）">开宠物店亏本经历有哪些（开宠物店会亏本吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-13-node-share-links.htm" title="2月13日→19.2M/S|2025年最新免费节点Sockscap64订阅链接地址">2月13日→19.2M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-15-node-share-links.htm" title="3月15日→21.4M/S|2025年最新免费节点Sockscap64订阅链接地址">3月15日→21.4M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">65</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /#services -->
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <p>
+                        <a href="/">首页</a> |
+                        <a href="/free-node/">免费节点</a> |
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>Sockscap64免费机场节点分享官网 版权所有 Powered by WordPress</p>
+                </div> <!-- /.col-md-6 -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="go-top">
+                        <a href="#" id="go-top">
+                            <i class="fa fa-angle-up"></i>
+                            Back to Top
+                        </a>
+                    </div>
+                </div> <!-- /.col-md-6 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.site-footer -->
+    <script src="/assets/website/js/frontend/sockscap64/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/plugins.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/jquery.lightbox.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
