@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sockscap64.github.io/news/article-85881.htm" />
+    <title>python 在sql语句中使用%s,%d,%f</title>
+        <meta name="description" content="python连接数据库执行增删查改 mysql数据库&nbsp;import pymysql&nbsp; postgresql数据库&nbsp;import psycopg2 普通含%的python语" />
+        <link rel="icon" href="/assets/website/img/sockscap64/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sockscap64免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sockscap64.github.io/news/article-85881.htm" />
+    <meta property="og:site_name" content="Sockscap64免费机场节点分享官网" />
+    <meta property="og:title" content="python 在sql语句中使用%s,%d,%f" />
+    <meta property="og:image" content="https://sockscap64.github.io/uploads/20241223-1/20dab0bf69345ed79374f0a85a060b49.webp" />
+        <meta property="og:release_date" content="2025-04-01T09:46:52" />
+    <meta property="og:updated_time" content="2025-04-01T09:46:52" />
+        <meta property="og:description" content="python连接数据库执行增删查改 mysql数据库&nbsp;import pymysql&nbsp; postgresql数据库&nbsp;import psycopg2 普通含%的python语" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="python 在sql语句中使用%s,%d,%f">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <!-- CSS Bootstrap & Custom -->
+    <link href="/assets/website/js/frontend/sockscap64/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-misc.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-main.css">
+    <!-- JavaScripts -->
+    <script src="/assets/website/js/frontend/sockscap64/jquery-1.10.2.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/modernizr.js"></script>
+    <!--[if lt IE 8]>
+<div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
+    </div>
+<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWWSJRFYQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FWWSJRFYQE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="home">
+        <div class="site-header">
+            <div class="main-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="logo">
+                                <a href="/">
+                                                                        <span>Sockscap64</span>
+                                                                </div> <!-- /.logo -->
+                        </div> <!-- /.col-md-4 -->
+                        <div class="col-md-8 col-sm-8 col-xs-6">
+                            <div class="menu text-right hidden-sm hidden-xs">
+                                <ul>
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </div> <!-- /.menu -->
+                        </div> <!-- /.col-md-8 -->
+                    </div> <!-- /.row -->
+                    <div class="responsive-menu text-right visible-xs visible-sm">
+                        <a href="#" class="toggle-menu fa fa-bars"></a>
+                        <div class="menu">
+                            <ul>
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div> <!-- /.menu -->
+                    </div> <!-- /.responsive-menu -->
+                </div> <!-- /.container -->
+            </div> <!-- /.header -->
+        </div> <!-- /.site-header -->
+    </div> <!-- /#home -->
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="/assets/website/img/sockscap64/banner01.jpg" alt="">
+                <div class="flex-caption">
+                    <h1>python 在sql语句中使用%s,%d,%f</h1>
+                    <span></span>
+                    <p>
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="services" class="section-cotent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>python连接数据库执行增删查改</p> <p>mysql数据库&nbsp;import pymysql&nbsp;</p> <p>postgresql数据库&nbsp;import psycopg2</p> <p>普通含%的python语句</p> <p><img decoding="async" alt="" height="40" src="http://img.555519.xyz/uploads/20221228/6944aaa70f268b2c9334a9661950a4f6.jpg"></p> <p><img decoding="async" alt="" height="44" src="http://img.555519.xyz/uploads/20221228/dccf31481756e3e2c2b9210789297e23.jpg">&nbsp;</p> <p><img decoding="async" alt="" height="39" src="http://img.555519.xyz/uploads/20221228/e935958cf68e07662f108d2606bf1128.jpg">&nbsp;</p> <p>sql语句中</p> <p><img loading="lazy" decoding="async" alt="" height="23" src="http://img.555519.xyz/uploads/20221228/9d1c9dd440e2d79c79962e32edd06cf2.jpg">&nbsp;</p> <p>普通sql语句 select * from tables where tablename = 'table_name' ,所以这里该加的引号还是要加&nbsp;</p> <p>不加的情况</p> <p><img loading="lazy" decoding="async" alt="" height="24" src="http://img.555519.xyz/uploads/20221228/4c373c3c16edfa62f616f626cf27e1ce.jpg"></p> <p>翻页的情况</p> <p><img loading="lazy" decoding="async" alt="" height="38" src="http://img.555519.xyz/uploads/20221228/51af764875170e0b9de5e9d63b0d55f0.jpg">&nbsp;like的情况</p> <p><img loading="lazy" decoding="async" alt="" height="36" src="http://img.555519.xyz/uploads/20221228/114601953328b0520676329a4c57b3dc.jpg"></p> <p>因为普通sql语句是 where 列名 like '4301%' 这里需要多加一个%防止转义&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-85880.htm">深度学习Pytorch——神经网络</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-27-node-share-links.htm" title="3月27日→23M/S|2025年最新免费节点Sockscap64订阅链接地址">3月27日→23M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-76791.htm" title="python 在sql语句中使用%s,%d,%f">python 在sql语句中使用%s,%d,%f</a></li>
+                        <li class="py-2"><a href="/news/article-78152.htm" title="vue 使用echarts绘制折线图">vue 使用echarts绘制折线图</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-free-node-subscribe-links.htm" title="4月1日→20.7M/S|2025年最新免费节点Sockscap64订阅链接地址">4月1日→20.7M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-19-node-share.htm" title="3月19日→22.1M/S|2025年最新免费节点Sockscap64订阅链接地址">3月19日→22.1M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-74767.htm" title="动物疫控中心可以打疫苗吗（动物疾控中心可以打疫苗吗）">动物疫控中心可以打疫苗吗（动物疾控中心可以打疫苗吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-18-free-high-speed-nodes.htm" title="3月18日→19.3M/S|2025年最新免费节点Sockscap64订阅链接地址">3月18日→19.3M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-70132.htm" title="天津哪能领养狗狗（天津哪里可以领养宠物狗）">天津哪能领养狗狗（天津哪里可以领养宠物狗）</a></li>
+                        <li class="py-2"><a href="/news/article-70776.htm" title="feign实现远程调用">feign实现远程调用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-31-free-high-speed-nodes.htm" title="3月31日→21M/S|2025年最新免费节点Sockscap64订阅链接地址">3月31日→21M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /#services -->
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <p>
+                        <a href="/">首页</a> |
+                        <a href="/free-node/">免费节点</a> |
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>Sockscap64免费机场节点分享官网 版权所有 Powered by WordPress</p>
+                </div> <!-- /.col-md-6 -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="go-top">
+                        <a href="#" id="go-top">
+                            <i class="fa fa-angle-up"></i>
+                            Back to Top
+                        </a>
+                    </div>
+                </div> <!-- /.col-md-6 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.site-footer -->
+    <script src="/assets/website/js/frontend/sockscap64/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/plugins.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/jquery.lightbox.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
