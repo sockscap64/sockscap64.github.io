@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sockscap64.github.io/news/article-91722.htm" />
+    <title>vue实现拖拽排序、移除</title>
+        <meta name="description" content="vue实现拖拽排序、可用于图片、模块交换位置  效果 以“首页模块”为例    录屏软件很卡，实际效果是非常流畅的  本质都一样，只不过一个是单行、一个是双列，使用的是vuedraggle组件vued" />
+        <link rel="icon" href="/assets/website/img/sockscap64/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sockscap64免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sockscap64.github.io/news/article-91722.htm" />
+    <meta property="og:site_name" content="Sockscap64免费机场节点分享官网" />
+    <meta property="og:title" content="vue实现拖拽排序、移除" />
+    <meta property="og:image" content="https://sockscap64.github.io/uploads/20241223-1/9970033df7c0b33bf2d249365f7aa1c5.webp" />
+        <meta property="og:release_date" content="2025-04-09T09:16:29" />
+    <meta property="og:updated_time" content="2025-04-09T09:16:29" />
+        <meta property="og:description" content="vue实现拖拽排序、可用于图片、模块交换位置  效果 以“首页模块”为例    录屏软件很卡，实际效果是非常流畅的  本质都一样，只不过一个是单行、一个是双列，使用的是vuedraggle组件vued" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue实现拖拽排序、移除">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <!-- CSS Bootstrap & Custom -->
+    <link href="/assets/website/js/frontend/sockscap64/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-misc.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-main.css">
+    <!-- JavaScripts -->
+    <script src="/assets/website/js/frontend/sockscap64/jquery-1.10.2.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/modernizr.js"></script>
+    <!--[if lt IE 8]>
+<div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
+    </div>
+<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWWSJRFYQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FWWSJRFYQE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="home">
+        <div class="site-header">
+            <div class="main-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="logo">
+                                <a href="/">
+                                                                        <span>Sockscap64</span>
+                                                                </div> <!-- /.logo -->
+                        </div> <!-- /.col-md-4 -->
+                        <div class="col-md-8 col-sm-8 col-xs-6">
+                            <div class="menu text-right hidden-sm hidden-xs">
+                                <ul>
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </div> <!-- /.menu -->
+                        </div> <!-- /.col-md-8 -->
+                    </div> <!-- /.row -->
+                    <div class="responsive-menu text-right visible-xs visible-sm">
+                        <a href="#" class="toggle-menu fa fa-bars"></a>
+                        <div class="menu">
+                            <ul>
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div> <!-- /.menu -->
+                    </div> <!-- /.responsive-menu -->
+                </div> <!-- /.container -->
+            </div> <!-- /.header -->
+        </div> <!-- /.site-header -->
+    </div> <!-- /#home -->
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="/assets/website/img/sockscap64/banner01.jpg" alt="">
+                <div class="flex-caption">
+                    <h1>vue实现拖拽排序、移除</h1>
+                    <span></span>
+                    <p>
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="services" class="section-cotent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>vue实现拖拽排序、可用于图片、模块交换位置</h3> <ul> <li><a href="#_2" rel="nofollow">效果</a></li> <li><a href="#_7" rel="nofollow">以“首页模块”为例</a></li> </ul> </div> </h1> <p>录屏软件很卡，实际效果是非常流畅的<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221230/c9ede4f08e448ebbb6ba6774087fcf0d.jpg" alt="vue实现拖拽排序、移除"></p> </h1> <p>本质都一样，只不过一个是单行、一个是双列，使用的是vuedraggle组件<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/SortableJS/Vue.Draggable"  rel="nofollow">vuedraggle</a><br /> draggable就是组件，两个组件都写同一个group，则两栏可以互相拖拽，list绑定对应的数据源</p> <pre><code class="prism language-javascript">				<span class="token comment">// 左边栏</span>               <span class="token operator">&lt;</span>div style<span class="token operator">=</span><span class="token string">"float: left"</span><span class="token operator">&gt;</span>                 <span class="token operator">&lt;</span>draggable                     animation<span class="token operator">=</span><span class="token string">"300"</span>                     group<span class="token operator">=</span><span class="token string">"module"</span>                     <span class="token operator">:</span>list<span class="token operator">=</span><span class="token string">"form.left"</span><span class="token operator">&gt;</span>                   <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"left"</span> <span class="token operator">:</span>style<span class="token operator">=</span><span class="token string">"{height: leftModuleHeight}"</span> v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"(item,index) in form.left"</span>                        v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"form.left[index]"</span><span class="token operator">&gt;</span>                     <span class="token operator">&lt;</span>span <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"text-option"</span><span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span> item<span class="token punctuation">.</span>name <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>                     <span class="token operator">&lt;</span>i <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"el-icon-error"</span>                        style<span class="token operator">=</span><span class="token string">"color: red;font-size: 20px;display: flex;margin-top: -55px;margin-left: 190px;cursor: pointer"</span>                        @click<span class="token operator">=</span><span class="token string">"removeModule(item.name)"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">&gt;</span>                   <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>                 <span class="token operator">&lt;</span><span class="token operator">/</span>draggable<span class="token operator">&gt;</span>               <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>               <span class="token comment">// 右边栏</span>                  <span class="token operator">&lt;</span>div style<span class="token operator">=</span><span class="token string">"float: right"</span><span class="token operator">&gt;</span>                 <span class="token operator">&lt;</span>draggable                     animation<span class="token operator">=</span><span class="token string">"300"</span>                     group<span class="token operator">=</span><span class="token string">"module"</span>                     <span class="token operator">:</span>list<span class="token operator">=</span><span class="token string">"form.right"</span><span class="token operator">&gt;</span>                   <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"left"</span> <span class="token operator">:</span>style<span class="token operator">=</span><span class="token string">"{height: rightModuleHeight}"</span> v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"(item,index) in form.right"</span>                        v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"form.right[index]"</span><span class="token operator">&gt;</span>                     <span class="token operator">&lt;</span>span <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"text-option"</span><span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span> item<span class="token punctuation">.</span>name <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>                     <span class="token operator">&lt;</span>i <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"el-icon-error"</span>                        style<span class="token operator">=</span><span class="token string">"color: red;font-size: 20px;display: flex;margin-top: -55px;margin-left: 190px;cursor: pointer"</span>                        @click<span class="token operator">=</span><span class="token string">"removeModule(item.name)"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">&gt;</span>                   <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>                 <span class="token operator">&lt;</span><span class="token operator">/</span>draggable<span class="token operator">&gt;</span>               <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span> </code></pre> <pre><code class="prism language-javascript"><span class="token comment">// 数据</span>  form<span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>         left<span class="token operator">:</span> <span class="token punctuation">[</span>           <span class="token punctuation">{<!-- --></span>id<span class="token operator">:</span> <span class="token string">"xiangmujindu"</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">"项目进度"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>           <span class="token punctuation">{<!-- --></span>id<span class="token operator">:</span> <span class="token string">"huanjingjiance"</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">"环境检测"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>           <span class="token punctuation">{<!-- --></span>id<span class="token operator">:</span> <span class="token string">"shipingjiankong"</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">"视频监控"</span><span class="token punctuation">}</span>         <span class="token punctuation">]</span><span class="token punctuation">,</span>         right<span class="token operator">:</span> <span class="token punctuation">[</span>           <span class="token punctuation">{<!-- --></span>id<span class="token operator">:</span> <span class="token string">"jixiecheliang"</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">"机械/车辆"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>           <span class="token punctuation">{<!-- --></span>id<span class="token operator">:</span> <span class="token string">"anquanjiankong"</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">"安全监控"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>           <span class="token punctuation">{<!-- --></span>id<span class="token operator">:</span> <span class="token string">"xiangmudongtai"</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">"项目动态"</span><span class="token punctuation">}</span>         <span class="token punctuation">]</span>       <span class="token punctuation">}</span><span class="token punctuation">,</span> </code></pre> <pre><code class="prism language-javascript"><span class="token comment">// 动态计算div高度，确保拖拽是，div不会被撑开</span> computed<span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>     <span class="token function-variable function">leftModuleHeight</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>       <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">480</span> <span class="token operator">/</span> <span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">.</span>left<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span><span class="token punctuation">,</span>     <span class="token function-variable function">rightModuleHeight</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>       <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">480</span> <span class="token operator">/</span> <span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">.</span>right<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span> method<span class="token operator">:</span> <span class="token punctuation">{<!-- --></span> <span class="token comment">// 移除按钮的操作</span>  <span class="token function">removeModule</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>       <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">.</span>left<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token parameter">v</span> <span class="token operator">=&gt;</span> v<span class="token punctuation">.</span>name <span class="token operator">===</span> name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">.</span>left<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">.</span>left<span class="token punctuation">.</span><span class="token function">findIndex</span><span class="token punctuation">(</span><span class="token parameter">value</span> <span class="token operator">=&gt;</span> value<span class="token punctuation">.</span>name <span class="token operator">===</span> name<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">.</span>right<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">.</span>right<span class="token punctuation">.</span><span class="token function">findIndex</span><span class="token punctuation">(</span><span class="token parameter">value</span> <span class="token operator">=&gt;</span> value<span class="token punctuation">.</span>name <span class="token operator">===</span> name<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">}</span> </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-91721.htm">liunx中搭建python3.7环境和安装pycharm并搭建Django</a></p>
+                                        <p>下一个：<a href="/news/article-92438.htm">vue打包后整合到springboot项目、并打包成jar上传到Linux服务器运行【前后端分离开发、整体部署到Linux服务器】</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-70777.htm" title="瑞鹏宠物医院好不好（瑞鹏宠物医院大众点评）">瑞鹏宠物医院好不好（瑞鹏宠物医院大众点评）</a></li>
+                        <li class="py-2"><a href="/news/article-66297.htm" title="动物疫苗法律法规最新文件下载（动物疫苗法律法规最新文件下载）">动物疫苗法律法规最新文件下载（动物疫苗法律法规最新文件下载）</a></li>
+                        <li class="py-2"><a href="/news/article-79532.htm" title="php redis 二进制,关于php:PHP操作redis中bitMap">php redis 二进制,关于php:PHP操作redis中bitMap</a></li>
+                        <li class="py-2"><a href="/news/article-88766.htm" title="宠物食品批发网站有哪些（宠物食品批发商）">宠物食品批发网站有哪些（宠物食品批发商）</a></li>
+                        <li class="py-2"><a href="/news/article-81603.htm" title="穷人养猫给猫吃什么猫粮（穷人养什么猫好）">穷人养猫给猫吃什么猫粮（穷人养什么猫好）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-8-node-share-links.htm" title="4月8日→20.9M/S|2025年最新免费节点Sockscap64订阅链接地址">4月8日→20.9M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-70132.htm" title="天津哪能领养狗狗（天津哪里可以领养宠物狗）">天津哪能领养狗狗（天津哪里可以领养宠物狗）</a></li>
+                        <li class="py-2"><a href="/news/article-69485.htm" title="动物疫苗怎么注射视频讲解（动物疫苗的使用）">动物疫苗怎么注射视频讲解（动物疫苗的使用）</a></li>
+                        <li class="py-2"><a href="/news/article-77470.htm" title="成都宠物领养平台电话是多少号码（成都宠物领养中心电话）">成都宠物领养平台电话是多少号码（成都宠物领养中心电话）</a></li>
+                        <li class="py-2"><a href="/news/article-75441.htm" title="同安宠物救助（同安宠物领养中心）">同安宠物救助（同安宠物领养中心）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /#services -->
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>Sockscap64免费机场节点分享官网 版权所有 Powered by WordPress</p>
+                </div> <!-- /.col-md-6 -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="go-top">
+                        <a href="#" id="go-top">
+                            <i class="fa fa-angle-up"></i>
+                            Back to Top
+                        </a>
+                    </div>
+                </div> <!-- /.col-md-6 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.site-footer -->
+    <script src="/assets/website/js/frontend/sockscap64/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/plugins.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/jquery.lightbox.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
