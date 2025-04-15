@@ -128,6 +128,7 @@
                   				  				  				<div id="content_views" class="htmledit_views"> <p>近期单独做了一个系统项目，项目不大但是页面太多了，为了后期维护管理容易，做了个自动化加载路由以及模块化的管理。在此记录一下。</p> <p>直接撸代码</p> <h3>1.首先看目录</h3> <p><img fetchpriority="high" decoding="async" alt="" class="has" height="333" src="http://img.555519.xyz/uploads/20221230/eb40cb9d395c475426dc19690ad4ef4e.jpg"></p> <p>router下的index.js是路由配置文件。</p> <p>views下每个目录为一个模块，目录下每个pages文件夹存放页面。每个模块有一个单独的.router.js去管理。</p> <h3>2.先以asupmatset.router.js为例子</h3> <pre class="has"><code class="language-javascript">const arr= []; function importPages(r, arr) {   r.keys().forEach((key) =&gt; {     let _keyarr = key.split(".");     let _path = _keyarr[1];      if (_keyarr[2] === "param") {       _path = _keyarr[1] + "/:row";     }     arr.push({       path: _path,       name: _keyarr[1].substring(1, _keyarr[1].length + 1),       component: () =&gt; r(key),     });   }); } fun(require.context("./pages", true, /\.vue$/, "lazy"), arr); export default arr; </code></pre> <h3>3.再到路由文件index.js</h3> <pre class="has"><code class="language-javascript">//检索每一个模块router.js中的路由 var r=require.context("../views",true,/\.router\.js/) var arr=[]; r.keys().forEach((key)=&gt;{   arr=arr.concat(r(key).default); })  var router = new Router({   routes: [     //加入我们拿到的arr数组     ...arr   ] })  export default router</code></pre> <p>完成</p> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-93198.htm">SpringBoot中Starter的作用是什么</a></p>
+                                        <p>下一个：<a href="/news/article-94193.htm">南京免费领养宠物猫的地方有哪些（南京哪里可以免费领养猫）</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -137,16 +138,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-73430.htm" title="EF Core 的 Code First 模式">EF Core 的 Code First 模式</a></li>
-                        <li class="py-2"><a href="/news/article-80207.htm" title="奥尔良牛肉汉堡的做法大全(奥尔良牛肉汉堡的做法视频)">奥尔良牛肉汉堡的做法大全(奥尔良牛肉汉堡的做法视频)</a></li>
-                        <li class="py-2"><a href="/news/article-65667.htm" title="一片枫叶一片红（一片枫红一叶木落什么意思）">一片枫叶一片红（一片枫红一叶木落什么意思）</a></li>
-                        <li class="py-2"><a href="/news/article-66931.htm" title="米乐医疗科技有限公司怎么样（米乐集团是干什么的）">米乐医疗科技有限公司怎么样（米乐集团是干什么的）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-3-15-node-share-links.htm" title="3月15日→21.4M/S|2025年最新免费节点Sockscap64订阅链接地址">3月15日→21.4M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-3-16-free-node-subscribe.htm" title="3月16日→21.2M/S|2025年最新免费节点Sockscap64订阅链接地址">3月16日→21.2M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-70776.htm" title="feign实现远程调用">feign实现远程调用</a></li>
-                        <li class="py-2"><a href="/news/article-85880.htm" title="深度学习Pytorch——神经网络">深度学习Pytorch——神经网络</a></li>
-                        <li class="py-2"><a href="/news/article-89501.htm" title="谁放弃了《快乐大本营》？(快乐到底是谁)">谁放弃了《快乐大本营》？(快乐到底是谁)</a></li>
-                        <li class="py-2"><a href="/news/article-66930.htm" title="vue &#8211; vue基础/vue核心内容（2）_在线工具">vue &#8211; vue基础/vue核心内容（2）_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-free-node-subscribe.htm" title="3月11日→22.3M/S|2025年最新免费节点Sockscap64订阅链接地址">3月11日→22.3M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-90255.htm" title="动物接种疫苗多少钱一针啊图片大全（动物疫苗接种时间表）">动物接种疫苗多少钱一针啊图片大全（动物疫苗接种时间表）</a></li>
+                        <li class="py-2"><a href="/news/article-78153.htm" title="宠物粮食在哪里进货好卖呢视频（宠物粮进货平台）">宠物粮食在哪里进货好卖呢视频（宠物粮进货平台）</a></li>
+                        <li class="py-2"><a href="/news/article-91721.htm" title="liunx中搭建python3.7环境和安装pycharm并搭建Django">liunx中搭建python3.7环境和安装pycharm并搭建Django</a></li>
+                        <li class="py-2"><a href="/news/article-77469.htm" title="win11系统字体显示不全怎么办">win11系统字体显示不全怎么办</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-8-free-subscribe-node.htm" title="3月8日→22.7M/S|2025年最新免费节点Sockscap64订阅链接地址">3月8日→22.7M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-node-share-links.htm" title="3月24日→20.7M/S|2025年最新免费节点Sockscap64订阅链接地址">3月24日→20.7M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-81603.htm" title="穷人养猫给猫吃什么猫粮（穷人养什么猫好）">穷人养猫给猫吃什么猫粮（穷人养什么猫好）</a></li>
+                        <li class="py-2"><a href="/news/article-88765.htm" title="兽医疫苗批号查询系统（兽用疫苗真伪查询）">兽医疫苗批号查询系统（兽用疫苗真伪查询）</a></li>
+                        <li class="py-2"><a href="/news/article-78860.htm" title="linux Centos7离线安装nginx">linux Centos7离线安装nginx</a></li>
                     </ul>
     </div>
 </div>
@@ -158,7 +159,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
