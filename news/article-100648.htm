@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sockscap64.github.io/news/article-100648.htm" />
+    <title>Java-NIO之Buffer（缓冲区）</title>
+        <meta name="description" content="Buffer（缓冲区）本质上是一个由基本类型数组构成的容器。 我们先看看Buffer类的基本构成： public abstract class Buffer {     // Invariants: " />
+        <link rel="icon" href="/assets/website/img/sockscap64/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sockscap64免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sockscap64.github.io/news/article-100648.htm" />
+    <meta property="og:site_name" content="Sockscap64免费机场节点分享官网" />
+    <meta property="og:title" content="Java-NIO之Buffer（缓冲区）" />
+    <meta property="og:image" content="https://sockscap64.github.io/uploads/20241223-1/92fffd0fe05881a022ba878442f3015e.webp" />
+        <meta property="og:release_date" content="2025-04-21T06:49:54" />
+    <meta property="og:updated_time" content="2025-04-21T06:49:54" />
+        <meta property="og:description" content="Buffer（缓冲区）本质上是一个由基本类型数组构成的容器。 我们先看看Buffer类的基本构成： public abstract class Buffer {     // Invariants: " />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java-NIO之Buffer（缓冲区）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <!-- CSS Bootstrap & Custom -->
+    <link href="/assets/website/js/frontend/sockscap64/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-misc.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-main.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- JavaScripts -->
+    <script src="/assets/website/js/frontend/sockscap64/jquery-1.10.2.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/modernizr.js"></script>
+    <!--[if lt IE 8]>
+<div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
+    </div>
+<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWWSJRFYQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FWWSJRFYQE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="home">
+        <div class="site-header">
+            <div class="main-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="logo">
+                                <a href="/">
+                                                                        <span>Sockscap64</span>
+                                                                </div> <!-- /.logo -->
+                        </div> <!-- /.col-md-4 -->
+                        <div class="col-md-8 col-sm-8 col-xs-6">
+                            <div class="menu text-right hidden-sm hidden-xs">
+                                <ul>
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </div> <!-- /.menu -->
+                        </div> <!-- /.col-md-8 -->
+                    </div> <!-- /.row -->
+                    <div class="responsive-menu text-right visible-xs visible-sm">
+                        <a href="#" class="toggle-menu fa fa-bars"></a>
+                        <div class="menu">
+                            <ul>
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div> <!-- /.menu -->
+                    </div> <!-- /.responsive-menu -->
+                </div> <!-- /.container -->
+            </div> <!-- /.header -->
+        </div> <!-- /.site-header -->
+    </div> <!-- /#home -->
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="/assets/website/img/sockscap64/banner01.jpg" alt="">
+                <div class="flex-caption">
+                    <h1>Java-NIO之Buffer（缓冲区）</h1>
+                    <span></span>
+                    <p>
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="services" class="section-cotent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail">
+                      				  				  				</h1> <p>Buffer（缓冲区）本质上是一个由基本类型数组构成的容器。</p> <p><strong>我们先看看Buffer类的基本构成：</strong></p> <pre><code class="language-java">public abstract class Buffer {     // Invariants: mark &lt;= position &lt;= limit &lt;= capacity     private int mark = -1;     private int position = 0;     private int limit;     private int capacity; }</code></pre> <p><strong>再看看子类ByteBuffer 的构成：</strong></p> <pre><code class="language-java">public abstract class ByteBuffer extends Buffer implements Comparable&lt;ByteBuffer&gt;{     // These fields are declared here rather than in Heap-X-Buffer in order to     // reduce the number of virtual method invocations needed to access these     // values, which is especially costly when coding small buffers.     //     final byte[] hb;                  // Non-null only for heap buffers     final int offset;     boolean isReadOnly; }</code></pre> <hr/> <p>因此一个ByteBuffer 对象由基本的五大属性组成：<br /><b><font color="red" size="4">核心属性：</font></b><br /> ● mark  初始值为-1，用以标记当前position的位置。对应方法为 mark()。<br /> ● position 初始值为0，读、写数据的起点位置。对应方法为 position()。<br /> ● limit  界限，和position 组成可读、可写的数据操作区间。对应方法为 limit()。<br /> ● capacity 缓冲区的大小。对应方法为capacity()。</p> <p><b><font color="red" size="4">数据存储：</font></b><br /> ● hb 一个基本类型构成的数据，大小等于capacity。</p> </h1> <p><b><font color="red" size="4">核心方法：</font></b><br /> ● put()  写数据。<br /> ● get() 读数据。<br /> ● flip() 翻转。如当 put 完数据之后，调用flip s 是为了告知下次 get 数据需要读取数据区间。反过来也是一样的道理。</p> <pre><code class="language-java">    public final Buffer flip() {         limit = position;         position = 0;         mark = -1;         return this;     }</code></pre> <p>● clear() 清空。不会清除数据，但会各个属性回归初始值。</p> <pre><code class="language-java">    public final Buffer clear() {         position = 0;         limit = capacity;         mark = -1;         return this;     }</code></pre> <p>● rewind 倒带。当需要重读、重写的时候可以使用。</p> <pre><code class="language-java">    public final Buffer rewind() {         position = 0;         mark = -1;         return this;     }</code></pre> <p>● remaning() 返回剩余未被处理的数量。</p> <pre><code class="language-java">    public final int remaining() {         return limit - position;     }</code></pre> <p>假设我们声明了一个 capacity 为 5 的字节缓冲区：<br /><code>ByteBuffer buf = ByteBuffer.allocate(4);</code><br /> 那么，缓冲区的初始状态就是如下图所示：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/328e22af8d04db4fe428d97f16efd801.jpg" alt="Java-NIO之Buffer（缓冲区）"></p> </h1> <p><u><b>Buffer（缓冲区）&gt;Buffer（缓冲区） 常常用来于NIO的Channel进行交互。数据从缓冲区进行存放和读取。</b></u></p> <hr/> <h2 id="31buffer-读文件">3.1：Buffer 读文件</h2> <p>这里对比了两种读文件的方式。</p> <hr/> <p><b><font color="red" size="4">BIO读文件（不用Buffer）：</font></b></p> <pre><code class="language-java">    public void ioRead() {         FileInputStream fileInputStream = null;         try {             fileInputStream = new FileInputStream(new File("src/test/java/com/loper/mine/SQLParserTest.java"));             byte[] receive = new byte[8];             // IO 流读文件的时候不会管 byte 中的数据是否已被处理过，下一次读取直接覆盖             while (fileInputStream.read(receive) &gt; 0) {                 System.out.println(new String(receive));             }         } catch (Exception e) {             e.printStackTrace();         } finally {             try {                 if (fileInputStream != null)                     fileInputStream.close();             } catch (IOException e) {                 e.printStackTrace();             }         }     }</code></pre> <hr/> <p><b><font color="red" size="4">BufferReader读文件（用Buffer）：</font></b></p> <pre><code class="language-java">    public void bufferRead() {         int capacity = 8;         FileInputStream fileInputStream = null;         InputStreamReader inputStreamReader = null;         BufferedReader bufferedReader = null;         try {             fileInputStream = new FileInputStream(new File("src/test/java/com/loper/mine/SQLParserTest.java"));             inputStreamReader = new InputStreamReader(fileInputStream);             bufferedReader = new BufferedReader(inputStreamReader, capacity);              CharBuffer receive = CharBuffer.allocate(capacity);             char[] data = new char[capacity];             // buffer reader 在读取数据的时候会判断buffer 中的数据是否已被清理             while (bufferedReader.read(receive) &gt; 0) {                 receive.flip();                 receive.get(data);                 receive.flip();                 System.out.println(new String(data));             }         } catch (Exception e) {             e.printStackTrace();         } finally {             try {                 if (bufferedReader != null)                     bufferedReader.close();                 if (inputStreamReader != null)                     inputStreamReader.close();                 if (fileInputStream != null)                     fileInputStream.close();             } catch (IOException e) {                 e.printStackTrace();             }         }     }</code></pre> <p>可以看到，当我们使用BIO时，从文件流中读取的数据使用 byte数组接收就可以了。<br /> 而使用 BufferReader之后，读取文件返回的是一个 ByteBuffer，<u><font color="red" size="5">那为什么要这么做呢？</font></u><br /> 1：使用byte[] 接收数据，我们读取之后下次再进行写入的时候是不知道是否已经读取完毕了的。下次的写入会将原本的数据直接覆盖掉。<br /> 2：使用ByteBuffer 接收文件流中的数据，在下一次数据写入前不进行 flip 或 clear 操作，那么下次写入数据时并不会更新 ByteBuffer 中的数据。</p> <hr/> <p><b><font color="red">试想多线程情况下，一个线程写数据，另一个线程读数据，若数据还在未确保读完的情况下就进行下一步写入了，那么势必会丢失数据。<br /> 而使用Buffer 则很好的避免了这种情况，无论是写还是读，都需要告诉下一次读或写数据时的操作区间。byte[] 本身则是不支持这种情况的。<br /></font></b></p> <hr/> <h2 id="32buffer-与多线程">3.2：Buffer 与多线程</h2> <p>多线程下模拟数据分段读、写：</p> <pre><code class="language-java">    public static void main(String[] args) {         ThreadPoolExecutor executor = new ThreadPoolExecutor(2, 2, 1L, TimeUnit.SECONDS, new ArrayBlockingQueue&lt;&gt;(10));          String bufferData = "hello world";         int capacity = 4;         // 默认使用分配堆内存分配缓冲区空间（非直接缓冲区）         //ByteBuffer buffer = ByteBuffer.allocate(capacity);         // 使用直接内存分配缓冲区空间（直接缓冲区）         ByteBuffer buffer = ByteBuffer.allocateDirect(capacity);          Semaphore semaphore1 = new Semaphore(0);         Semaphore semaphore2 = new Semaphore(0);         // 写操作         executor.execute(() -&gt; {             int index = 0, len = bufferData.length();             while (index &lt; len) {                 try {                     System.out.println("put数据开始----------------");                     print(buffer);                     int endIndex = index + capacity;                     if (endIndex &gt; len)                         endIndex = len;                      // 存之前先清空buffer                     buffer.clear();                     buffer.put(bufferData.substring(index, endIndex).getBytes());                      System.out.println("put数据结束----------------");                     print(buffer);                     System.out.println("\n");                     // 存完告诉读线程可读区域大小                     buffer.flip();                      index += capacity;                 } catch (Exception e) {                     e.printStackTrace();                     break;                 } finally {                     semaphore2.release();                     try {                         semaphore1.tryAcquire(3, TimeUnit.SECONDS);                     } catch (InterruptedException e) {                         e.printStackTrace();                     }                 }             }         });          // 读操作         executor.execute(() -&gt; {             StringBuilder value = new StringBuilder();             int i = 0;             while (i &lt; bufferData.length()) {                 try {                     semaphore2.tryAcquire(3, TimeUnit.SECONDS);                     System.out.println("get数据开始----------------");                     print(buffer);                      byte[] bytes = new byte[buffer.limit()];                     buffer.get(bytes);                     value.append(new String(bytes));                      System.out.println("get数据结束----------------");                     print(buffer);                     System.out.println("\n");                      i += bytes.length;                 } catch (Exception e) {                     e.printStackTrace();                     break;                 } finally {                     semaphore1.release();                 }             }              // 完整读取到的buffer数据             System.out.println("完整读取到的buffer数据：" + value.toString());             buffer.clear();             print(buffer);         });          executor.shutdown();     }      private static void print(Buffer buffer) {         System.out.println("position=" + buffer.position());         System.out.println("limit   =" + buffer.limit());         System.out.println("capacity=" + buffer.capacity());         System.out.println("mark    ：" + buffer.mark());     }</code></pre> <p>日志太长，就不全截图了，如下为最终输出：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/8575d76cd9ad446eaa43e0653dc14b9f.jpg" alt="Java-NIO之Buffer（缓冲区）"></p> <p>以上代码模拟了写线程需要往 buffer 中分段写入 ‘hello word’，而读线程则需要从 buffer 中分段读取，并输出最终的数据。</p> <hr/> <p><b><font color="red">个人思考：</font></b><br /><u>从这也联想到了ftp传输数据时也是分段、按序进行传输的，也不是一次性将数据一股脑全部丢过去的，这应该就是 Buffer（缓冲区）的作用吧。</u></p> </h1> <h2 id="41非直接缓冲区">4.1：非直接缓冲区</h2> <p><u><b><font color="red">缓冲区空间由JVM内存进行分配。</font></b></u></p> <p>非直接缓冲区属于常规操作，传统的 IO 流和 allocate() 方法分配的缓冲区都是非直接缓冲区，建立在 JVM 内存中。</p> <pre><code class="language-java">    public static ByteBuffer allocate(int capacity) {         if (capacity &lt; 0)             throw new IllegalArgumentException();         return new HeapByteBuffer(capacity, capacity);     }</code></pre> <p>这种常规的非直接缓冲区会将内核地址空间中的内容拷贝到用户地址空间（中间缓冲区）后再由程序进行读或写操作，换句话说，磁盘上的文件在与应用程序交互的过程中会在两个缓存中来回进行复制拷贝。<br /> 如图：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/fbcd6d809fcd1df4ef1f9919452854e0.jpg" alt="Java-NIO之Buffer（缓冲区）"></p> <h2 id="42直接缓冲区">4.2：直接缓冲区</h2> <p><u><b><font color="red">缓冲区空间由物理内存直接分配。</font></b></u></p> <p>直接缓冲区绝大多数情况用于显著提升性能，缓冲区直接建立在物理内存（相对于JVM 的内存空间）中，省去了在两个存储空间中来回复制的操作，可以通过调用 ByteBuffer 的 allocateDirect() 工厂方法来创建。</p> <pre><code class="language-java">    public static ByteBuffer allocateDirect(int capacity) {         return new DirectByteBuffer(capacity);     }</code></pre> <p>直接缓冲区中的内容可以驻留在常规的垃圾回收堆之外，因此它们对应用程序的内存需求量造成的影响可能并不明显。<br /> 另外，直接缓冲区还可以通过 FileChannel 的 map() 方法将文件直接映射到内存中来创建，<br /> 该方法将返回 MappedByteBuffer（DirectByteBuffer extends MappedByteBuffer）。<br /> 直接或非直接缓冲区只针对字节缓冲区而言。字节缓冲区是那种类型可以通过 isDirect() 方法来判断。</p> <p>如图：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/7c3ae0a675e3069757ded0d6fccc2a5c.jpg" alt="Java-NIO之Buffer（缓冲区）"></p> <hr/> <p><b><font color="red" size="5">map 和 read 的区别：</font></b><br /> 1：map 不会进行数据拷贝，会在物理内存开辟一块文件映射区域，只占用物理内存。</p> <pre><code class="language-java">ByteBuffer buffer = inChannel.map(FileChannel.MapMode.READ_ONLY, 0, file.length());</code></pre> <p>2：read 会进行数据拷贝，会占用用户内存空间。</p> <pre><code class="language-java">            ByteBuffer buffer = ByteBuffer.allocate(8);             // read 会进行数据拷贝，会占用用户内存空间。             inChannel.read(buffer);</code></pre> <h2 id="43问答区域">4.3：问答区域</h2> <p><b><font color="red">1：DirectByteBuffer 比 HeapByteBuffer 更快吗？</font></b></p> <p>不是。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/a728038b2a009ab79bd6dd314c97c8fe.jpg" alt="Java-NIO之Buffer（缓冲区）"></p> <p><strong>本文参考文章：</strong><br /> 1：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://zhuanlan.zhihu.com/p/437626742"  title="面试官：Java NIO 的 Buffer 缓冲区，你了解多少？" target="_blank" rel="nofollow">面试官：Java NIO 的 Buffer 缓冲区，你了解多少？</a><br /> 2：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.zhihu.com/question/60892134/answer/191781461"  title="Java NIO direct buffer的优势在哪儿？" target="_blank" rel="nofollow">Java NIO direct buffer的优势在哪儿？</a><br /> 3：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/weixin_42762133/article/details/100040141"  title="基于NIO的Socket通信(使用Java NIO的综合示例讲解)" target="_blank" rel="nofollow">基于NIO的Socket通信(使用Java NIO的综合示例讲解)</a></p> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-99911.htm">中国宠物食品排名（中国宠物食品排名榜）</a></p>
+                                        <p>下一个：<a href="/news/article-100649.htm">中国十大宠物食品公司 中国十大宠物食品公司排名</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-node-share-links.htm" title="3月24日→20.7M/S|2025年最新免费节点Sockscap64订阅链接地址">3月24日→20.7M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-95454.htm" title="重庆领养猫咪宠物平台（重庆领养猫咪宠物平台有哪些）">重庆领养猫咪宠物平台（重庆领养猫咪宠物平台有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-node-share-links.htm" title="3月14日→21M/S|2025年最新免费节点Sockscap64订阅链接地址">3月14日→21M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-70131.htm" title="vue+Element实现登录随机验证码_vue.js_">vue+Element实现登录随机验证码_vue.js_</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-20-free-node-subscribe-links.htm" title="3月20日→19.6M/S|2025年最新免费节点Sockscap64订阅链接地址">3月20日→19.6M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-71441.htm" title="宠物零食加工厂要投资多少钱一个月（宠物零食加工设备批发）">宠物零食加工厂要投资多少钱一个月（宠物零食加工设备批发）</a></li>
+                        <li class="py-2"><a href="/news/article-69485.htm" title="动物疫苗怎么注射视频讲解（动物疫苗的使用）">动物疫苗怎么注射视频讲解（动物疫苗的使用）</a></li>
+                        <li class="py-2"><a href="/news/article-99127.htm" title="宠物粮市场前景如何分析的（宠物粮行业）">宠物粮市场前景如何分析的（宠物粮行业）</a></li>
+                        <li class="py-2"><a href="/news/article-80925.htm" title="Python 垃圾回收机制原理详解">Python 垃圾回收机制原理详解</a></li>
+                        <li class="py-2"><a href="/news/article-66930.htm" title="vue &#8211; vue基础/vue核心内容（2）_在线工具">vue &#8211; vue基础/vue核心内容（2）_在线工具</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /#services -->
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>Sockscap64免费机场节点分享官网 版权所有 Powered by WordPress</p>
+                </div> <!-- /.col-md-6 -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="go-top">
+                        <a href="#" id="go-top">
+                            <i class="fa fa-angle-up"></i>
+                            Back to Top
+                        </a>
+                    </div>
+                </div> <!-- /.col-md-6 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.site-footer -->
+    <script src="/assets/website/js/frontend/sockscap64/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/plugins.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/jquery.lightbox.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
