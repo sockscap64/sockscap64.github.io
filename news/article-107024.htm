@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sockscap64.github.io/news/article-107024.htm" />
+    <title>微信小程序开发笔记2——自定义导航栏组件</title>
+        <meta name="description" content="本文主要是熟悉微信小程序自定义组件的开发，以一个常见的导航栏（Tabbar）需求为例。  官方文档：https://developers.weixin.qq.com/miniprogram/dev/f" />
+        <link rel="icon" href="/assets/website/img/sockscap64/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sockscap64免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sockscap64.github.io/news/article-107024.htm" />
+    <meta property="og:site_name" content="Sockscap64免费机场节点分享官网" />
+    <meta property="og:title" content="微信小程序开发笔记2——自定义导航栏组件" />
+    <meta property="og:image" content="https://sockscap64.github.io/uploads/20241223-1/83fc4ed0956827536cee5316dc8ae409.webp" />
+        <meta property="og:release_date" content="2025-04-29T08:02:14" />
+    <meta property="og:updated_time" content="2025-04-29T08:02:14" />
+        <meta property="og:description" content="本文主要是熟悉微信小程序自定义组件的开发，以一个常见的导航栏（Tabbar）需求为例。  官方文档：https://developers.weixin.qq.com/miniprogram/dev/f" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="微信小程序开发笔记2——自定义导航栏组件">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <!-- CSS Bootstrap & Custom -->
+    <link href="/assets/website/js/frontend/sockscap64/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-misc.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-main.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- JavaScripts -->
+    <script src="/assets/website/js/frontend/sockscap64/jquery-1.10.2.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/modernizr.js"></script>
+    <!--[if lt IE 8]>
+<div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
+    </div>
+<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWWSJRFYQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FWWSJRFYQE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="home">
+        <div class="site-header">
+            <div class="main-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="logo">
+                                <a href="/">
+                                                                        <span>Sockscap64</span>
+                                                                </div> <!-- /.logo -->
+                        </div> <!-- /.col-md-4 -->
+                        <div class="col-md-8 col-sm-8 col-xs-6">
+                            <div class="menu text-right hidden-sm hidden-xs">
+                                <ul>
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </div> <!-- /.menu -->
+                        </div> <!-- /.col-md-8 -->
+                    </div> <!-- /.row -->
+                    <div class="responsive-menu text-right visible-xs visible-sm">
+                        <a href="#" class="toggle-menu fa fa-bars"></a>
+                        <div class="menu">
+                            <ul>
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div> <!-- /.menu -->
+                    </div> <!-- /.responsive-menu -->
+                </div> <!-- /.container -->
+            </div> <!-- /.header -->
+        </div> <!-- /.site-header -->
+    </div> <!-- /#home -->
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="/assets/website/img/sockscap64/banner01.jpg" alt="">
+                <div class="flex-caption">
+                    <h1>微信小程序开发笔记2——自定义导航栏组件</h1>
+                    <span></span>
+                    <p>
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="services" class="section-cotent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night-eighties"> <blockquote> <p>本文主要是熟悉微信小程序自定义组件的开发，以一个常见的导航栏（Tabbar）需求为例。</p> </blockquote> <p>官方文档：https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/</p> <p>首先我们先看一下最终实现的效果：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221230/5c04ce7615435ee6c0b462dc3ad6af7b.jpg" alt="微信小程序开发笔记2——自定义导航栏组件"></p> <p>这是一个非常简单的例子，就用这个例子敲开自定义组件的大门。如果你对vue的组件很熟的话，那么你应该会轻松上手。</p> <h3> 思路</h3> <p>改组件应该具备最基本的属性和方法：</p> <ul> <li>每个tab页签显示的文字</li> <li>页签被选中时的颜色</li> <li>选中某个页签时，父组件应该知道这个被选中的页签信息，从而做一些逻辑操作</li> </ul> <blockquote> <p>这里我还给页签切换时添加了slider的滑动动画，为了更好的用户体验</p> </blockquote> <h3> 编码实现</h3> <h4> 组件 wxml</h4> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>tabbar-container<span class="token punctuation">'</span></span><span class="token punctuation">&gt;</span></span>   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>tabbar<span class="token punctuation">'</span></span><span class="token punctuation">&gt;</span></span>   <span class="token comment">&lt;!-- 页签 --&gt;</span>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>block</span> <span class="token attr-name"><span class="token namespace">wx:</span>for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{<!-- -->{tabItems}}<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">wx:</span>key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ti+{<!-- -->{index}}<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{<!-- -->{index}}<span class="token punctuation">"</span></span>             <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>tabbar-item<span class="token punctuation">'</span></span><span class="token style-attr language-css"><span class="token attr-name">             <span class="token attr-name">style</span></span><span class="token punctuation">='</span><span class="token attr-value"><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span> activedIndex == index ? <span class="token punctuation">(</span><span class="token string">"color: "</span> + activedColor<span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token string">""</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">'</span></span>                   <span class="token attr-name">bindtap</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>clickTab<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tabbar-title<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>{<!-- -->{item}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>block</span><span class="token punctuation">&gt;</span></span>     <span class="token comment">&lt;!--      	slider 滑块，会随着选中的页签而滑动至对应的位置,     	使用了CSS3的translateX属性      	--&gt;</span>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>selected-slider<span class="token punctuation">'</span></span><span class="token style-attr language-css"><span class="token attr-name">           <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token selector">transform: translateX(</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>sliderOffset<span class="token punctuation">}</span><span class="token punctuation">}</span>px<span class="token punctuation">)</span><span class="token selector">; -webkit-transform: translateX(</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>sliderOffset<span class="token punctuation">}</span><span class="token punctuation">}</span>px<span class="token punctuation">)</span><span class="token selector">;background-color:</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>activedColor<span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span> </code></pre> <h4> 组件js</h4> <pre><code class="prism language-js"><span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>   properties<span class="token punctuation">:</span> <span class="token punctuation">{<!-- --></span>     tabItems<span class="token punctuation">:</span> Array<span class="token punctuation">,</span>     <span class="token comment">// 选中标签页的颜色(文字颜色+小滑块颜色)</span>     activedColor<span class="token punctuation">:</span> <span class="token punctuation">{<!-- --></span>       type<span class="token punctuation">:</span> String<span class="token punctuation">,</span>       value<span class="token punctuation">:</span> <span class="token string">'#d5001c'</span>     <span class="token punctuation">}</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span>   data<span class="token punctuation">:</span> <span class="token punctuation">{<!-- --></span>     activedIndex<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>     <span class="token comment">// slider的左偏移量，用这个来控制其移动的距离</span>     sliderOffset<span class="token punctuation">:</span> <span class="token number">0</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span>   methods<span class="token punctuation">:</span> <span class="token punctuation">{<!-- --></span>     <span class="token comment">// 切换tab时调用的方法</span>     <span class="token function">clickTab</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>       <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>         activedIndex<span class="token punctuation">:</span> e<span class="token punctuation">.</span>currentTarget<span class="token punctuation">.</span>id<span class="token punctuation">,</span>         sliderOffset<span class="token punctuation">:</span> e<span class="token punctuation">.</span>currentTarget<span class="token punctuation">.</span>offsetLeft       <span class="token punctuation">}</span><span class="token punctuation">)</span>       <span class="token comment">// 触发父组件的tab-change方法，并将当前选中的tab作为参数传递给父组件</span>       <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">triggerEvent</span><span class="token punctuation">(</span><span class="token string">'tab-change'</span><span class="token punctuation">,</span> <span class="token punctuation">{<!-- --></span> activedTab<span class="token punctuation">:</span> e<span class="token punctuation">.</span>currentTarget<span class="token punctuation">.</span>id <span class="token punctuation">}</span><span class="token punctuation">)</span>     <span class="token punctuation">}</span>   <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> </code></pre> <h4> 组件的 wxss</h4> <pre><code class="prism language-css"><span class="token selector">.tabbar</span> <span class="token punctuation">{<!-- --></span>   <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>   <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>   <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>   <span class="token property">font-size</span><span class="token punctuation">:</span> 28rpx<span class="token punctuation">;</span>   <span class="token property">box-shadow</span><span class="token punctuation">:</span> 0 6rpx 6rpx 0 #f0f0f0<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token selector">.tabbar-item</span> <span class="token punctuation">{<!-- --></span>   <span class="token property">flex</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>   <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>   <span class="token property">padding</span><span class="token punctuation">:</span> 30rpx 0<span class="token punctuation">;</span>   <span class="token property">color</span><span class="token punctuation">:</span> #b5b4ba<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token selector">.tabbar-title</span><span class="token punctuation">{<!-- --></span>   <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token selector">.selected-slider</span> <span class="token punctuation">{<!-- --></span>   <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>   <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">" "</span><span class="token punctuation">;</span>   <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>   <span class="token property">bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>   <span class="token property">width</span><span class="token punctuation">:</span> 33.33%<span class="token punctuation">;</span>   <span class="token property">height</span><span class="token punctuation">:</span> 6rpx<span class="token punctuation">;</span>   <span class="token comment">/* 选中页签时滑动的移动动画 */</span>     <span class="token property">-webkit-transition</span><span class="token punctuation">:</span> -webkit-transform 0.3s<span class="token punctuation">;</span>   <span class="token property">transition</span><span class="token punctuation">:</span> transform 0.3s<span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <h4> 组件json</h4> <pre><code class="prism language-json"><span class="token punctuation">{<!-- --></span>   <span class="token string">"component"</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>   <span class="token string">"usingComponents"</span><span class="token punctuation">:</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <h3> 使用该组件</h3> <h4> 注册组件</h4> <p>不要忘了在使用该组件的页面或父组件的json文件中注册该组件：</p> <pre><code>"usingComponents": {     "tabbar": "/components/tabbar/tabbar"   } </code></pre> <h4> 页面/父组件 的wxml</h4> <pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>tab<span class="token punctuation">'</span></span><span class="token punctuation">&gt;</span></span>   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tabbar</span> <span class="token attr-name">tab-items</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{<!-- -->{tabOptions}}<span class="token punctuation">"</span></span> <span class="token attr-name">actived-color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>green<span class="token punctuation">"</span></span>    		 <span class="token attr-name"><span class="token namespace">bind:</span>tab-change</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>onTabChange<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tabbar</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>tab-content tab-{<!-- -->{currentTabIndex}}<span class="token punctuation">'</span></span><span class="token punctuation">&gt;</span></span>   {<!-- -->{'当前Tab: ' + currentTabIndex}} <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span> </code></pre> <h4> 页面/父组件 的js</h4> <pre><code class="prism language-js"><span class="token function">Page</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>   data<span class="token punctuation">:</span> <span class="token punctuation">{<!-- --></span>     tabOptions<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'全部'</span><span class="token punctuation">,</span> <span class="token string">'我的好友'</span><span class="token punctuation">,</span> <span class="token string">'特别关注'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>     currentTabIndex<span class="token punctuation">:</span> <span class="token number">0</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span>   <span class="token function">onTabChange</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>     <span class="token comment">// 接受来自组件传递的参数</span>     <span class="token keyword">const</span> detail <span class="token operator">=</span> e<span class="token punctuation">.</span>detail     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>       currentTabIndex<span class="token punctuation">:</span> detail<span class="token punctuation">.</span>activedTab     <span class="token punctuation">}</span><span class="token punctuation">)</span>   <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> </code></pre> <h4> 页面/父组件 的wxss</h4> <pre><code class="prism language-css"><span class="token selector">.tab-content</span><span class="token punctuation">{<!-- --></span>   <span class="token property">margin-top</span><span class="token punctuation">:</span> 10rpx<span class="token punctuation">;</span>   <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>   <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>   <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>   <span class="token property">padding</span><span class="token punctuation">:</span> 100px 0<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token selector">.tab-0</span><span class="token punctuation">{<!-- --></span>   <span class="token property">background-color</span><span class="token punctuation">:</span> lightblue<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token selector">.tab-1</span><span class="token punctuation">{<!-- --></span>   <span class="token property">background-color</span><span class="token punctuation">:</span> lightgreen<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token selector">.tab-2</span><span class="token punctuation">{<!-- --></span>   <span class="token property">background-color</span><span class="token punctuation">:</span> lightpink<span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <h3> github</h3> <p>demo源码：https://github.com/JerryYuanJ/mini-app-pratice<br /> 如果对你有帮助，欢迎star。或者你发现bug也欢迎issue。</p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-106104.htm">无货源网店怎么开（无货源网店怎么开大概需要多少钱）</a></p>
+                                        <p>下一个：<a href="/news/article-107028.htm">驱虫给猫多少钱（驱虫猫多少钱一次）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-97655.htm" title="广州宠物领养微信群号 广州宠物领养微信群号是多少">广州宠物领养微信群号 广州宠物领养微信群号是多少</a></li>
+                        <li class="py-2"><a href="/news/article-75442.htm" title="家装用什么电线管好一点(家装用什么电线管好呢)">家装用什么电线管好一点(家装用什么电线管好呢)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-17-free-high-speed-nodes.htm" title="4月17日→21.9M/S|2025年最新免费节点Sockscap64订阅链接地址">4月17日→21.9M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-92439.htm" title="深圳市宠物领养之家官网查询电话（深圳宠物领养平台）">深圳市宠物领养之家官网查询电话（深圳宠物领养平台）</a></li>
+                        <li class="py-2"><a href="/news/article-100648.htm" title="Java-NIO之Buffer（缓冲区）">Java-NIO之Buffer（缓冲区）</a></li>
+                        <li class="py-2"><a href="/news/article-94193.htm" title="南京免费领养宠物猫的地方有哪些（南京哪里可以免费领养猫）">南京免费领养宠物猫的地方有哪些（南京哪里可以免费领养猫）</a></li>
+                        <li class="py-2"><a href="/news/article-77470.htm" title="成都宠物领养平台电话是多少号码（成都宠物领养中心电话）">成都宠物领养平台电话是多少号码（成都宠物领养中心电话）</a></li>
+                        <li class="py-2"><a href="/news/article-83734.htm" title="动物疫苗价格查询表图片及价格大全 动物疫苗价格查询表图片及价格大全集">动物疫苗价格查询表图片及价格大全 动物疫苗价格查询表图片及价格大全集</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-free-node-subscribe.htm" title="3月16日→21.2M/S|2025年最新免费节点Sockscap64订阅链接地址">3月16日→21.2M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-13-node-share.htm" title="4月13日→21M/S|2025年最新免费节点Sockscap64订阅链接地址">4月13日→21M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /#services -->
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>Sockscap64免费机场节点分享官网 版权所有 Powered by WordPress</p>
+                </div> <!-- /.col-md-6 -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="go-top">
+                        <a href="#" id="go-top">
+                            <i class="fa fa-angle-up"></i>
+                            Back to Top
+                        </a>
+                    </div>
+                </div> <!-- /.col-md-6 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.site-footer -->
+    <script src="/assets/website/js/frontend/sockscap64/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/plugins.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/jquery.lightbox.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
