@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sockscap64.github.io/news/article-110316.htm" />
+    <title>tensorflow求导和梯度计算</title>
+        <meta name="description" content="1.函数求一阶导 import tensorflow as tf tf.enable_eager_execution() tfe=tf.contrib.eager from math import  " />
+        <link rel="icon" href="/assets/website/img/sockscap64/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sockscap64免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sockscap64.github.io/news/article-110316.htm" />
+    <meta property="og:site_name" content="Sockscap64免费机场节点分享官网" />
+    <meta property="og:title" content="tensorflow求导和梯度计算" />
+    <meta property="og:image" content="https://sockscap64.github.io/uploads/20241223-1/f8cf90d508ad3c0519c160f1d4bb1b9e.webp" />
+        <meta property="og:release_date" content="2025-05-03T10:28:04" />
+    <meta property="og:updated_time" content="2025-05-03T10:28:04" />
+        <meta property="og:description" content="1.函数求一阶导 import tensorflow as tf tf.enable_eager_execution() tfe=tf.contrib.eager from math import  " />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="tensorflow求导和梯度计算">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <!-- CSS Bootstrap & Custom -->
+    <link href="/assets/website/js/frontend/sockscap64/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-misc.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sockscap64/templatemo-main.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- JavaScripts -->
+    <script src="/assets/website/js/frontend/sockscap64/jquery-1.10.2.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/modernizr.js"></script>
+    <!--[if lt IE 8]>
+<div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
+    </div>
+<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWWSJRFYQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FWWSJRFYQE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="home">
+        <div class="site-header">
+            <div class="main-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="logo">
+                                <a href="/">
+                                                                        <span>Sockscap64</span>
+                                                                </div> <!-- /.logo -->
+                        </div> <!-- /.col-md-4 -->
+                        <div class="col-md-8 col-sm-8 col-xs-6">
+                            <div class="menu text-right hidden-sm hidden-xs">
+                                <ul>
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </div> <!-- /.menu -->
+                        </div> <!-- /.col-md-8 -->
+                    </div> <!-- /.row -->
+                    <div class="responsive-menu text-right visible-xs visible-sm">
+                        <a href="#" class="toggle-menu fa fa-bars"></a>
+                        <div class="menu">
+                            <ul>
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div> <!-- /.menu -->
+                    </div> <!-- /.responsive-menu -->
+                </div> <!-- /.container -->
+            </div> <!-- /.header -->
+        </div> <!-- /.site-header -->
+    </div> <!-- /#home -->
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="/assets/website/img/sockscap64/banner01.jpg" alt="">
+                <div class="flex-caption">
+                    <h1>tensorflow求导和梯度计算</h1>
+                    <span></span>
+                    <p>
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="services" class="section-cotent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="htmledit_views"> <p>1.函数求一阶导</p> <pre class="has"><code class="language-python">import tensorflow as tf tf.enable_eager_execution() tfe=tf.contrib.eager from math import  pi def f(x):     return tf.square(tf.sin(x)) assert f(pi/2).numpy()==1.0 sess=tf.Session() grad_f=tfe.gradients_function(f) print(grad_f(np.zeros(1))[0].numpy()) </code></pre> <p>2.高阶函数求导</p> <pre class="has"><code class="language-python">import numpy as np def  f(x):     return tf.square(tf.sin(x))  def grad(f):     return lambda x:tfe.gradients_function(f)(x)[0]  x=tf.lin_space(-2*pi,2*pi,100) # print(grad(f)(x).numpy()) x=x.numpy() import matplotlib.pyplot as plt plt.plot(x,f(x).numpy(),label="f") plt.plot(x,grad(f)(x).numpy(),label="first derivative")#一阶导 plt.plot(x,grad(grad(f))(x).numpy(),label="second derivative")#二阶导 plt.plot(x,grad(grad(grad(f)))(x).numpy(),label="third derivative")#三阶导 plt.legend() plt.show()</code></pre> <p>&nbsp;</p> <pre class="has"><code class="language-python">def f(x,y):     output=1     for i in range(int(y)):         output=tf.multiply(output,x)     return output  def g(x,y):     return tfe.gradients_function(f)(x,y)[0]  print(f(3.0,2).numpy()) #f(x)=x^2 print(g(3.0,2).numpy()) #f'(x)=2*x print(f(4.0,3).numpy())#f(x)=x^3 print(g(4.0,3).numpy())#f(x)=3x^2</code></pre> <p>3.函数求一阶偏导</p> <pre class="has"><code class="language-python">x=tf.ones((2,2)) with tf.GradientTape(persistent=True) as t:     t.watch(x)     y=tf.reduce_sum(x)     z=tf.multiply(y,y)      dz_dy=t.gradient(z,y) print(dz_dy.numpy()) dz_dx=t.gradient(z,x) print(dz_dx.numpy()) for i in [0, 1]:   for j in [0, 1]:    print(dz_dx[i][j].numpy() )</code></pre> <p>4.函数求二阶偏导</p> <pre class="has"><code class="language-python">x=tf.constant(2.0) with tf.GradientTape() as t:     with tf.GradientTape() as t2:         t2.watch(x)         y=x*x*x     dy_dx=t2.gradient(y,x) d2y_dx2=t.gradient(dy_dx,x)  print(dy_dx.numpy()) print(d2y_dx2.numpy())</code></pre> <p>&nbsp;</p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-109464.htm">国考公务员报名时间2023年下半年（公务员国考报名时间2020年下半年）</a></p>
+                                        <p>下一个：<a href="/news/article-110318.htm">宠物店买的狗粮好吗（宠物店的狗粮都是从哪里来的）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-109460.htm" title="兰州宠物交易平台电话（兰州宠物交易市场）">兰州宠物交易平台电话（兰州宠物交易市场）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-4-free-high-speed-nodes.htm" title="4月4日→23M/S|2025年最新免费节点Sockscap64订阅链接地址">4月4日→23M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-99911.htm" title="中国宠物食品排名（中国宠物食品排名榜）">中国宠物食品排名（中国宠物食品排名榜）</a></li>
+                        <li class="py-2"><a href="/news/article-94194.htm" title="动物疫苗市场竞争（动物疫苗行业）">动物疫苗市场竞争（动物疫苗行业）</a></li>
+                        <li class="py-2"><a href="/news/article-99127.htm" title="宠物粮市场前景如何分析的（宠物粮行业）">宠物粮市场前景如何分析的（宠物粮行业）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-5-4-free-high-speed-nodes.htm" title="5月4日→18.8M/S|2025年最新免费节点Sockscap64订阅链接地址">5月4日→18.8M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-102848.htm" title="Ubuntu安装开发者平台Backstage">Ubuntu安装开发者平台Backstage</a></li>
+                        <li class="py-2"><a href="/news/article-99910.htm" title="宠物买卖交易合法吗（宠物买卖交易合法吗安全吗）">宠物买卖交易合法吗（宠物买卖交易合法吗安全吗）</a></li>
+                        <li class="py-2"><a href="/news/article-107028.htm" title="驱虫给猫多少钱（驱虫猫多少钱一次）">驱虫给猫多少钱（驱虫猫多少钱一次）</a></li>
+                        <li class="py-2"><a href="/news/article-94703.htm" title="深圳益沣成资产管理有限公司（深圳市益成实业有限公司）">深圳益沣成资产管理有限公司（深圳市益成实业有限公司）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /#services -->
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>Sockscap64免费机场节点分享官网 版权所有 Powered by WordPress</p>
+                </div> <!-- /.col-md-6 -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="go-top">
+                        <a href="#" id="go-top">
+                            <i class="fa fa-angle-up"></i>
+                            Back to Top
+                        </a>
+                    </div>
+                </div> <!-- /.col-md-6 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.site-footer -->
+    <script src="/assets/website/js/frontend/sockscap64/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/plugins.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/jquery.lightbox.js"></script>
+    <script src="/assets/website/js/frontend/sockscap64/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
