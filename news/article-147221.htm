@@ -76,7 +76,7 @@
                         <div class="col-md-4 col-sm-4 col-xs-6">
                             <div class="logo">
                                 <a href="/">
-                                                                        <span>Sockscap64</span>
+                                                                        <span>Sockscap64 节点平台</span>
                                                                 </div> <!-- /.logo -->
                         </div> <!-- /.col-md-4 -->
                         <div class="col-md-8 col-sm-8 col-xs-6">
@@ -125,7 +125,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node免费节点站" data-url="https://clashnode.github.io">
                 <div class="xcblog-blog-detail xcblog-blog-detail-defined">
                       <h2>引言：为什么你需要掌握CLASH配置？</h2>  <p>在数字时代，网络访问的自由度直接影响信息获取的效率与质量。CLASH作为一款开源代理工具，凭借其灵活的规则引擎和跨平台支持，已成为技术爱好者突破网络限制的利器。然而，许多用户在初次接触时往往被复杂的配置流程劝退。本文将系统性地拆解CLASH配置从下载到优化的全流程，手把手带你跨越技术门槛。  </p>  <hr />  <h2>一、CLASH核心功能解析</h2>  <h3>1.1 智能流量分流引擎</h3>  <p>不同于传统VPN的全流量转发，CLASH的规则系统（Rule-Based）允许用户根据域名、IP地理位置或关键词，将流量精准分配至不同代理线路。例如：<br /> - 国内直连（DIRECT）<br /> - 海外流媒体走高速节点（如Netflix专用服务器）<br /> - 学术资源通过科研机构代理  </p>  <h3>1.2 多协议支持矩阵</h3>  <p>兼容Shadowsocks、VMess、Trojan等主流协议，甚至能通过TUN模式实现系统级代理。这种"协议无关性"使其成为聚合多服务商的理想平台。  </p>  <h3>1.3 可视化操作界面</h3>  <p>尽管底层配置复杂，但图形客户端（如Clash for Windows）提供了直观的延迟测试、节点切换和流量统计功能，大幅降低使用难度。  </p>  <hr />  <h2>二、配置文件的三大来源与选择策略</h2>  <h3>2.1 订阅配置：效率之选</h3>  <ul> <li><strong>适用场景</strong>：长期稳定使用的用户  </li> <li><strong>操作流程</strong>：    <ol> <li>从可信服务商获取订阅链接（如机场主提供的URL）  </li> <li>在客户端点击「配置」→「订阅」→「粘贴URL」  </li> <li>设置自动更新周期（建议24小时）  </li> </ol></li> <li><strong>风险提示</strong>：警惕免费订阅中的恶意节点，优先选择支持SSRoT（订阅链接加密）的服务商  </li> </ul>  <h3>2.2 自定义配置：高阶玩家的画布</h3>  <p>通过编辑YAML文件实现深度定制，典型应用包括：<br /> <code>yaml rules:   - DOMAIN-SUFFIX,google.com,PROXY  # 强制谷歌走代理   - GEOIP,CN,DIRECT                 # 中国IP直连 proxies:   - name: "日本节点"     type: vmess     server: jp.example.com     port: 443</code>  </p>  <h3>2.3 共享配置：临时解决方案</h3>  <ul> <li><strong>获取渠道</strong>：GitHub Gist、Telegram频道  </li> <li><strong>安全建议</strong>：使用前需用在线YAML校验工具检查语法，避免包含恶意重定向规则  </li> </ul>  <hr />  <h2>三、分步配置实战演示</h2>  <h3>3.1 Windows平台配置流程</h3>  <ol> <li><strong>客户端安装</strong>：从GitHub下载Clash for Windows便携版  </li> <li><strong>配置文件加载</strong>：    <ul> <li>拖拽YAML文件到客户端界面  </li> <li>或通过「Profiles」→「Download」导入订阅  </li> </ul></li> <li><strong>系统代理设置</strong>：点击「System Proxy」启用，建议勾选「Start with Windows」  </li> </ol>  <h3>3.2 移动端配置要点（以Android为例）</h3>  <ul> <li>使用Clash for Android时需注意：    <ul> <li>开启「Bypass LAN」避免内网访问异常  </li> <li>在电池优化设置中排除应用以保证后台运行  </li> </ul></li> </ul>  <hr />  <h2>四、避坑指南：常见问题与解决方案</h2>  <h3>4.1 配置失效的排查步骤</h3>  <ol> <li><strong>基础检查</strong>：    <ul> <li>验证订阅链接是否过期（HTTP 403错误）  </li> <li>检查系统时间是否准确（证书验证依赖时间同步）  </li> </ul></li> <li><strong>高级诊断</strong>：    <ul> <li>通过<code>curl -v https://config.example.com</code>测试链接可达性  </li> <li>在Clash日志中搜索<code>ERROR</code>关键词  </li> </ul></li> </ol>  <h3>4.2 规则冲突处理</h3>  <p>当多个规则匹配同一域名时，CLASH按从上到下的优先级执行。建议：<br /> - 将精确匹配（DOMAIN）置于泛匹配（DOMAIN-SUFFIX）之前<br /> - 使用<code>payload:</code>预定义IP/域名列表提升可读性  </p>  <hr />  <h2>五、安全与性能优化技巧</h2>  <h3>5.1 隐私保护措施</h3>  <ul> <li>启用「DNS over HTTPS」防止DNS泄漏  </li> <li>定期清理日志文件（位于<code>%USERPROFILE%\.config\clash\logs</code>）  </li> </ul>  <h3>5.2 速度提升方案</h3>  <ul> <li><strong>节点优选</strong>：利用客户端的「延迟测试」功能自动选择最低延迟节点  </li> <li><strong>分流优化</strong>：将大流量服务（如YouTube）单独指定至优质线路  </li> </ul>  <hr />  <h2>六、未来展望：CLASH生态演进</h2>  <p>随着Meta内核的迭代，CLASH正朝着更轻量化、模块化的方向发展。近期值得关注的新特性包括：<br /> - <strong>脚本规则</strong>：支持Lua扩展实现动态路由<br /> - <strong>混合协议</strong>：单个节点同时承载SS+VLESS流量  </p>  <hr />  <h2>专业点评：CLASH的技术哲学启示</h2>  <p>CLASH的成功绝非偶然——它完美诠释了"配置即代码"的DevOps理念。通过将网络策略抽象为可版本控制的YAML文件，它实现了：<br /> 1. <strong>可移植性</strong>：一份配置可在Windows/macOS/Linux间无缝迁移<br /> 2. <strong>可审计性</strong>：所有规则透明可见，杜绝商业VPN的"黑箱操作"<br /> 3. <strong>社区协作</strong>：GitHub上的优质配置分享形成正向生态循环  </p>  <p>尽管学习曲线陡峭，但一旦掌握，用户获得的不仅是网络自由，更是一套可复用的基础设施管理方法论。这或许正是CLASH在技术社群中持续焕发活力的深层原因。  </p>  <p>（全文共计2180字）</p>                 </div>
                 <div class="clearfix"></div>
@@ -140,16 +140,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-132885.htm" title="围墙内外：科学上网为何在中国步履维艰？">围墙内外：科学上网为何在中国步履维艰？</a></li>
+                        <li class="py-2"><a href="/news/article-146122.htm" title="解锁网络自由：全面指南教你下载与配置Shadowrocket.ipa">解锁网络自由：全面指南教你下载与配置Shadowrocket.ipa</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-8-23-free-subscribe-node.htm" title="8月23日→22.6M/S|2025年最新免费节点Sockscap64订阅链接地址">8月23日→22.6M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-16-free-node-subscribe.htm" title="9月16日→21.6M/S|2025年最新免费节点Sockscap64订阅链接地址">9月16日→21.6M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-11-node-share-links.htm" title="9月11日→22.9M/S|2025年最新免费节点Sockscap64订阅链接地址">9月11日→22.9M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
                         <li class="py-2"><a href="/news/article-145028.htm" title="手机变身为代理服务器：详解v2rayNg网络共享全攻略">手机变身为代理服务器：详解v2rayNg网络共享全攻略</a></li>
-                        <li class="py-2"><a href="/news/article-138290.htm" title="深度剖析Vmess协议：性能瓶颈、安全隐患与使用困境的全面审视">深度剖析Vmess协议：性能瓶颈、安全隐患与使用困境的全面审视</a></li>
-                        <li class="py-2"><a href="/news/article-139007.htm" title="突破网络边界：科学上网小工具的终极指南与深度解析">突破网络边界：科学上网小工具的终极指南与深度解析</a></li>
-                        <li class="py-2"><a href="/news/article-132328.htm" title="科学上网新选择：Shadowsocks账号使用全攻略">科学上网新选择：Shadowsocks账号使用全攻略</a></li>
-                        <li class="py-2"><a href="/news/article-144303.htm" title="突破网络封锁的利器：Lantern科学上网插件全方位使用指南">突破网络封锁的利器：Lantern科学上网插件全方位使用指南</a></li>
-                        <li class="py-2"><a href="/news/article-136161.htm" title="手把手教你安装v2ray离线包：从入门到精通的完整指南">手把手教你安装v2ray离线包：从入门到精通的完整指南</a></li>
-                        <li class="py-2"><a href="/news/article-146855.htm" title="突破网络边界：iPhone科学上网全攻略与深度解析">突破网络边界：iPhone科学上网全攻略与深度解析</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-8-29-free-node-subscribe.htm" title="8月29日→22M/S|2025年最新免费节点Sockscap64订阅链接地址">8月29日→22M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
                         <li class="py-2"><a href="/news/article-146488.htm" title="突破网络边界：深度剖析广东朱先生科学上网技术的原理与应用">突破网络边界：深度剖析广东朱先生科学上网技术的原理与应用</a></li>
-                        <li class="py-2"><a href="/news/article-137942.htm" title="自由之钥：深度剖析zealer科学上网的技术原理与实战应用">自由之钥：深度剖析zealer科学上网的技术原理与实战应用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-20-free-node-subscribe-links.htm" title="9月20日→20.1M/S|2025年最新免费节点Sockscap64订阅链接地址">9月20日→20.1M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-19-node-share-links.htm" title="9月19日→21.2M/S|2025年最新免费节点Sockscap64订阅链接地址">9月19日→21.2M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-21-node-share-links.htm" title="9月21日→19.3M/S|2025年最新免费节点Sockscap64订阅链接地址">9月21日→19.3M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -161,10 +161,10 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-08/" title="2025-08 归档">2025-08</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-09/" title="2025-09 归档">2025-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-07/" title="2025-07 归档">2025-07</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2025-08/" title="2025-08 归档">2025-08</a></h4>
             </li>
                     </ul>
     </div>
@@ -178,7 +178,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <p>
+                                        <p>本站内容仅供学习与技术研究用途，无意传播或倡导任何违反法律法规的行为。在此声明：用户须自行了解所在地法律法规，合法合规使用；因使用不当产生的法律责任，与本站及作者无关；请在使用前仔细阅读本声明，继续使用即视为同意以上条款。</p>
+                    <p>
                                                 <a href="/">首页</a> |
                                                 <a href="/free-nodes/">免费节点</a> |
                                                 <a href="/paid-subscribe/">推荐机场</a> |
@@ -189,7 +190,7 @@
                         <a href="/privacy.htm">隐私申明</a> |
                         <a href="/sitemap.xml">网站地图</a>
                     </p>
-                    <p>Sockscap64免费机场节点分享官网 版权所有 Powered by WordPress</p>
+                                        <p>Sockscap64免费机场节点分享官网 版权所有 Powered by WordPress</p>
                 </div> <!-- /.col-md-6 -->
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="go-top">
