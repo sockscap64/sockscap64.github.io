@@ -1,4 +1,4 @@
-# 10月26日→22.7M/S|2025年最新免费节点Sockscap64订阅链接地址  更新时间 2025-10-26 09:53:10
+# 11月4日→19.5M/S|2025年最新免费节点Sockscap64订阅链接地址  更新时间 2025-11-04 10:12:56
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://sockscap64.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://sockscap64.github.io/uploads/2025/10/0-20251026.yaml
-- https://sockscap64.github.io/uploads/2025/10/1-20251026.yaml
-- https://sockscap64.github.io/uploads/2025/10/2-20251026.yaml
-- https://sockscap64.github.io/uploads/2025/10/3-20251026.yaml
-- https://sockscap64.github.io/uploads/2025/10/4-20251026.yaml
+- https://sockscap64.github.io/uploads/2025/11/0-20251104.yaml
+- https://sockscap64.github.io/uploads/2025/11/1-20251104.yaml
+- https://sockscap64.github.io/uploads/2025/11/2-20251104.yaml
+- https://sockscap64.github.io/uploads/2025/11/3-20251104.yaml
+- https://sockscap64.github.io/uploads/2025/11/4-20251104.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://sockscap64.github.io/uploads/2025/10/0-20251026.txt
-- https://sockscap64.github.io/uploads/2025/10/1-20251026.txt
-- https://sockscap64.github.io/uploads/2025/10/2-20251026.txt
-- https://sockscap64.github.io/uploads/2025/10/3-20251026.txt
-- https://sockscap64.github.io/uploads/2025/10/4-20251026.txt
+- https://sockscap64.github.io/uploads/2025/11/0-20251104.txt
+- https://sockscap64.github.io/uploads/2025/11/1-20251104.txt
+- https://sockscap64.github.io/uploads/2025/11/2-20251104.txt
+- https://sockscap64.github.io/uploads/2025/11/3-20251104.txt
+- https://sockscap64.github.io/uploads/2025/11/4-20251104.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://sockscap64.github.io/uploads/2025/10/20251026.json
+- https://sockscap64.github.io/uploads/2025/11/20251104.json
 
 ## 更多Clash节点订阅 ：
 
