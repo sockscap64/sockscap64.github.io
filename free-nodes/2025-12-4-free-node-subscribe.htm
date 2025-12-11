@@ -241,17 +241,13 @@ v2ray具有极强的性能表现，支持高效的数据加密和流量优化，
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
         <p>上一个：<a href="/free-nodes/2025-12-3-free-node-subscribe-links.htm">12月3日→18.2M/S|2025年最新免费节点Sockscap64订阅链接地址</a></p>
+        <p>下一个：<a href="/free-nodes/2025-12-5-node-share.htm">12月5日→18.4M/S|2025年最新免费节点Sockscap64订阅链接地址</a></p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 如何通过策略组优化多应用分流？</h5></div>
+    <div class="panel-heading"><h5>Nekobox 可以与其他代理客户端共存吗？</h5></div>
     <div class="panel-body">
-        QuantumultX 可以根据应用类型、端口和协议设置策略组，自动选择最优节点处理不同流量。这样可保证网页浏览、视频播放和游戏访问顺畅，提高整体网络效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 支持哪些类型的分流规则？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持域名、IP、端口、协议类型、用户标签等多种分流规则。结合策略组，可实现精细化流量管理，满足视频加速、广告屏蔽和游戏优化等多样化需求。<hr />    </div>
+        可以。Nekobox 与 Shadowsocks、Clash 等客户端互不干扰，可以同时运行。用户可通过策略组或分流规则选择使用节点，实现灵活的网络管理。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 如何保证规则订阅的实时更新？</h5></div>
@@ -264,9 +260,14 @@ v2ray具有极强的性能表现，支持高效的数据加密和流量优化，
         可通过启用 TLS 加密、使用安全端口（如 443）、结合 WebSocket 或 gRPC 传输方式来提升安全性。同时，避免公开分享 UUID，定期更换节点参数能进一步减少被封风险。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 可以与其他代理客户端共存吗？</h5></div>
+    <div class="panel-heading"><h5>Mellow 是否支持 IPv6 流量代理？</h5></div>
     <div class="panel-body">
-        可以。Nekobox 与 Shadowsocks、Clash 等客户端互不干扰，可以同时运行。用户可通过策略组或分流规则选择使用节点，实现灵活的网络管理。<hr />    </div>
+        Mellow 支持 IPv6，只需在配置文件中启用 IPv6 DNS 解析并确认操作系统开启 IPv6 路由功能。部分节点若不支持 IPv6，则相关请求会自动回退到 IPv4，保证兼容性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 支持哪些类型的分流规则？</h5></div>
+    <div class="panel-body">
+        Sing-box 支持域名、IP、端口、协议类型、用户标签等多种分流规则。结合策略组，可实现精细化流量管理，满足视频加速、广告屏蔽和游戏优化等多样化需求。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>PassWall2 的节点测速结果如何影响分流？</h5></div>
@@ -274,24 +275,24 @@ v2ray具有极强的性能表现，支持高效的数据加密和流量优化，
         PassWall2 会根据节点延迟和成功率自动调整策略组选择最优节点。测速结果直接影响程序选择出口，从而提高连接速度和稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>为什么某些网站在通过代理后登录会频繁要求二次验证？</h5></div>
+    <div class="panel-body">
+        代理会改变访问 IP 与地理位置，目标站点可能检测到异常登录并触发验证码或二次验证。建议对常用账户使用白名单 IP 或在代理配置中对特定站点设置直连来避免频繁验证。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan-Go 的多路复用（mux）如何开启？</h5></div>
     <div class="panel-body">
         Trojan-Go 在配置文件中通过启用 mux 参数即可实现多路复用。此功能允许多个连接共享同一隧道，减少握手延迟并提升整体传输效率，尤其在移动网络中表现出色。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow 是否支持 IPv6 流量代理？</h5></div>
+    <div class="panel-heading"><h5>QuantumultX 如何通过策略组优化多应用分流？</h5></div>
     <div class="panel-body">
-        Mellow 支持 IPv6，只需在配置文件中启用 IPv6 DNS 解析并确认操作系统开启 IPv6 路由功能。部分节点若不支持 IPv6，则相关请求会自动回退到 IPv4，保证兼容性。<hr />    </div>
+        QuantumultX 可以根据应用类型、端口和协议设置策略组，自动选择最优节点处理不同流量。这样可保证网页浏览、视频播放和游戏访问顺畅，提高整体网络效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>如何为 Vmess 节点生成安全的 UUID？</h5></div>
     <div class="panel-body">
-        UUID 应使用标准的 128 位格式，可使用系统命令如 `uuidgen` 或在线 UUID 生成器生成随机、唯一的 ID；不要使用默认或弱随机值，定期更换以降低被滥用或泄露的风险。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>为什么某些网站在通过代理后登录会频繁要求二次验证？</h5></div>
-    <div class="panel-body">
-        代理会改变访问 IP 与地理位置，目标站点可能检测到异常登录并触发验证码或二次验证。建议对常用账户使用白名单 IP 或在代理配置中对特定站点设置直连来避免频繁验证。    </div>
+        UUID 应使用标准的 128 位格式，可使用系统命令如 `uuidgen` 或在线 UUID 生成器生成随机、唯一的 ID；不要使用默认或弱随机值，定期更换以降低被滥用或泄露的风险。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -320,16 +321,16 @@ v2ray具有极强的性能表现，支持高效的数据加密和流量优化，
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-10-18-free-node-subscribe.htm" title="10月18日→22.9M/S|2025年最新免费节点Sockscap64订阅链接地址">10月18日→22.9M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-3-free-subscribe-node.htm" title="11月3日→19.7M/S|2025年最新免费节点Sockscap64订阅链接地址">11月3日→19.7M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-4-free-node-subscribe-links.htm" title="11月4日→19M/S|2025年最新免费节点Sockscap64订阅链接地址">11月4日→19M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-19-node-share-links.htm" title="10月19日→22.6M/S|2025年最新免费节点Sockscap64订阅链接地址">10月19日→22.6M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-27-free-node-subscribe-links.htm" title="10月27日→20.1M/S|2025年最新免费节点Sockscap64订阅链接地址">10月27日→20.1M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-22-node-share-links.htm" title="11月22日→18M/S|2025年最新免费节点Sockscap64订阅链接地址">11月22日→18M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-9-free-subscribe-node.htm" title="11月9日→18.5M/S|2025年最新免费节点Sockscap64订阅链接地址">11月9日→18.5M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-8-free-high-speed-nodes.htm" title="11月8日→21.1M/S|2025年最新免费节点Sockscap64订阅链接地址">11月8日→21.1M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-1-free-node-subscribe.htm" title="11月1日→18.4M/S|2025年最新免费节点Sockscap64订阅链接地址">11月1日→18.4M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-7-free-subscribe-node.htm" title="11月7日→22.2M/S|2025年最新免费节点Sockscap64订阅链接地址">11月7日→22.2M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-23-node-share-links.htm" title="11月23日→20M/S|2025年最新免费节点Sockscap64订阅链接地址">11月23日→20M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-6-free-node-subscribe-links.htm" title="11月6日→19.7M/S|2025年最新免费节点Sockscap64订阅链接地址">11月6日→19.7M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-10-free-high-speed-nodes.htm" title="12月10日→18.6M/S|2025年最新免费节点Sockscap64订阅链接地址">12月10日→18.6M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-1-node-share.htm" title="12月1日→22.4M/S|2025年最新免费节点Sockscap64订阅链接地址">12月1日→22.4M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-17-free-node-subscribe.htm" title="11月17日→22.5M/S|2025年最新免费节点Sockscap64订阅链接地址">11月17日→22.5M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-19-node-share-links.htm" title="11月19日→19.1M/S|2025年最新免费节点Sockscap64订阅链接地址">11月19日→19.1M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-3-free-node-subscribe-links.htm" title="12月3日→18.2M/S|2025年最新免费节点Sockscap64订阅链接地址">12月3日→18.2M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-5-free-node-subscribe-links.htm" title="11月5日→22.9M/S|2025年最新免费节点Sockscap64订阅链接地址">11月5日→22.9M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-27-free-node-subscribe-links.htm" title="11月27日→19.1M/S|2025年最新免费节点Sockscap64订阅链接地址">11月27日→19.1M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-2-free-high-speed-nodes.htm" title="12月2日→21.1M/S|2025年最新免费节点Sockscap64订阅链接地址">12月2日→21.1M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -341,13 +342,10 @@ v2ray具有极强的性能表现，支持高效的数据加密和流量优化，
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                     </ul>
     </div>
