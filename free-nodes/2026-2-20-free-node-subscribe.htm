@@ -333,9 +333,9 @@ opkg install curl wget coreutils
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 的节点分组管理有哪些优势？</h5></div>
+    <div class="panel-heading"><h5>VLESS + XTLS 的传输效率比 Trojan 高吗？</h5></div>
     <div class="panel-body">
-        节点分组可按用途、地区或延迟分类，结合策略组实现自动分流。方便用户管理大量节点，快速选择最佳节点，提高访问速度和连接稳定性，同时优化维护效率。<hr />    </div>
+        在高延迟环境下，VLESS + XTLS 的性能通常比 Trojan 高。XTLS 去掉了冗余加密开销，降低 CPU 占用，提高多连接场景下的吞吐率，尤其在服务器高负载情况下表现更佳。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>QuantumultX 与 Shadowrocket 相比的最大区别是什么？</h5></div>
@@ -343,29 +343,9 @@ opkg install curl wget coreutils
         QuantumultX 在规则系统和自动化脚本上更灵活，支持丰富的 rewrite 与 filter 功能，而 Shadowrocket 则更轻便易用，适合普通用户快速切换节点。二者可根据使用习惯与功能需求选择。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray PAC 模式如何提高访问速度和便利性？</h5></div>
-    <div class="panel-body">
-        PAC 模式根据规则动态判断流量是否走代理，无需手动切换节点。适合国内外混合访问场景，提高网页和视频访问速度与稳定性，减少操作错误导致的访问失败。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 与 Clash 有什么区别？</h5></div>
     <div class="panel-body">
         V2Ray 是一款代理核心工具，提供底层网络传输和加密支持；而 Clash 是一个多协议客户端，可以整合 V2Ray、Trojan、Shadowsocks 等多种协议。简而言之，V2Ray 负责“传输”，Clash 负责“管理与分流”。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + XTLS 的传输效率比 Trojan 高吗？</h5></div>
-    <div class="panel-body">
-        在高延迟环境下，VLESS + XTLS 的性能通常比 Trojan 高。XTLS 去掉了冗余加密开销，降低 CPU 占用，提高多连接场景下的吞吐率，尤其在服务器高负载情况下表现更佳。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 如何结合节点测速优化策略组？</h5></div>
-    <div class="panel-body">
-        PassWall2 会定期测速节点延迟和丢包率，并根据策略组自动选择最优节点。通过测速和自动切换，可保证网页、视频和游戏流量走低延迟节点，提升整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 的“节点切换策略”如何配置？</h5></div>
-    <div class="panel-body">
-        在 PassWall2 中可设置多节点策略，如“按延迟排序”、“自动选择最快节点”等。程序会定期测速，根据实时数据自动切换线路，保证连接的稳定性和速度。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>如何用 systemd 管理 V2Ray/ Sing-box 服务？</h5></div>
@@ -373,14 +353,34 @@ opkg install curl wget coreutils
         创建 systemd 单元文件，指定 ExecStart 指令并设置 Restart=on-failure 与合适的 User/Group。启用服务并使用 `systemctl enable` 与 `systemctl start` 管理，便于开机自启与日志集中收集。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 如何结合节点测速优化策略组？</h5></div>
+    <div class="panel-body">
+        PassWall2 会定期测速节点延迟和丢包率，并根据策略组自动选择最优节点。通过测速和自动切换，可保证网页、视频和游戏流量走低延迟节点，提升整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mihomo 的节点分组管理有哪些优势？</h5></div>
+    <div class="panel-body">
+        节点分组可按用途、地区或延迟分类，结合策略组实现自动分流。方便用户管理大量节点，快速选择最佳节点，提高访问速度和连接稳定性，同时优化维护效率。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 支持按 IP 段分流吗？</h5></div>
+    <div class="panel-body">
+        支持。Sing-box 可根据 IP 段将国内流量直连，国外流量走代理，结合策略组实现智能分流。这样可保证访问速度和稳定性，同时优化节点使用效率，提高网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray PAC 模式如何提高访问速度和便利性？</h5></div>
+    <div class="panel-body">
+        PAC 模式根据规则动态判断流量是否走代理，无需手动切换节点。适合国内外混合访问场景，提高网页和视频访问速度与稳定性，减少操作错误导致的访问失败。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS Reality 模式与 XTLS 模式有何不同？</h5></div>
     <div class="panel-body">
         VLESS Reality 通过伪造握手和真实网站的 TLS 指纹实现高仿真加密，而 XTLS 强调高性能传输。Reality 更注重隐蔽性，适合高安全需求环境；XTLS 则偏重传输效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 支持按 IP 段分流吗？</h5></div>
+    <div class="panel-heading"><h5>PassWall2 的“节点切换策略”如何配置？</h5></div>
     <div class="panel-body">
-        支持。Sing-box 可根据 IP 段将国内流量直连，国外流量走代理，结合策略组实现智能分流。这样可保证访问速度和稳定性，同时优化节点使用效率，提高网络体验。    </div>
+        在 PassWall2 中可设置多节点策略，如“按延迟排序”、“自动选择最快节点”等。程序会定期测速，根据实时数据自动切换线路，保证连接的稳定性和速度。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -409,16 +409,16 @@ opkg install curl wget coreutils
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-2-16-free-node-subscribe.htm" title="2月16日→18M/S|2025年最新免费节点Sockscap64订阅链接地址">2月16日→18M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-12-node-share-links.htm" title="2月12日→18.6M/S|2025年最新免费节点Sockscap64订阅链接地址">2月12日→18.6M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-8-free-node-subscribe.htm" title="2月8日→22.8M/S|2025年最新免费节点Sockscap64订阅链接地址">2月8日→22.8M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-1-free-node-subscribe-links.htm" title="2月1日→20.8M/S|2025年最新免费节点Sockscap64订阅链接地址">2月1日→20.8M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-2-14-node-share-links.htm" title="2月14日→22.8M/S|2025年最新免费节点Sockscap64订阅链接地址">2月14日→22.8M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-23-free-node-subscribe.htm" title="1月23日→19.9M/S|2025年最新免费节点Sockscap64订阅链接地址">1月23日→19.9M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-22-free-high-speed-nodes.htm" title="1月22日→21.4M/S|2025年最新免费节点Sockscap64订阅链接地址">1月22日→21.4M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-10-node-share-links.htm" title="2月10日→18.9M/S|2025年最新免费节点Sockscap64订阅链接地址">2月10日→18.9M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-2-11-free-node-subscribe-links.htm" title="2月11日→21.1M/S|2025年最新免费节点Sockscap64订阅链接地址">2月11日→21.1M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-1-25-free-high-speed-nodes.htm" title="1月25日→21.9M/S|2025年最新免费节点Sockscap64订阅链接地址">1月25日→21.9M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-17-node-share.htm" title="1月17日→22.3M/S|2025年最新免费节点Sockscap64订阅链接地址">1月17日→22.3M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-21-free-high-speed-nodes.htm" title="2月21日→22.2M/S|2025年最新免费节点Sockscap64订阅链接地址">2月21日→22.2M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-19-node-share.htm" title="1月19日→20.4M/S|2025年最新免费节点Sockscap64订阅链接地址">1月19日→20.4M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-30-free-node-subscribe.htm" title="1月30日→19.4M/S|2025年最新免费节点Sockscap64订阅链接地址">1月30日→19.4M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-18-free-node-subscribe-links.htm" title="2月18日→18.8M/S|2025年最新免费节点Sockscap64订阅链接地址">2月18日→18.8M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-17-free-node-subscribe.htm" title="2月17日→21.1M/S|2025年最新免费节点Sockscap64订阅链接地址">2月17日→21.1M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-20-free-node-subscribe.htm" title="2月20日→18.5M/S|2025年最新免费节点Sockscap64订阅链接地址">2月20日→18.5M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -430,7 +430,7 @@ opkg install curl wget coreutils
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">20</span> <a href="/date/2026-02/" title="2026-02 归档">2026-02</a></h4>
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2026-02/" title="2026-02 归档">2026-02</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">17</span> <a href="/date/2026-01/" title="2026-01 归档">2026-01</a></h4>
