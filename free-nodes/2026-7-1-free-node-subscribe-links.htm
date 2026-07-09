@@ -238,9 +238,9 @@ A4：目前多为订阅制，需按年续费，保障软件和服务的持续更
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 中的 alterId 是什么，现在还有必要配置吗？</h5></div>
+    <div class="panel-heading"><h5>V2Ray 的 WebSocket 传输与 TCP 有何区别？</h5></div>
     <div class="panel-body">
-        alterId 曾用于 VMess 的用户混淆机制以防止重放攻击，但在 V2Ray 新版本与 VLess 出现后，alterId 已不再推荐使用。现代配置多使用 UUID 或直接迁移至 VLess/XTLS 以获得更好性能与安全性。<hr />    </div>
+        WebSocket 通过 HTTP 封装 TCP 流量，适合伪装成正常网页请求，增加隐蔽性。相比原生 TCP，可更好地绕过封锁和 DPI 检测，但略增加协议开销。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>使用 Reality 协议后，客户端与服务端的密钥如何管理？</h5></div>
@@ -253,9 +253,9 @@ A4：目前多为订阅制，需按年续费，保障软件和服务的持续更
         VLESS 是 VMess 的轻量化替代协议，移除了内置加密逻辑，更依赖 TLS 层进行安全保护。这种设计降低了服务器压力，提升了传输效率，并增强了可扩展性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash.Meta 与原版 Clash 有何不同？</h5></div>
+    <div class="panel-heading"><h5>V2Ray 中的 alterId 是什么，现在还有必要配置吗？</h5></div>
     <div class="panel-body">
-        Clash.Meta 是社区优化版本，支持更多传输协议，如 Hysteria、TUIC、Reality 等。它还增强了 DNS 处理逻辑和脚本分流能力，适合追求极致速度和灵活规则配置的高级用户。<hr />    </div>
+        alterId 曾用于 VMess 的用户混淆机制以防止重放攻击，但在 V2Ray 新版本与 VLess 出现后，alterId 已不再推荐使用。现代配置多使用 UUID 或直接迁移至 VLess/XTLS 以获得更好性能与安全性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray 的日志记录如何帮助排错？</h5></div>
@@ -263,9 +263,9 @@ A4：目前多为订阅制，需按年续费，保障软件和服务的持续更
         WinXray 提供详细的连接日志，包括入站、出站流量信息及错误提示。通过查看日志，用户可以快速定位连接失败、节点不可达或配置错误的原因，提高问题解决效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 的 WebSocket 传输与 TCP 有何区别？</h5></div>
+    <div class="panel-heading"><h5>PassWall2 自动切换节点机制如何工作？</h5></div>
     <div class="panel-body">
-        WebSocket 通过 HTTP 封装 TCP 流量，适合伪装成正常网页请求，增加隐蔽性。相比原生 TCP，可更好地绕过封锁和 DPI 检测，但略增加协议开销。<hr />    </div>
+        PassWall2 会根据节点延迟和丢包率测试结果，结合策略组自动选择最优节点处理流量。无需用户手动切换，保证网页、视频和游戏流量的速度和稳定性，优化网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Potatso Lite 手动节点选择有什么好处？</h5></div>
@@ -273,14 +273,14 @@ A4：目前多为订阅制，需按年续费，保障软件和服务的持续更
         手动选择节点可以让用户根据网络延迟和需求选择最优节点。适合节点不稳定或特定访问需求，灵活调整流量走向，提高访问速度和网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash.Meta 与原版 Clash 有何不同？</h5></div>
+    <div class="panel-body">
+        Clash.Meta 是社区优化版本，支持更多传输协议，如 Hysteria、TUIC、Reality 等。它还增强了 DNS 处理逻辑和脚本分流能力，适合追求极致速度和灵活规则配置的高级用户。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Shadowrocket 的节点延迟测量如何帮助选择节点？</h5></div>
     <div class="panel-body">
         Shadowrocket 会测试节点延迟和丢包率，并根据结果排序。用户可快速选择延迟最低的节点访问网站或视频，提高连接速度和稳定性，优化整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 自动切换节点机制如何工作？</h5></div>
-    <div class="panel-body">
-        PassWall2 会根据节点延迟和丢包率测试结果，结合策略组自动选择最优节点处理流量。无需用户手动切换，保证网页、视频和游戏流量的速度和稳定性，优化网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Hiddify Next 的主要用途是什么？</h5></div>
@@ -315,11 +315,11 @@ A4：目前多为订阅制，需按年续费，保障软件和服务的持续更
     <div class="panel-body">
         <div class="row">
             <div class="text-center">
-                <a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=" data-type="Xingchen" data-code="register&code" target="_blank">
+                <a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">
                     <img src="/assets/website/img/G/xingchen.webp" class="avatar" alt="星辰机场">
                 </a>
                 <dl>
-                    <dt><a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=" data-type="Xingchen" data-code="register&code" target="_blank">星辰机场</a></dt>
+                    <dt><a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">星辰机场</a></dt>
                     <dd>
                         <p>【包年送2个月】</p><p>1、购买入门版年付套餐额外送2个月，共14个月，只要99元！！！</p><p>2、购买“至尊天皇”年付套餐，额外送2个月，只要299元！！！</p><p>3、购买其他包月类套餐中的年付，同样送2个月！！！</p><p>错过要再等一年！！</p>                    </dd>
                 </dl>
@@ -333,15 +333,15 @@ A4：目前多为订阅制，需按年续费，保障软件和服务的持续更
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-5-29-node-share.htm" title="5月29日→21.4M/S|2025年最新免费节点Sockscap64订阅链接地址">5月29日→21.4M/S|2025年最新免费节点Sockscap64订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-6-free-node-subscribe-links.htm" title="5月6日→19.8M/S|2025年最新免费节点Sockscap64订阅链接地址">5月6日→19.8M/S|2025年最新免费节点Sockscap64订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-14-node-share.htm" title="6月14日→22.2M/S|2025年最新免费节点Sockscap64订阅链接地址">6月14日→22.2M/S|2025年最新免费节点Sockscap64订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-26-free-node-subscribe.htm" title="6月26日→18.7M/S|2025年最新免费节点Sockscap64订阅链接地址">6月26日→18.7M/S|2025年最新免费节点Sockscap64订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-25-free-node-subscribe-links.htm" title="6月25日→22M/S|2025年最新免费节点Sockscap64订阅链接地址">6月25日→22M/S|2025年最新免费节点Sockscap64订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-18-free-node-subscribe.htm" title="5月18日→22.7M/S|2025年最新免费节点Sockscap64订阅链接地址">5月18日→22.7M/S|2025年最新免费节点Sockscap64订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-21-free-node-subscribe-links.htm" title="5月21日→20.2M/S|2025年最新免费节点Sockscap64订阅链接地址">5月21日→20.2M/S|2025年最新免费节点Sockscap64订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-28-free-subscribe-node.htm" title="5月28日→19M/S|2025年最新免费节点Sockscap64订阅链接地址">5月28日→19M/S|2025年最新免费节点Sockscap64订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-7-free-high-speed-nodes.htm" title="5月7日→22.1M/S|2025年最新免费节点Sockscap64订阅链接地址">5月7日→22.1M/S|2025年最新免费节点Sockscap64订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-6-free-subscribe-node.htm" title="7月6日→21.3M/S|2025年最新免费节点Sockscap64订阅链接地址">7月6日→21.3M/S|2025年最新免费节点Sockscap64订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-9-free-high-speed-nodes.htm" title="6月9日→22.7M/S|2025年最新免费节点Sockscap64订阅链接地址">6月9日→22.7M/S|2025年最新免费节点Sockscap64订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-8-node-share.htm" title="6月8日→21.9M/S|2025年最新免费节点Sockscap64订阅链接地址">6月8日→21.9M/S|2025年最新免费节点Sockscap64订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-20-free-node-subscribe.htm" title="6月20日→20.9M/S|2025年最新免费节点Sockscap64订阅链接地址">6月20日→20.9M/S|2025年最新免费节点Sockscap64订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-30-free-subscribe-node.htm" title="6月30日→19.6M/S|2025年最新免费节点Sockscap64订阅链接地址">6月30日→19.6M/S|2025年最新免费节点Sockscap64订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-21-node-share-links.htm" title="6月21日→18.4M/S|2025年最新免费节点Sockscap64订阅链接地址">6月21日→18.4M/S|2025年最新免费节点Sockscap64订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-3-node-share-links.htm" title="7月3日→22.1M/S|2025年最新免费节点Sockscap64订阅链接地址">7月3日→22.1M/S|2025年最新免费节点Sockscap64订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-1-free-node-subscribe-links.htm" title="7月1日→19.7M/S|2025年最新免费节点Sockscap64订阅链接地址">7月1日→19.7M/S|2025年最新免费节点Sockscap64订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-28-node-share.htm" title="6月28日→20.4M/S|2025年最新免费节点Sockscap64订阅链接地址">6月28日→20.4M/S|2025年最新免费节点Sockscap64订阅链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-6-22-free-node-subscribe.htm" title="6月22日→21.5M/S|2025年最新免费节点Sockscap64订阅链接地址">6月22日→21.5M/S|2025年最新免费节点Sockscap64订阅链接地址</a><hr /></li>
                     </ul>
     </div>
@@ -354,13 +354,10 @@ A4：目前多为订阅制，需按年续费，保障软件和服务的持续更
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">2</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2026-06/" title="2026-06 归档">2026-06</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2026-06/" title="2026-06 归档">2026-06</a></h4>
             </li>
                     </ul>
     </div>
@@ -386,7 +383,7 @@ A4：目前多为订阅制，需按年续费，保障软件和服务的持续更
                         <a href="/privacy.htm">隐私申明</a> |
                         <a href="/sitemap.xml">网站地图</a>
                     </p>
-                                        <div>特别推荐：<b><a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=" data-type="Xingchen" data-code="register&code" target="_blank">星辰机场</a></b> <p>【包年送2个月】</p><p>1、购买入门版年付套餐额外送2个月，共14个月，只要99元！！！</p><p>2、购买“至尊天皇”年付套餐，额外送2个月，只要299元！！！</p><p>3、购买其他包月类套餐中的年付，同样送2个月！！！</p><p>错过要再等一年！！</p></div>
+                                        <div>特别推荐：<b><a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">星辰机场</a></b> <p>【包年送2个月】</p><p>1、购买入门版年付套餐额外送2个月，共14个月，只要99元！！！</p><p>2、购买“至尊天皇”年付套餐，额外送2个月，只要299元！！！</p><p>3、购买其他包月类套餐中的年付，同样送2个月！！！</p><p>错过要再等一年！！</p></div>
                                         <p>Sockscap64免费机场节点分享官网 版权所有 Powered by WordPress</p>
                 </div> <!-- /.col-md-6 -->
                 <div class="col-md-4 col-sm-4 col-xs-12">
